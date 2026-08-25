@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Auto-generated slide build output
+slides/assembly.out/
+slides/assembly.out.*/
+slides/1.md

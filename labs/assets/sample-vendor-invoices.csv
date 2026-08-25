@@ -1,0 +1,21 @@
+invoice_id,vendor,category,amount,invoice_date,status
+INV-1001,Acme Corp,Office Supplies,"$1,200.00",2026-07-03,paid
+INV-1002,ACME Corp.,office supplies,1200,07/03/2026,paid
+INV-1003,Northwind Software,IT,"$4,500",2026-07-05,paid
+INV-1004,Northwind Software,I.T.,4500,,paid
+INV-1005,BlueSky Travel,Travel,"980.5",July 8 2026,pending
+INV-1006,BlueSky Travel,travel,,2026-07-08,pending
+INV-1007,Metro Facilities,Facilities,"$2,050.00",7-9-26,paid
+INV-1008,Metro Facilities,facilties,2050,2026/07/09,paid
+INV-1009,Green Leaf Catering,Catering,"$   640.00 ",2026-07-10,paid
+INV-1010,Green Leaf Catering,Food & Catering,640,,
+INV-1011,Acme,Supplies,"1,050",2026-07-11,overdue
+INV-1012,Northwind Software,Information Technology,"$4,500",2026-07-05,paid
+INV-1013,City Power & Light,Utilities,"$3,120.75",,paid
+INV-1014,City Power and Light,utilities,3120.75,07/12/2026,paid
+INV-1015,BlueSky Travel,Travel,"$2,300",2026-07-15,pending
+INV-1016,Green Leaf Catering,catering,"$-120.00",2026-07-16,credit
+INV-1017,Metro Facilities,Facilities,,2026-07-18,paid
+INV-1018,Northwind Software,IT,"$1,999.99",July 19, 2026,paid
+INV-1019,Acme Corp,Office Supplies,"$1,200.00",2026-07-03,paid
+INV-1020,Paperclip Depot,,"$310",,pending

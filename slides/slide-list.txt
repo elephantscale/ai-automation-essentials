@@ -1,0 +1,8 @@
+00-about.md
+01-foundations.md
+02-prompt-engineering.md
+03-evaluating-troubleshooting.md
+04-automation-agents.md
+05-decisions-insights.md
+06-responsible-ai-governance.md
+07-roi-adoption-capstone.md

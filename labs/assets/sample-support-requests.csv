@@ -1,0 +1,6 @@
+id,customer,request,channel,submitted_at
+1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
+2,Northstar Health,"Can someone explain whether our team can upload patient records into a public AI tool?",email,2026-07-16
+3,River City Events,"Please draft a sponsor follow-up email and create a simple event announcement image.",web,2026-07-17
+4,Metro Finance,"Our spreadsheet has missing dates and duplicate vendor categories. We need a clean summary.",email,2026-07-18
+5,Summit Retail,"Build a workflow that classifies incoming store issues and routes urgent items for approval.",web,2026-07-19
