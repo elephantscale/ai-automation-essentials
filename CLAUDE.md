@@ -47,10 +47,15 @@ This course was adapted from **No-Code AI Solutions** at
 ## Build & workflow
 
 - Slides build to PPTX with `slides/gen.sh` (needs `ES_HOME` set; output goes to
-  `slides/assembly.out/`, which is git-ignored). Mark keeps the curated built decks in
-  `slides/release/` and regenerates them himself — **don't overwrite `release/`.**
+  `slides/assembly.out/`, which is git-ignored). Without `ES_HOME`, `gen.sh` still
+  regenerates `slides/slide-list.txt` (the ordered deck manifest that `validate-course.sh`
+  checks) — that file is generated, so don't hand-edit it; add/rename a deck, then rerun
+  `gen.sh`. Mark keeps the curated built decks in `slides/release/` and regenerates them
+  himself — **don't overwrite `release/`.**
 - Add a slide image: put the file in `images/`, reference from a slide as
   `![](../images/foo.png)` or `<img src="../images/foo.png" style="width:60%;"/>`.
-- Run `./scripts/validate-course.sh` after structural changes.
+- After structural changes, run all three checks (each exits non-zero on failure):
+  `./scripts/validate-course.sh` (required files + deck manifest + labs), `./labs/test-all-labs.sh`
+  (every lab README present and non-trivial), `./labs/verify-setup.sh` (lab setup docs). Keep them green.
 - Committing to this repo is approved; end commit messages with a
   `Claude-Session: <url>` trailer. Don't commit or push without Mark's OK on anything new.
