@@ -1,6 +1,6 @@
 # AI Automation Essentials for Business Professionals
 
-© Elephant Scale --- August 25, 2026
+© Elephant Scale - August 25, 2026
 
 **Duration:** 2 Days (16 hours) **Level:** Introductory to Intermediate.
 Hands-on, exercise-driven. No coding required. **Currency:** Built on
