@@ -46,12 +46,14 @@ This course was adapted from **No-Code AI Solutions** at
 
 ## Build & workflow
 
-- Slides build to PPTX with `slides/gen.sh` (needs `ES_HOME` set; output goes to
-  `slides/assembly.out/`, which is git-ignored). Without `ES_HOME`, `gen.sh` still
-  regenerates `slides/slide-list.txt` (the ordered deck manifest that `validate-course.sh`
-  checks) — that file is generated, so don't hand-edit it; add/rename a deck, then rerun
-  `gen.sh`. Mark keeps the curated built decks in `slides/release/` and regenerates them
-  himself — **don't overwrite `release/`.**
+- **Never regenerate the PPTX decks — Mark builds them himself, every time.** When `ES_HOME`
+  is set, `slides/gen.sh` assembles PPTX into `slides/assembly.out/` as a side effect, so
+  **don't run `gen.sh`.** Mark also keeps the curated built decks in `slides/release/` —
+  **don't overwrite `release/`.**
+- To refresh `slides/slide-list.txt` (the ordered deck manifest that `validate-course.sh`
+  checks), regenerate it directly without triggering assembly:
+  `ls slides/[0-9][0-9]-*.md | sed 's#slides/##' | sort > slides/slide-list.txt`. That file is
+  generated, so don't hand-edit it; add/rename a deck, then rerun that one line.
 - Add a slide image: put the file in `images/`, reference from a slide as
   `![](../images/foo.png)` or `<img src="../images/foo.png" style="width:60%;"/>`.
 - After structural changes, run all three checks (each exits non-zero on failure):
