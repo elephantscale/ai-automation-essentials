@@ -8,9 +8,14 @@ development tools.
 - Modern browser: Chrome, Edge, Firefox, or Safari
 - Internet access
 - Access to a current **AI assistant** (Claude, ChatGPT, or Gemini)
-- Access to a **no-code automation platform** for Module 4 and the capstone (Zapier, Make,
-  or Power Automate — a free tier is enough)
 - The sample files in `labs/assets/` and the templates in `course-materials/`
+
+## Optional
+
+- A **no-code automation platform** (Zapier, Make, Power Automate, Copilot Studio, or n8n —
+  a free tier is enough) for Module 4 and the capstone. **Not required:** the instructor
+  demos a live platform build, and students run the same logic by hand in their AI assistant
+  (Module 4 Part 3b; capstone by-hand simulation). The design is what's graded, not the wiring.
 
 ## Tool Choices
 
