@@ -56,6 +56,13 @@ This course was adapted from **No-Code AI Solutions** at
   generated, so don't hand-edit it; add/rename a deck, then rerun that one line.
 - Add a slide image: put the file in `images/`, reference from a slide as
   `![](../images/foo.png)` or `<img src="../images/foo.png" style="width:60%;"/>`.
+- **Image layout lives in the PPTX, not the Markdown.** Do NOT add coordinate comments
+  (`<!-- {"left":…,"top":…,"height":…,"width":…} -->`) to slides — they were removed for being
+  cumbersome to hand-author. `md2pptx` auto-lays-out each image (single-image slides come out
+  fine); Mark positions any multi-image slides visually in PowerPoint and promotes the deck to
+  `slides/release/`. Keep md image tags to just `src` + a `width` — the release deck owns final
+  layout. (`pptx2md.py` does not round-trip position, so hand-written coordinates would be lost
+  on the next reverse-convert anyway.)
 - After structural changes, run all three checks (each exits non-zero on failure):
   `./scripts/validate-course.sh` (required files + deck manifest + labs), `./labs/test-all-labs.sh`
   (every lab README present and non-trivial), `./labs/verify-setup.sh` (lab setup docs). Keep them green.

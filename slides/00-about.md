@@ -49,7 +49,7 @@ Notes:
 
 * Where is the ANY key?
 
-<img src="../images/any-key.png" style="width:50%;"/> <!-- {"left" : 1.37, "top" : 2.26, "height" : 5.65, "width" : 7.51} -->
+<img src="../images/any-key.png" style="width:50%;"/>
 
 
 Notes:
@@ -59,7 +59,7 @@ Notes:
 
 ## Analogy: Learning To Fly...
 
-<img src="../images/learn-to-fly.png" style="width:80%;"/> <!-- {"left" : 0.66, "top" : 2.06, "height" : 4.89, "width" : 8.93} -->
+<img src="../images/learn-to-fly.png" style="width:80%;"/>
 
 
 
@@ -67,7 +67,7 @@ Notes:
 
 ## Introductions
 
-<img src="../images/classroom-instruction.png" style="width:70%;"/> <!-- {"left" : 0.6, "top" : 2.06, "height" : 4.96, "width" : 9.04} -->
+<img src="../images/classroom-instruction.png" style="width:70%;"/>
 
 
 Notes:
@@ -78,7 +78,7 @@ Notes:
 
 ## + Flight Time
 
-<img src="../images/cockpit.png" style="width:70%;"/> <!-- {"left" : 0.61, "top" : 2.06, "height" : 4.95, "width" : 9.04} -->
+<img src="../images/cockpit.png" style="width:70%;"/>
 
 
 ---
@@ -87,7 +87,7 @@ Notes:
 
 
 
-<img src="../images/practice.png" style="width:70%;"/> <!-- {"left" : 0.69, "top" : 2.06, "height" : 5.63, "width" : 8.87} -->
+<img src="../images/practice.png" style="width:70%;"/>
 
 
 
@@ -103,7 +103,7 @@ Notes:
   - Familiarity with AI so far (scale of 1 - 4 ;  1 - new,   4 - I use it daily)
   - Something non-technical about you! (favorite ice cream flavor / hobby...)
 
-<img src="../images/hiking-3.jpg" style="width:18%;"/> &nbsp; <!-- {"left" : 1.08, "top" : 6.08, "height" : 1.99, "width" : 2.25} --><img src="../images/ice-cream-3.png" style="width:25%;"/> &nbsp; <!-- {"left" : 3.36, "top" : 6.1, "height" : 1.92, "width" : 3.54} --><img src="../images/biking-1.jpg" style="width:18%;"/> &nbsp; <!-- {"left" : 6.92, "top" : 6.08, "height" : 1.99, "width" : 2.25} -->
+<img src="../images/hiking-3.jpg" style="width:18%;"/> &nbsp;<img src="../images/ice-cream-3.png" style="width:25%;"/> &nbsp;<img src="../images/biking-1.jpg" style="width:18%;"/> &nbsp;
 
 
 ---
