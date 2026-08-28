@@ -60,4 +60,21 @@ This course was adapted from **No-Code AI Solutions** at
   `./scripts/validate-course.sh` (required files + deck manifest + labs), `./labs/test-all-labs.sh`
   (every lab README present and non-trivial), `./labs/verify-setup.sh` (lab setup docs). Keep them green.
 - Committing to this repo is approved; end commit messages with a
-  `Claude-Session: <url>` trailer. Don't commit or push without Mark's OK on anything new.
+  `Claude-Session: <url>` trailer. Only commit changes Mark asked for or approved — but once
+  something is committed, **always `git push`** (Mark is the sole maintainer, so there's no
+  one to clobber).
+
+## Working across machines (Mac + Ubuntu)
+
+Mark works this repo on two machines: this Ubuntu box (`/media/mark/data1/ES/ai-automation-essentials`)
+and a Mac clone where he actively edits the **slide decks**. Only `origin/main` is shared —
+Claude Code auto-memory does NOT travel between machines, so the durable rules live here in
+`CLAUDE.md` and the operational state lives in `OPERATIONS.md`.
+
+- **`git pull` before starting work** and after Mark says he pushed from the other machine —
+  both sides commit straight to `main`, so pull first to avoid divergence.
+- **Slides are Mark's lane on the Mac.** Avoid editing `slides/*.md` from the Ubuntu side
+  unless asked, so the two machines don't collide on the same files.
+- **Never build the PPTX decks on either machine** — Mark does that himself (see the build
+  rules above). If `slides/slide-list.txt` needs refreshing, regenerate it directly, don't run
+  `gen.sh`.
