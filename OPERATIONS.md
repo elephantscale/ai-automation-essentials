@@ -1,8 +1,8 @@
 # Project Operations
 
-**Last updated:** 2026-08-25
+**Last updated:** 2026-08-28
 **Owner:** Mark Kerzner
-**Status:** Green
+**Status:** Green — delivery imminent (Sep 1–2, 2026)
 
 ## Purpose and business value
 
@@ -16,8 +16,9 @@ comes from Elephant Scale instructor-led delivery of this course.
 ## Current status
 
 Course is built and pushed (`main`). All seven labs verified against the confirmed delivery
-setup for the upcoming cohort. Materials are tool-flexible; the labs were specifically
-confirmed to run with an assistant-only student path plus instructor demos.
+setup. Materials are tool-flexible; the labs were specifically confirmed to run with an
+assistant-only student path plus instructor demos. **Delivery is Sep 1–2, 2026** — final
+pre-class checks are the only remaining work.
 
 ## Recent accomplishments
 
@@ -48,18 +49,18 @@ confirmed to run with an assistant-only student path plus instructor demos.
 ## Current priorities
 
 1. Confirm **file upload + Advanced Data Analysis** are enabled on the enterprise ChatGPT
-   workspace (required for the student path in Modules 3, 5, and the capstone).
+   workspace (required for the student path in Modules 3, 5, and the capstone) — before Sep 1.
 2. Pre-build the grounded custom assistant and the live platform demo on the Mac before class.
-3. Lock the client name and delivery dates into this record.
 
 ## Customers and revenue connections
 
-- **Client:** Unknown / Needs CEO input — cohort of 15 on their own enterprise ChatGPT.
+- **Client:** on file (naming not required in this record) — cohort of 15 on their own
+  enterprise ChatGPT.
 - **Revenue:** Elephant Scale training engagement; amount Unknown / Needs CEO input.
 
 ## Upcoming deadlines
 
-- **Delivery date(s):** Unknown / Needs CEO input.
+- **Delivery: September 1–2, 2026** (2 days). Final pre-class checks due before Sep 1.
 
 ## Important TODOs
 
@@ -81,10 +82,10 @@ confirmed to run with an assistant-only student path plus instructor demos.
 
 ## Decisions needed from Mark
 
-- Confirm the **client name** and **delivery dates** so this operational record is complete.
+- None outstanding for this record. (Revenue amount still `Needs CEO input` if it should be tracked here.)
 
 ## Next three highest-value actions
 
-1. Confirm enterprise ChatGPT file-upload / data-analysis is enabled for all 15 seats.
+1. **Before Sep 1:** confirm enterprise ChatGPT file-upload / data-analysis is enabled for all 15 seats.
 2. Pre-build and rehearse the instructor demos (grounded assistant + one live platform trigger).
-3. Record client name and delivery dates here.
+3. If delivered over WebEx, point students to the **CC** button at the start of Day 1.
