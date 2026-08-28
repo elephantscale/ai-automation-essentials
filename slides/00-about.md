@@ -1,6 +1,4 @@
-# AI Automation Essentials
-
-### for Business Professionals
+# AI Automation Essentials for Business Professionals
 
 Elephant Scale
 
@@ -122,7 +120,7 @@ Notes:
 
 ---
 
-# AI Will Not Take My Job
+## AI will NOT take my job
 
 <img src="../images/human-vs-ai.jpeg" style="width:40%;"/>
 
