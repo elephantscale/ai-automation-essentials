@@ -34,8 +34,16 @@ pre-class checks are the only remaining work.
 
 ## Confirmed delivery setup (current cohort)
 
-- **11 students on enterprise ChatGPT**, all with full access. This is their single AI
-  assistant for every hands-on lab.
+- **11 students, each logged into a ChatGPT Business workspace provided by Elephant Scale**
+  ("Elephant Scale · Business"), full-featured (GPTs, Projects, Agents, Plugins, Pro model
+  selector, file upload). This is their single AI assistant for every hands-on lab. Students
+  do **not** use personal or their-own-employer ChatGPT accounts.
+- **Delivered through a browser-based remote lab desktop** (ProTech, `labs.protechtraining.com`)
+  — each student gets a virtual desktop with Firefox pointed at `chatgpt.com`, already signed
+  into the ES Business workspace. No local install; students just need the lab URL and a browser.
+- **The workspace is Elephant-Scale-administered** — so file upload / data-analysis / GPT
+  availability are under ES's own admin control (not a client's IT), and Mark can confirm or
+  enable them directly before class.
 - **Other accounts are instructor-demo only** — Mark demonstrates automation platforms
   (Zapier / Make / Power Automate / Copilot Studio / n8n) and other assistants (Claude /
   Gemini) from his **Mac laptop**. Students do not need platform seats.
@@ -43,19 +51,19 @@ pre-class checks are the only remaining work.
   the by-hand orchestrator (Part 3b); capstone uses the by-hand simulation ("design is
   graded, not the wiring").
 - **Module 6 advantage:** the lab critiques pasting PII into a *personal/free* ChatGPT
-  account; this cohort is on the approved enterprise workspace — i.e., already the
-  recommended fix. Call it out live.
+  account; this cohort is on a managed **Business** workspace governed by an org OpenAI
+  agreement — i.e., already the recommended fix. Call it out live.
 
 ## Current priorities
 
-1. Confirm **file upload + Advanced Data Analysis** are enabled on the enterprise ChatGPT
-   workspace (required for the student path in Modules 3, 5, and the capstone) — before Sep 1.
+1. Before Sep 1, smoke-test the ES Business workspace in the ProTech lab desktop: confirm all
+   11 student logins work and that **file upload + data-analysis** function (Modules 3, 5, capstone).
 2. Pre-build the grounded custom assistant and the live platform demo on the Mac before class.
 
 ## Customers and revenue connections
 
-- **Client:** on file (naming not required in this record) — cohort of 11 on their own
-  enterprise ChatGPT.
+- **Client:** on file (naming not required in this record) — cohort of 11, working in an
+  **Elephant-Scale-provided ChatGPT Business workspace** via the ProTech remote lab.
 - **Revenue:** Elephant Scale training engagement; amount Unknown / Needs CEO input.
 
 ## Upcoming deadlines
@@ -64,21 +72,22 @@ pre-class checks are the only remaining work.
 
 ## Important TODOs
 
-- Verify enterprise ChatGPT admin policy permits file upload and data-analysis mode.
+- Smoke-test the ProTech lab desktop + ES Business workspace: all 11 logins, file upload,
+  data-analysis, GPT/Projects availability.
 - Pre-build and rehearse the instructor demos (grounded assistant + a live platform trigger).
 - If delivered over WebEx, point students to the **CC** button at the start.
 
 ## Blockers and dependencies
 
-- Student hands-on for Modules 3, 5, and the capstone depends on file upload / data-analysis
-  being enabled on the enterprise ChatGPT workspace — outside Mark's control; must confirm
-  with the client's IT/admin.
+- Depends on the **ProTech remote lab** (`labs.protechtraining.com`) being provisioned with 11
+  seats and the **ES Business ChatGPT** logins working. Both are within Elephant Scale's control
+  — confirm provisioning and a working login before Sep 1.
 
 ## Risks
 
-- **If file upload / data analysis is disabled** on the enterprise seats, the student paths
-  for Modules 3, 5, and the capstone degrade — mitigation: fall back to pasted text and
-  instructor-driven analysis. Confirm ahead of time to avoid a live scramble.
+- **Lab/login not ready on Day 1** — if the ProTech desktops or ES Business logins aren't
+  provisioned, hands-on stalls. Mitigation: smoke-test end to end before Sep 1; workspace is
+  ES-administered, so issues can be fixed in-house rather than waiting on a client.
 
 ## Decisions needed from Mark
 
@@ -86,6 +95,6 @@ pre-class checks are the only remaining work.
 
 ## Next three highest-value actions
 
-1. **Before Sep 1:** confirm enterprise ChatGPT file-upload / data-analysis is enabled for all 11 seats.
+1. **Before Sep 1:** smoke-test the ProTech lab + ES Business workspace end to end (11 logins, file upload, data analysis).
 2. Pre-build and rehearse the instructor demos (grounded assistant + one live platform trigger).
 3. If delivered over WebEx, point students to the **CC** button at the start of Day 1.
