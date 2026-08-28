@@ -67,14 +67,19 @@ This course was adapted from **No-Code AI Solutions** at
 ## Working across machines (Mac + Ubuntu)
 
 Mark works this repo on two machines: this Ubuntu box (`/media/mark/data1/ES/ai-automation-essentials`)
-and a Mac clone where he actively edits the **slide decks**. Only `origin/main` is shared —
-Claude Code auto-memory does NOT travel between machines, so the durable rules live here in
-`CLAUDE.md` and the operational state lives in `OPERATIONS.md`.
+and a Mac clone. Only `origin/main` is shared — Claude Code auto-memory does NOT travel
+between machines, so the durable rules live here in `CLAUDE.md` and the operational state
+lives in `OPERATIONS.md`.
 
+**Slide workflow (agreed division of labor):**
+1. Mark edits the slide Markdown (`slides/*.md`) **here on Ubuntu**.
+2. Claude **commits and pushes** those edits (verify the diff is intentional first, then push).
+3. Mark pulls on the **Mac** and **generates the PPTX there himself**.
+
+- Claude **edits slides only when Mark asks** — normally Mark writes the Markdown and Claude
+  just reviews/verifies and pushes.
+- **Never build the PPTX decks on either machine** — that's Mark's step on the Mac (see the
+  build rules above). If `slides/slide-list.txt` needs refreshing, regenerate it directly;
+  don't run `gen.sh`.
 - **`git pull` before starting work** and after Mark says he pushed from the other machine —
   both sides commit straight to `main`, so pull first to avoid divergence.
-- **Slides are Mark's lane on the Mac.** Avoid editing `slides/*.md` from the Ubuntu side
-  unless asked, so the two machines don't collide on the same files.
-- **Never build the PPTX decks on either machine** — Mark does that himself (see the build
-  rules above). If `slides/slide-list.txt` needs refreshing, regenerate it directly, don't run
-  `gen.sh`.
