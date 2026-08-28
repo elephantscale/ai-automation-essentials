@@ -119,6 +119,7 @@ Notes:
 ![](../images/pexels-amina-filkins-5560040.jpg)
 
 ![](../images/pexels-amina-filkins-5560048.jpg)
+
 ---
 
 # AI Will Not Take My Job
@@ -153,5 +154,3 @@ In every module you build a real artifact you can take back to work.
 
 Notes:
 These four habits separate a useful AI habit from an expensive mistake. We make them second nature starting with Lab 01.
-
----
