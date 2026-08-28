@@ -1,0 +1,392 @@
+<title>Cohort Intros</title>
+<style>
+  /* ---- Blueprint identity: cool paper, ink, one confident blue, mono data ---- */
+  :root {
+    --bg:        #eaeef5;
+    --surface:   #ffffff;
+    --surface-2: #f4f6fb;
+    --ink:       #191f2e;
+    --muted:     #5a6478;
+    --line:      #d6dded;
+    --line-2:    #c3cce0;
+    --accent:    #2f5fe6;
+    --accent-ink:#ffffff;
+    --accent-soft:#e6ecff;
+    --good:      #1f8a5b;
+    --radius:    14px;
+    --maxw:      620px;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:        #0d1120;
+      --surface:   #151b2b;
+      --surface-2: #1b2334;
+      --ink:       #e8edf8;
+      --muted:     #9aa5bd;
+      --line:      #29324a;
+      --line-2:    #38445f;
+      --accent:    #5f8bff;
+      --accent-ink:#0b0f1a;
+      --accent-soft:#1c2740;
+      --good:      #43c98a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:        #0d1120;
+    --surface:   #151b2b;
+    --surface-2: #1b2334;
+    --ink:       #e8edf8;
+    --muted:     #9aa5bd;
+    --line:      #29324a;
+    --line-2:    #38445f;
+    --accent:    #5f8bff;
+    --accent-ink:#0b0f1a;
+    --accent-soft:#1c2740;
+    --good:      #43c98a;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(20px, 5vw, 44px) 18px 72px;
+  }
+
+  /* ---- header ---- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(28px, 6vw, 38px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 680;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: 16px;
+    margin: 0 0 28px;
+    max-width: 52ch;
+  }
+
+  /* ---- card / form ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(18px, 4vw, 28px);
+    box-shadow: 0 1px 2px rgba(16,24,48,0.04), 0 12px 30px -18px rgba(16,24,48,0.25);
+  }
+  form { display: flex; flex-direction: column; gap: 26px; }
+  .field { display: flex; flex-direction: column; gap: 9px; }
+  .q {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .q .n {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-weight: 600;
+    flex: none;
+  }
+  .q .opt { font-weight: 400; color: var(--muted); font-size: 13px; }
+  .hint { color: var(--muted); font-size: 13px; margin: -2px 0 0; }
+
+  input[type="text"], textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--surface-2);
+    border: 1px solid var(--line-2);
+    border-radius: 10px;
+    padding: 11px 13px;
+    resize: vertical;
+    transition: border-color .12s ease, box-shadow .12s ease;
+  }
+  textarea { min-height: 62px; }
+  input::placeholder, textarea::placeholder { color: var(--muted); opacity: .8; }
+  input:focus-visible, textarea:focus-visible,
+  .seg button:focus-visible, .btn:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 460px) { .row2 { grid-template-columns: 1fr; } }
+
+  /* ---- segmented controls ---- */
+  .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .seg.scale button { min-width: 46px; text-align: center; font-family: var(--mono); }
+  .seg button {
+    font: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--surface-2);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background .12s ease, border-color .12s ease, color .12s ease;
+  }
+  .seg button:hover { border-color: var(--accent); }
+  .seg button[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+  .scalecap {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--muted); font-family: var(--mono);
+    margin-top: 2px;
+  }
+
+  /* ---- buttons ---- */
+  .btn {
+    font: inherit; font-weight: 600; font-size: 15px;
+    border-radius: 10px; padding: 12px 18px; cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform .05s ease, background .12s ease, border-color .12s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { filter: brightness(1.05); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .err { color: #d13b3b; font-size: 13px; min-height: 1em; }
+  :root[data-theme="dark"] .err, :root:not([data-theme="light"]) .err { color: #ff8a8a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .err { color:#ff8a8a; } }
+
+  /* ---- result panel ---- */
+  .result { display: none; }
+  .result.show { display: block; }
+  form.hide { display: none; }
+  .cardframe {
+    background: var(--surface-2);
+    border: 1px solid var(--line-2);
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--ink);
+  }
+  .cardframe .who { font-size: 15px; font-weight: 600; }
+  .copybox { position: absolute; left: -9999px; top: 0; }
+  .done-head { display:flex; align-items:center; gap:10px; margin: 0 0 6px; }
+  .done-head h2 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+  .pill-ok {
+    font-family: var(--mono); font-size: 11px; letter-spacing:.08em; text-transform:uppercase;
+    color: var(--good); border:1px solid var(--good); border-radius:999px; padding:2px 8px;
+  }
+  .paste-note {
+    background: var(--accent-soft); color: var(--ink);
+    border-radius: 10px; padding: 11px 14px; font-size: 14px; margin: 16px 0;
+  }
+  .paste-note b { color: var(--accent); }
+  .foot { color: var(--muted); font-size: 12.5px; margin-top: 26px; text-align:center; font-family: var(--mono); letter-spacing:.03em; }
+  .copied-flash { color: var(--good); font-size: 13px; font-weight:600; opacity:0; transition:opacity .15s; }
+  .copied-flash.on { opacity:1; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">AI Automation Essentials</p>
+  <h1>Introduce yourself to the room</h1>
+  <p class="lede">Two minutes so I can teach to who's actually here, not the syllabus. Fill this in, hit <b>Build my intro</b>, then copy the card into the class chat. No account, nothing is sent anywhere — it just builds text for you to paste.</p>
+
+  <div class="card">
+    <form id="f" novalidate>
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="name"><span class="n">01</span> Your name</label>
+          <input type="text" id="name" autocomplete="name" placeholder="Jordan Rivera" />
+        </div>
+        <div class="field">
+          <label class="q" for="role"><span class="n">02</span> Role / team</label>
+          <input type="text" id="role" placeholder="Sales Operations" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="q"><span class="n">03</span> How comfortable are you with AI so far?</div>
+        <div class="seg scale" id="ai" role="group" aria-label="AI comfort 1 to 4">
+          <button type="button" data-val="1">1</button>
+          <button type="button" data-val="2">2</button>
+          <button type="button" data-val="3">3</button>
+          <button type="button" data-val="4">4</button>
+        </div>
+        <div class="scalecap"><span>brand new</span><span>use it daily</span></div>
+      </div>
+
+      <div class="field">
+        <div class="q"><span class="n">04</span> Which AI tools have you tried?</div>
+        <div class="seg" id="tools" role="group" aria-label="AI tools tried">
+          <button type="button" data-val="None yet">None yet</button>
+          <button type="button" data-val="ChatGPT">ChatGPT</button>
+          <button type="button" data-val="Claude / Gemini">Claude / Gemini</button>
+          <button type="button" data-val="Several tools">Several tools</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="build"><span class="n">05</span> One repetitive task you'd love to automate</label>
+        <p class="hint">A sentence is plenty — the more concrete, the better I can aim examples at it. This is exactly the kind of workflow we'll build.</p>
+        <textarea id="build" placeholder="Turning our weekly support emails into a triaged, logged, and drafted set of replies."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q" for="goal"><span class="n">06</span> One thing you want to walk away able to do</label>
+        <input type="text" id="goal" placeholder="Ship one no-code automation my team can actually reuse." />
+      </div>
+
+      <div class="field">
+        <label class="q" for="topic"><span class="n">07</span> Anything you especially want covered? <span class="opt">— optional</span></label>
+        <input type="text" id="topic" placeholder="Prompt chains, AI agents, ROI, data privacy…" />
+      </div>
+
+      <div class="field">
+        <label class="q" for="about"><span class="n">08</span> Something non-technical about you <span class="opt">— optional</span></label>
+        <input type="text" id="about" placeholder="Hobby, hometown, or your go-to coffee order." />
+      </div>
+
+      <div>
+        <div class="actions">
+          <button type="submit" class="btn primary">Build my intro →</button>
+          <span class="err" id="err" role="alert"></span>
+        </div>
+      </div>
+    </form>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="done-head">
+        <h2>Your intro card</h2>
+        <span class="pill-ok">Ready</span>
+      </div>
+      <div class="cardframe" id="cardframe"></div>
+      <div class="paste-note">Now <b>copy</b> this and paste it into the <b>class chat</b>. That's your introduction — no need to say it out loud.</div>
+      <div class="actions">
+        <button type="button" class="btn primary" id="copy">Copy to clipboard</button>
+        <button type="button" class="btn ghost" id="edit">Edit my answers</button>
+        <span class="copied-flash" id="flash">Copied ✓</span>
+      </div>
+      <textarea class="copybox" id="copysrc" readonly aria-hidden="true"></textarea>
+    </div>
+  </div>
+
+  <p class="foot">AI Automation Essentials · fill · copy · paste</p>
+</div>
+
+<script>
+  (function () {
+    var segState = { ai: "", tools: "" };
+    function wireSeg(id, key) {
+      var group = document.getElementById(id);
+      group.addEventListener("click", function (e) {
+        var b = e.target.closest("button");
+        if (!b) return;
+        Array.prototype.forEach.call(group.querySelectorAll("button"), function (x) {
+          x.setAttribute("aria-pressed", x === b ? "true" : "false");
+        });
+        segState[key] = b.getAttribute("data-val");
+      });
+    }
+    wireSeg("ai", "ai");
+    wireSeg("tools", "tools");
+
+    var form = document.getElementById("f");
+    var result = document.getElementById("result");
+    var errEl = document.getElementById("err");
+
+    function val(id) { return (document.getElementById(id).value || "").trim(); }
+
+    function buildText() {
+      var name = val("name");
+      var role = val("role");
+      var who = name + (role ? "  —  " + role : "");
+      var line2parts = [];
+      if (segState.ai)    line2parts.push("AI comfort " + segState.ai + "/4");
+      if (segState.tools) line2parts.push(segState.tools);
+      var lines = [who];
+      if (line2parts.length) lines.push(line2parts.join("  ·  "));
+      var build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
+      if (build) lines.push("Wants to automate: " + build);
+      if (goal)  lines.push("Goal: " + goal);
+      if (topic) lines.push("Curious about: " + topic);
+      if (about) lines.push("Off the clock: " + about);
+      return lines.join("\n");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      errEl.textContent = "";
+      if (!val("name")) { errEl.textContent = "Add your name first."; document.getElementById("name").focus(); return; }
+      var text = buildText();
+      // rendered card: first line bold
+      var parts = text.split("\n");
+      var frame = document.getElementById("cardframe");
+      frame.innerHTML = "";
+      var first = document.createElement("div");
+      first.className = "who";
+      first.textContent = parts[0];
+      frame.appendChild(first);
+      if (parts.length > 1) {
+        frame.appendChild(document.createTextNode(parts.slice(1).join("\n")));
+      }
+      document.getElementById("copysrc").value = text;
+      form.classList.add("hide");
+      result.classList.add("show");
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("edit").addEventListener("click", function () {
+      result.classList.remove("show");
+      form.classList.remove("hide");
+      form.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("copy").addEventListener("click", function () {
+      var src = document.getElementById("copysrc");
+      var text = src.value;
+      var flash = document.getElementById("flash");
+      function ok() { flash.classList.add("on"); setTimeout(function(){ flash.classList.remove("on"); }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, manual);
+      } else { manual(); }
+      function manual() {
+        src.style.position = "static"; src.style.left = "auto";
+        src.removeAttribute("aria-hidden");
+        src.focus(); src.select();
+        try { document.execCommand("copy"); ok(); } catch (_) {}
+      }
+    });
+  })();
+</script>
