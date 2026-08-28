@@ -106,28 +106,6 @@ Notes:
 <img src="../images/hiking-3.jpg" style="width:18%;"/> &nbsp; <!-- {"left" : 1.08, "top" : 6.08, "height" : 1.99, "width" : 2.25} --><img src="../images/ice-cream-3.png" style="width:25%;"/> &nbsp; <!-- {"left" : 3.36, "top" : 6.1, "height" : 1.92, "width" : 3.54} --><img src="../images/biking-1.jpg" style="width:18%;"/> &nbsp; <!-- {"left" : 6.92, "top" : 6.08, "height" : 1.99, "width" : 2.25} -->
 
 
-# AI Without Code Today
-
----
-
-## Andrew Ng on AI
-
-* There's a lingering misconception that building with generative AI is expensive.
-* It is indeed expensive to train cutting-edge foundation models
-* But it's now very inexpensive — and often free — to *use* AI to get real work done, right from a browser.
-
-![](../images/token-prices.png)
-
-Notes:
-Source: https://www.deeplearning.ai/the-batch/falling-llm-token-prices-and-what-they-mean-for-ai-companies/
-
----
-
-## Sam Altman on AI apps
-* _"While big companies often operate on extended planning cycles—sometimes spanning years or even decades—startups can swiftly adapt to technological changes."_
-
-![](../images/pexels-anhleephoto-29631862.jpg)
-
 ---
 
 ## Why is this class different
@@ -149,52 +127,6 @@ Source: https://www.deeplearning.ai/the-batch/falling-llm-token-prices-and-what-
 
 ---
 
-## What will happen instead?
-* AI will become your friend
-* You will become AI's friend
-![](../images/robert-rsnake.png)
-
----
-
-## Andrew Ng
-* Andrew Ng is a founder of Coursera
-* Honorary doctor at Exeter
-* Much material is based on his letter about the event
-![](../images/andrew-ng-exeter.png)
-
----
-
-## Andrew Ng at University of Exeter Faculty of Environment, Science and Economy.
-* The name of this faculty stood out to me as a particularly forward-looking way to organize an academic division.
-* Having Computer Science sit alongside Environmental Science and the Business School creates natural opportunities for
-* collaboration across these fields.
-
----
-
-
-
-## Future
-
-* Every organization must become an AI organization
-* Not just building AI, but using it to advance every kind of work.
-* This doesn't mean abandoning your expertise.
-* It means keeping your judgment while letting AI enhance everything you do.
-
----
-
-## Yes, you will have to learn
-
-<img src="../images/looking-for-job-ai.jpeg" style="width:55%;"/>
-
-* The AI will be your helper on the way
-* DIY
-  * [AI for Everyone](https://www.coursera.org/learn/generative-ai-for-everyone)
-  * [Elephant Scale Webinar](https://courses.elephantscale.com/pages/advances-in-ai-free-weekly-webinar)
-* For your company
-  * https://elephantscale.com/
-  * info@elephantscale.com
-
----
 
 ## The Two-Day Map
 
@@ -221,3 +153,5 @@ In every module you build a real artifact you can take back to work.
 
 Notes:
 These four habits separate a useful AI habit from an expensive mistake. We make them second nature starting with Lab 01.
+
+---
