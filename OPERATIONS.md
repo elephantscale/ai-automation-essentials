@@ -74,6 +74,9 @@ pre-class checks are the only remaining work.
 
 - Smoke-test the ProTech lab desktop + ES Business workspace: all 11 logins, file upload,
   data-analysis, GPT/Projects availability.
+- **Confirm the ES Business workspace is NOT opted into improving OpenAI's models** (workspace
+  admin → data controls). Needed to tell students truthfully in Module 6 that their data isn't
+  used for training.
 - Pre-build and rehearse the instructor demos (grounded assistant + a live platform trigger).
 - If delivered over WebEx, point students to the **CC** button at the start.
 
