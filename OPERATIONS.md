@@ -34,7 +34,7 @@ pre-class checks are the only remaining work.
 
 ## Confirmed delivery setup (current cohort)
 
-- **15 students on enterprise ChatGPT**, all with full access. This is their single AI
+- **11 students on enterprise ChatGPT**, all with full access. This is their single AI
   assistant for every hands-on lab.
 - **Other accounts are instructor-demo only** — Mark demonstrates automation platforms
   (Zapier / Make / Power Automate / Copilot Studio / n8n) and other assistants (Claude /
@@ -54,7 +54,7 @@ pre-class checks are the only remaining work.
 
 ## Customers and revenue connections
 
-- **Client:** on file (naming not required in this record) — cohort of 15 on their own
+- **Client:** on file (naming not required in this record) — cohort of 11 on their own
   enterprise ChatGPT.
 - **Revenue:** Elephant Scale training engagement; amount Unknown / Needs CEO input.
 
@@ -86,6 +86,6 @@ pre-class checks are the only remaining work.
 
 ## Next three highest-value actions
 
-1. **Before Sep 1:** confirm enterprise ChatGPT file-upload / data-analysis is enabled for all 15 seats.
+1. **Before Sep 1:** confirm enterprise ChatGPT file-upload / data-analysis is enabled for all 11 seats.
 2. Pre-build and rehearse the instructor demos (grounded assistant + one live platform trigger).
 3. If delivered over WebEx, point students to the **CC** button at the start of Day 1.
