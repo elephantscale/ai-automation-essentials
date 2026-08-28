@@ -6,13 +6,17 @@ Reusable classroom assets for AI Automation Essentials.
 |------|-----|
 | `prompt-template.md` | The five-part prompt scaffold used across modules |
 | `prompt-chain-template.md` | Plan a multi-step prompt chain with structured hand-offs |
-| `assistant-comparison-matrix.md` | Side-by-side assistant/approach evaluation worksheet |
+| `assistant-comparison-matrix.md` | ChatGPT Enterprise capability/readiness matrix for the class workspace |
 | `document-analysis-checklist.md` | Review checklist for document/data work |
 | `output-evaluation-rubric.md` | Score AI output on accuracy, completeness, tone, structure, trust |
 | `automation-design-canvas.md` | No-code automation planning worksheet |
 | `roi-worksheet.md` | Estimate time saved, error reduction, and ROI for a use case |
 | `ai-use-policy-template.md` | Starter for a team AI-use policy |
 | `capstone-rubric.md` | Capstone scoring and feedback guide |
+| `enterprise-project-setup.md` | Set up a repeatable ChatGPT Enterprise project with sample files and safe defaults |
+| `review-queue-template.md` | Human review queue fields and status values for draft-only workflows |
+| `connector-readiness-checklist.md` | Assess future connector/app readiness when the VM has ChatGPT only |
+| `executive-brief-template.md` | Source-backed executive brief format for multi-file synthesis |
 | `cohort-intros.html` | Self-contained "introduce yourself" form — students fill it in, copy the generated card, and paste it into the class chat. No account, nothing is sent anywhere. Open in a browser, or share the hosted link (see below). |
 
 ## Cohort intro form

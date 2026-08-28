@@ -1,4 +1,4 @@
-# Responsible AI & Governance
+# Responsible AI, Enterprise Governance & Connector Readiness
 
 Elephant Scale
 
@@ -14,6 +14,7 @@ Elephant Scale
   - Judge **when *not* to use AI** — and where a human must stay in charge.
   - Explain the **EU AI Act** risk tiers and the **NIST AI RMF** in plain language — "what this means for you."
   - Draft the **first principles of an AI-use policy** for your team.
+  - Audit a ChatGPT Enterprise project for file, sharing, and future connector risks.
 
 > The goal is not to make you cautious. It's to make you *fluent in the guardrails* so you
 > can move fast without stepping on a landmine.
@@ -367,10 +368,10 @@ MANAGE   Act on what you found. Prioritize risks, add controls (guardrails,
 ## Setting an Organizational AI-Use Policy
 
 * A policy people follow is **short, specific, and about defaults** — not a legal document. Five parts:
-  - **Approved tools** — which assistant, which automation platform; everything else needs sign-off.
+  - **Approved tools** — which ChatGPT workspace/project; everything else needs sign-off.
   - **Data rules** — the never-paste list; redact-or-ask when in doubt.
   - **Human-in-the-loop** — a person reviews before anything sends/publishes/deletes/buys/changes a record; high-stakes decisions are decision-support only.
-  - **Verification** — check facts, numbers, dates, citations before reuse; keep prompt + output when it must be auditable.
+  - **Verification** — check facts, numbers, dates, citations before reuse; record which files were used.
   - **Accountability** — a named owner, where to report issues, a review date.
 
 ```text
@@ -381,6 +382,43 @@ POLICY IN ONE BREATH:
 
 > Good policy makes the **safe way the easy way.** If approval takes three days, you just
 > invented more shadow AI. Design for the busy person, not the ideal one.
+
+---
+
+## Enterprise Project Governance
+
+* In this delivery, the live surface is ChatGPT Enterprise:
+  - projects or project-style chats
+  - uploaded files
+  - source-grounded prompts
+  - shared outputs
+  - review queues
+* Before sharing or reusing a project, answer:
+  - What files are inside?
+  - Are any real people, customer, payment, health, legal, or confidential records present?
+  - Who can see the project, chat, files, and output?
+  - What should be deleted or redacted?
+  - What instruction prevents guessing and unsafe action?
+
+> Enterprise access is a control, not a permission slip. You still classify data before you
+> upload it and control who sees the result.
+
+---
+
+## Connector Readiness Is Governance
+
+* The VM does not have Drive, Slack, email, or CRM connectors. That is fine.
+* The governance skill is deciding whether a connector should exist later:
+  - read-only or write-back?
+  - which fields are needed?
+  - least-privilege access?
+  - human review before external action?
+  - safe log without raw PII?
+  - admin approval?
+* Use `course-materials/connector-readiness-checklist.md`.
+
+> If the team cannot explain connector permissions and review paths, it is not ready to
+> connect the workflow.
 
 ---
 
@@ -412,7 +450,7 @@ POLICY IN ONE BREATH:
 
 ---
 
-## Lab 06 - Responsible AI & Governance
+## Lab 06 - Responsible AI, Enterprise Governance & Connector Readiness
 
 **Stop here and run Lab 06.**
 
@@ -422,8 +460,10 @@ You will:
    mitigation** — job-relevant criteria, no proxies, evidence required, identity-swap tested.
 2. Take a **data-leaky automation** and redesign it to **prevent the leak** — redaction,
    least privilege, a human gate, and safe logging.
-3. Map your fixes to the frameworks (never-paste list, EU AI Act tier, NIST functions).
-4. Draft the **first principles of an AI-use policy** for your team using the template.
+3. Audit your **ChatGPT Enterprise project/files** for sharing, retention, and data-risk issues.
+4. Complete a **connector-readiness** assessment for a future integration.
+5. Draft the **first principles of an AI-use policy** for your team using the template.
 
 **Deliverable:** the fixed prompt (before/after), the redesigned leak-proof workflow, and a
-one-page draft AI-use policy for your team.
+project/file audit, connector-readiness recommendation, and one-page draft AI-use policy for
+your team.

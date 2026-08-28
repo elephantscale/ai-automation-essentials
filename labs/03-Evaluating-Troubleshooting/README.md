@@ -17,15 +17,14 @@ guardrails and defeat a prompt-injection attempt.
 
 ## Tools
 
-- **Your AI assistant** — Claude, ChatGPT, or Gemini. Any one works; a prompt behaves the
-  same across all three, only the buttons differ. Everything in this lab runs *inside the
-  chat* — no automation platform needed here.
+- **ChatGPT Enterprise** in the class VM. Everything in this lab runs inside ChatGPT — no
+  automation platform or external connector needed.
 - **The rubric:** [`course-materials/output-evaluation-rubric.md`](../../course-materials/output-evaluation-rubric.md)
   — the five dimensions you score against and the diagnose→fix table.
 
-> **Turn off memory / custom instructions first** (or use a temporary/incognito chat). If
-> your saved settings are on, you're grading your settings, not the prompt. In most business
-> workspaces this is already off — if you don't see the toggle, you're fine.
+> Use a fresh chat or course Project so you know whether you are grading the prompt, the
+> project instructions, or both. If your workspace hides memory/settings toggles, use the
+> cleanest new chat available.
 
 ## Sample assets (link the files used)
 

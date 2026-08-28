@@ -14,6 +14,8 @@ required=(
   course-materials/prompt-chain-template.md course-materials/output-evaluation-rubric.md
   course-materials/automation-design-canvas.md course-materials/roi-worksheet.md
   course-materials/ai-use-policy-template.md course-materials/capstone-rubric.md
+  course-materials/enterprise-project-setup.md course-materials/review-queue-template.md
+  course-materials/connector-readiness-checklist.md course-materials/executive-brief-template.md
 )
 printf "\n${B}Required files${N}\n"
 for f in "${required[@]}"; do [ -f "$ROOT_DIR/$f" ] && ok "$f" || bad "$f missing"; done

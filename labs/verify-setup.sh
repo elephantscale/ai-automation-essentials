@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# verify-setup.sh - readiness check for the No-Code AI Solutions labs.
+# verify-setup.sh - readiness check for the AI Automation Essentials labs.
 #
 # Usage:
 #   ./labs/verify-setup.sh
@@ -20,7 +20,7 @@ have() { command -v "$1" >/dev/null 2>&1; }
 LABS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$LABS_DIR/.." && pwd)"
 
-printf "${B}No-Code AI Solutions - lab readiness check${N}\n"
+printf "${B}AI Automation Essentials - lab readiness check${N}\n"
 printf "host: %s   user: %s\n" "$(hostname)" "$(id -un)"
 
 head "1. Browser"
@@ -52,8 +52,6 @@ PY
   fi
 }
 check_url "ChatGPT" "https://chatgpt.com/"
-check_url "Claude" "https://claude.ai/"
-check_url "Gemini" "https://gemini.google.com/"
 
 head "3. Course files"
 for path in README.md outline.md slides labs course-materials scripts docs; do
@@ -66,7 +64,7 @@ done
 head "Summary"
 printf "  ${G}%d passed${N}, ${Y}%d warnings${N}, ${R}%d failed${N}\n" "$PASS" "$WARN" "$FAIL"
 if [ "$FAIL" -eq 0 ]; then
-  printf "  ${G}${B}Machine looks ready for the No-Code AI Solutions labs.${N}\n"
+  printf "  ${G}${B}Machine looks ready for the AI Automation Essentials labs.${N}\n"
   exit 0
 else
   printf "  ${R}${B}Not ready - resolve the FAIL items above.${N}\n"

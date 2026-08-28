@@ -471,10 +471,12 @@ You are a concise operations analyst. Always answer in at most five bullets.
 If a request needs data you don't have, ask for it instead of guessing.
 ```
 
-* No code, no API. The no-code system prompt is **custom instructions**, a **Project / custom GPT / Gem**, or the "AI step" configuration inside an automation platform.
+* No code, no API. In this class, the no-code system prompt is **project instructions** in
+  ChatGPT Enterprise or the first setup message in a fresh chat. In a future connected
+  workflow, the same instructions become the AI-step configuration.
 
-> Put your role and constraints here and they apply automatically to every run — the same
-> way an automation applies the same AI-step prompt to every incoming item.
+> Put your role and constraints here and they apply automatically to every run. That is the
+> bridge from one-off prompting to repeatable workflow.
 
 ---
 
@@ -497,9 +499,9 @@ Message:
 
 * Fill the `{{slots}}` and it runs. Save it in `course-materials/prompt-template.md` and it's a **team asset**, not a one-off.
 
-> A parameterized prompt is the seam where prompting becomes automation: those `{{slots}}`
-> are exactly the fields an automation platform maps from a trigger. Write it once, run it
-> a thousand times.
+> A parameterized prompt is where prompting becomes workflow: in class you fill the
+> `{{slots}}` by paste/upload; in a future connector workflow, those slots map from the
+> trigger fields.
 
 ---
 

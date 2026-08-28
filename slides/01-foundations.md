@@ -15,7 +15,7 @@ Elephant Scale
   - Say plainly what generative AI **is and isn't**, and how it works — without the jargon.
   - Use the core terms correctly: model, context, tokens, prompt, hallucination, bias, agent, tool use.
   - Tell **generative AI apart from rules-based automation** — and know when to combine them.
-  - Name the 2026 assistants (Claude, ChatGPT, Gemini) and what an "AI agent" actually is.
+  - Name the 2026 assistant landscape and what an "AI agent" actually is.
   - Separate the real capabilities from the common myths, in both directions.
 
 > The goal is not to memorize product names — those change every quarter. The goal is a
@@ -29,7 +29,7 @@ Elephant Scale
 * **Generative AI** produces new content — text, tables, images, code, summaries — from a description of what you want.
   * You ask in plain language; it writes, drafts, rewrites, extracts, classifies, explains.
 
-* The engine behind the assistants you'll use (Claude, ChatGPT, Gemini) is a **large language model (LLM)**.
+* The engine behind ChatGPT Enterprise and similar assistants is a **large language model (LLM)**.
   * Trained on an enormous amount of text; learned the patterns of how language fits together.
 
 * One capability, enormous range: the same assistant can be a writer, an analyst, a tutor, a reviewer, a planner — set by **your prompt**, not a different product.
@@ -70,7 +70,7 @@ Elephant Scale
 
 ## Key Terms — Without the Jargon (1 of 2)
 
-* **Model** — the AI system itself (Claude, GPT, Gemini). A trained pattern-completer you send text to and get text back.
+* **Model** — the AI system itself. A trained pattern-completer you send text to and get text back.
 * **Prompt** — what you type: your instructions plus any material to work on. Your half of the conversation.
 * **Context** — everything the model can "see" at once: your prompt, the files you attached, the conversation so far. Outside the context, it's blind.
 * **Tokens** — the small chunks (roughly word-pieces) the model reads and writes in. Why it matters: there's a **limit** to how much context fits, and paid tools **bill per token**.
@@ -228,16 +228,19 @@ NEW REQUEST
 
 ---
 
-## The 2026 Landscape — The Assistants
+## The 2026 Landscape — Assistants As Workbenches
 
-* Three frontier general assistants do most of the work. The gap between them is small.
-  - **Claude** (Anthropic) — strong writing, careful reasoning, long documents.
-  - **ChatGPT** (OpenAI) — huge feature set, broad ecosystem, image generation built in.
-  - **Gemini** (Google) — deep Google Workspace integration, strong multimodal.
-* All three now include **reasoning modes**, web search, file upload, and data analysis — closer to a workbench than a search box.
+* Modern assistants are no longer just chat boxes. They are workbenches:
+  - reasoning modes
+  - file upload
+  - data analysis
+  - image understanding
+  - project-style context
+  - connectors or apps when enabled
+* This class uses **ChatGPT Enterprise** in the VM, so everyone practices in the same approved workspace.
 
-> All three are excellent. Pick one, get fluent, keep a second open for comparison. Fluency
-> beats brand loyalty — and this course is written so every prompt works on any of them.
+> Product names matter less than the workflow habit: provide context, constrain the task,
+> verify the output, and keep a human accountable.
 
 ---
 
@@ -362,7 +365,7 @@ NEW REQUEST
   - The terms that matter: **model, prompt, context, tokens, hallucination, bias, tool use, agent.**
   - **Rules-based** = exact, auditable, brittle. **Generative AI** = flexible, fluent, must be reviewed. They fail in **opposite** directions.
   - **Combine them:** rules for the hard edges, AI for the soft middle, rules again to keep AI's output on rails.
-  - 2026 assistants — **Claude, ChatGPT, Gemini** — are close; get fluent in one. **Agents** act; keep a human in the loop.
+  - 2026 assistants are workbenches; this class uses **ChatGPT Enterprise**. **Agents** act; keep a human in the loop.
   - AI operations = five leader questions: **where it fits, what data is allowed, who reviews, how we measure, what the guardrails are.**
 
 > One sentence to remember the whole module: *a fast, tireless, overconfident drafting-and-

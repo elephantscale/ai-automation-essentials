@@ -1,4 +1,4 @@
-# ROI, Adoption & Capstone
+# ROI, Adoption & Enterprise Capstone
 
 Elephant Scale
 
@@ -10,13 +10,14 @@ Elephant Scale
 * This module answers the two questions a manager actually asks:
   - **"What does it cost, and what do we get back?"** — the money case.
   - **"Will my team actually use it?"** — the adoption case.
-* Then you **build the thing** — one real workflow from your own work, with an ROI estimate and a 30-day plan.
+* Then you **build the thing** — one real ChatGPT Enterprise workflow from your own work, with
+  an ROI estimate, connector-readiness recommendation, and 30-day plan.
 
 * By the end you will be able to:
   - Cost an AI use case honestly — subscription, per-seat, usage, and the hidden costs.
   - Measure impact with a baseline: time saved, error reduction, ROI, payback.
   - Plan adoption as pilot → standardize → scale, not a big-bang launch.
-  - Design, build, test, and present a working automation people would run on Monday.
+  - Design, build, test, and present a working Enterprise workflow people would run on Monday.
 
 > The people who thrive with AI aren't the best prompters. They're the ones who can stand
 > up and say "here's the workflow, here's the number, here's the plan." That's this module.
@@ -65,9 +66,8 @@ Per-seat       user / month         everyone uses it daily       seats bought, n
 Usage          token / run / task   volume is spiky or unknown   cost spikes at high volume
 ```
 
-> Provider-neutral by design: your AI assistant (Claude / ChatGPT / Gemini) and your
-> automation platform (Zapier / Make / Power Automate / Copilot Studio / n8n) each pick one
-> of these shapes. The names differ; the three shapes don't.
+> For this class, ChatGPT Enterprise is already available. Still count the real cost:
+> seats, review time, build time, maintenance, and any future connector or platform cost.
 
 ---
 
@@ -297,11 +297,12 @@ BOTTOM LINE
 ## Part 4 — The Capstone: Your Mission
 
 * Put it all together: **one real workflow from your own work**, combining the course pieces into something you'd actually pilot.
-* Requirement — combine at least three of these, plus a **human-approval step** and a short **governance note**:
+* Requirement — combine at least three of these, plus a **human-approval step**, connector-readiness note, and short **governance note**:
+  - A **ChatGPT Enterprise project or project-style chat** with files and safe instructions
   - A **structured prompt** you designed and tuned (Module 2)
   - A **prompt chain** or multi-step task (Module 2)
   - **Document or data analysis** (Module 5)
-  - A **no-code automation** — trigger → AI step → route (Module 4)
+  - A **simulated workflow** — trigger by paste/upload → AI step → review queue (Module 4)
   - **Guardrails**: privacy, verification, a human gate (Module 6)
 * Then: an **ROI estimate** (this module) and a **30-day plan**.
 
@@ -316,15 +317,15 @@ BOTTOM LINE
 * Workflow: **inbound support requests land in a queue; first-pass handling is drudgery.** Insert AI at the right steps; keep a human before anything reaches the customer.
 
 ```text
-TRIGGER     New support request (email / form / a row of the sample CSV)
+TRIGGER     New support request (today: paste a row of the sample CSV)
    |
 [1] ANALYZE AI classifies: category, urgency, sentiment, compliance flag
 [2] EXTRACT AI pulls fields: customer, issue, requested action  -> as JSON
 [3] DRAFT   Grounded "Support Triage Assistant" writes a first reply
-[4] ROUTE   Automation logs a tracker row + notifies the right queue
+[4] ROUTE   ChatGPT appends a tracker row to a review queue
 [5] APPROVE >>> HUMAN reviews & edits the draft before it sends <<<
    |
-SEND + LOG  Approved reply sends; outcome logged for the time-saved metric
+FUTURE      A connector could read tickets later, after permissions and controls
 ```
 
 > The AI reads, classifies, drafts, and routes — but a human owns the send button. That one
@@ -337,9 +338,11 @@ SEND + LOG  Approved reply sends; outcome logged for the time-saved metric
 * Map each step to a course tool — the "combine at least three" requirement, satisfied naturally, not forced:
   - **Structured prompt (M2)** — the triage classifier that returns clean JSON the automation can route on.
   - **Data analysis (M5)** — run the classifier over `sample-support-requests.csv`; flag anything about refunds, legal, or regulated data.
+  - **Enterprise workspace (M4)** — project or project-style chat with sample files and safe instructions.
   - **Grounded assistant (M4-ish)** — a **Support Triage Assistant** grounded in `sample-help-center.md`; drafts a reply *and* says "I don't know — escalate" when the answer isn't in its docs.
-  - **Automation (M4)** — trigger → run classification → create tracker row → route → **hold** the draft for approval.
+  - **Simulated workflow (M4)** — paste/upload trigger → run classification → create review row → **hold** the draft for approval.
   - **Guardrails (M6)** — sample data only; never-paste rule; mandatory human gate; every action logged.
+  - **Connector readiness (M6)** — read-only source first; no write-back or auto-send in the pilot.
 
 > Five pieces here sets a generous ceiling — you only need three. Use what your workflow
 > *needs* and explain why each earns its place. Padding loses points; it doesn't win them.
@@ -402,13 +405,15 @@ Request: ```{request_text}```
 CAPSTONE DESIGN CANVAS
   Problem        What painful workflow are you fixing?
   User           Who does this today, and how often?
-  Trigger        What starts the workflow?
+  Trigger        What starts the workflow today in ChatGPT?
+  Future trigger What could start it later if connected?
   AI task(s)     What does the AI do at each step?
-  Tool stack     Which course tools, and why each one?
+  Source files   Which files ground the work?
   Output         What comes out, and where does it go?
   Human review   Where exactly is the approval gate?
   Success metric How will you know it worked? (time saved, rework rate)
   Risk control   What's the biggest risk, and how do you contain it?
+  Connector      Ready later? Read-only? Write-back? Not ready?
 ```
 
 > Can't fill "Human review" and "Risk control"? You don't have a capstone yet — you have an
@@ -424,9 +429,10 @@ CAPSTONE DESIGN CANVAS
 |-----------|--------|------------|
 | **Business fit** | Solves a real, valued workflow problem | Vague or low-value |
 | **Prompt quality** | Clear task, context, output, constraints | Ambiguous prompt |
-| **Tool selection** | Tools match the task and environment | Tools chosen without rationale |
+| **Enterprise setup** | Project/files/instructions make it repeatable | Scattered one-off chats |
 | **Artifact quality** | Output usable with light review | Output needs major rework |
 | **Safety controls** | Privacy, approval, verification built in | Risks not addressed |
+| **Connector readiness** | Access and permissions are mapped | Integration risks hand-waved |
 | **Rollout plan** | Clear 30-day next steps + ROI number | No practical adoption plan |
 
 > Most points are lost on **Safety controls** and **Rollout plan** — the business half. A
@@ -441,12 +447,13 @@ CAPSTONE DESIGN CANVAS
 ```text
 FIVE-MINUTE CAPSTONE SHOWCASE
   1. Problem        the painful workflow, in one sentence
-  2. Workflow       the trigger -> AI step -> human gate diagram
-  3. Tools          which course pieces, and why each
+  2. Workflow       paste/upload trigger -> AI step -> human gate diagram
+  3. Project/files  what grounds the workflow
   4. Demo           screenshots or a live run (normal + edge case)
   5. Controls       privacy, the human gate, logging
-  6. ROI            the one honest number + payback
-  7. 30-day plan    the go/adjust/stop decision at day 30
+  6. Connector      future readiness recommendation
+  7. ROI            the one honest number + payback
+  8. 30-day plan    the go/adjust/stop decision at day 30
 ```
 
 * **Peer feedback:** one strength, one improvement, one next step — anchored to a rubric criterion.
@@ -494,10 +501,11 @@ Week 4 — Decide
 * Learn from the mistakes every cohort makes, so you don't repeat them:
   - **Too broad** — "an AI assistant for all of marketing." Narrow to one trigger, one output. Broad can't be tested, so it can't be trusted.
   - **No human gate** — the AI sends/acts on its own. Add the approval hold; it's what makes it safe.
-  - **Tool-counting** — five tools bolted on to hit a number. Use what the workflow needs; justify each.
+  - **No project setup** — useful work trapped in a one-off chat. Add instructions and source files.
   - **No baseline** — "saves loads of time" with no measurement. Time the old way first, or you have nothing.
   - **Fake ROI** — benefit counted, costs forgotten. Include build, review, and maintenance time.
   - **Real sensitive data in the demo** — use the provided sample data, never live records.
+  - **Connector overreach** — jumping to write-back or auto-send before access, review, and logging are approved.
 
 > Every one is fixable in five minutes if caught early. That's why you get the rubric, the
 > canvas, and the worksheet *before* you build.
@@ -507,17 +515,17 @@ Week 4 — Decide
 ## Module Review
 
 * You leave this module — and this course — with three things in hand:
-  - **A working (or clearly simulated) automation** — trigger, AI step, human gate, tested on a normal and an edge case.
+  - **A working ChatGPT Enterprise workflow** — trigger, AI step, human gate, tested on a normal and an edge case.
   - **An ROI case** — a filled worksheet: time saved, cost, net per month, payback, one honest risk.
-  - **A 30-day plan** — baseline, build, pilot, and a real go/adjust/stop decision.
+  - **A connector-readiness recommendation and 30-day plan** — baseline, build, pilot, and a real go/adjust/stop decision.
 * That trio is exactly what turns "I took an AI course" into "I shipped an AI workflow at work."
 
-> Leave with a working automation, an ROI case, and a 30-day plan. Not a certificate — an
+> Leave with a working Enterprise workflow, an ROI case, and a 30-day plan. Not a certificate — an
 > asset your team can run on Monday.
 
 ---
 
-## Lab 07 - ROI, Adoption & Capstone
+## Lab 07 - ROI, Adoption & Enterprise Capstone
 
 **Stop here and run Lab 07.**
 
@@ -525,10 +533,12 @@ You will:
 
 1. Choose one narrow, real workflow from your own work — safe to discuss with sample data.
 2. Fill the **Capstone Design Canvas** — problem, user, trigger, AI task, tools, review gate, metric.
-3. Build the artifacts: combine **at least three** course tools + a **human-approval step** + a short **governance note**.
+3. Build the artifacts in **ChatGPT Enterprise**: project/files, structured prompt or chain,
+   source grounding, review queue, and governance note.
 4. Test against two scenarios — a normal case and a tricky edge case.
-5. Fill the **ROI worksheet** — time saved, cost, net per month, payback, one honest risk.
-6. Draft your **30-day plan** and present the capstone in five minutes, scored against the rubric.
+5. Complete the **connector-readiness checklist** for a future integration.
+6. Fill the **ROI worksheet** — time saved, cost, net per month, payback, one honest risk.
+7. Draft your **30-day plan** and present the capstone in five minutes, scored against the rubric.
 
-**Deliverable:** a working (or clearly simulated) no-code AI workflow, the design canvas, test
-results, a completed ROI worksheet, a completed capstone rubric, and a 30-day action plan.
+**Deliverable:** a working ChatGPT Enterprise workflow, the design canvas, review queue, test
+results, connector-readiness checklist, ROI worksheet, capstone rubric, and 30-day action plan.

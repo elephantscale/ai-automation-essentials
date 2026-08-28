@@ -1,37 +1,35 @@
 # Lab Setup - AI Automation Essentials
 
-The labs are browser-based. You do not need Python, Docker, a code editor, or local
-development tools.
+The labs are browser-based and run in the class VM with ChatGPT Enterprise. You do not need
+Python, Docker, a code editor, Google Drive, Slack, email, or local development tools.
 
 ## Required
 
 - Modern browser: Chrome, Edge, Firefox, or Safari
 - Internet access
-- Access to a current **AI assistant** (Claude, ChatGPT, or Gemini)
+- Access to **ChatGPT Enterprise** in the class VM
 - The sample files in `labs/assets/` and the templates in `course-materials/`
 
 ## Optional
 
-- A **no-code automation platform** (Zapier, Make, Power Automate, Copilot Studio, or n8n —
-  a free tier is enough) for Module 4 and the capstone. **Not required:** the instructor
-  demos a live platform build, and students run the same logic by hand in their AI assistant
-  (Module 4 Part 3b; capstone by-hand simulation). The design is what's graded, not the wiring.
+- A no-code automation platform or connected app for instructor demo only. Student labs do
+  not require external connectors.
 
 ## Tool Choices
 
-The course is tool-flexible — use whichever your organization has approved. Where a lab
-shows a prompt or a workflow, it works the same across assistants and platforms; only the
-buttons differ.
+The course materials remain conceptually tool-flexible, but this delivery uses ChatGPT
+Enterprise as the default and only required student tool.
 
 | Category | Examples |
 |----------|----------|
-| AI assistant | Claude, ChatGPT, Gemini |
-| Automation platform | Zapier, Make, Microsoft Power Automate, Copilot Studio, n8n |
+| Required assistant | ChatGPT Enterprise |
+| Optional instructor demo | Zapier, Make, Microsoft Power Automate, Copilot Studio, n8n, or connected apps |
 
 ## Data Rules
 
 - Use only approved sample data unless the instructor confirms otherwise.
-- Do not paste confidential, regulated, or client-private data into a public tool.
+- Do not paste confidential, regulated, or client-private data into any AI tool without
+  explicit approval, even an enterprise workspace.
 - Keep a human review step in any workflow that sends, publishes, deletes, or buys.
 - Verify important facts before using AI output in a decision.
 
@@ -42,6 +40,14 @@ buttons differ.
 - `sample-help-center.md` — fictional help-center doc (grounding, guardrails)
 - `sample-vendor-invoices.csv` — a deliberately messy vendor export (data clean-up)
 - `sample-dashboard.png` — a small dashboard image for "read the numbers" tasks
+
+## ChatGPT Enterprise Setup
+
+In ChatGPT, create a Project if the workspace allows it. If Projects are disabled, use a fresh
+chat and paste the project instructions from `course-materials/enterprise-project-setup.md`.
+
+All connector/app work in this course is planning-only unless the instructor explicitly demos
+it. Students use upload, paste, Projects, data analysis, image reading, and review queues.
 
 ## Verify Your Machine
 

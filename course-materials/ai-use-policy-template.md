@@ -6,6 +6,7 @@ A short, practical policy your team can actually follow. Fill in the blanks.
 
 - Approved AI assistant(s):
 - Approved automation platform(s):
+- Approved ChatGPT workspace or project:
 - Everything else requires approval from: __________
 
 ## 2. Data rules (what never goes into a prompt)
@@ -26,6 +27,9 @@ A short, practical policy your team can actually follow. Fill in the blanks.
 
 - Verify facts, numbers, dates, and citations before reuse.
 - Keep the prompt + output when the work must be repeatable or auditable.
+- For file-based work, record which files were used and ask for row, section, or quote evidence.
+- For connected-app or connector workflows, confirm least-privilege access and human review
+  before enabling write-back or external send actions.
 
 ## 5. Accountability
 

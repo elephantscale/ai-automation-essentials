@@ -15,16 +15,14 @@ a human.
 
 ## Tools
 
-Any classroom-approved AI assistant — **Claude, ChatGPT, or Gemini** (the buttons differ;
-the prompts are identical). No coding, no automation platform required: you run the chain
-**by hand in the assistant**, one step at a time, which is exactly how a live automation
-would run it — one step's output feeds the next.
+**ChatGPT Enterprise** in the class VM. No coding, no automation platform required: you run
+the chain by hand in ChatGPT, one step at a time, which is exactly how a live automation would
+run it — one step's output feeds the next.
 
 > **Where's the automation platform?** You don't need one for this lab. A chain is just
 > steps that hand structured output forward, and you can do that in a single chat window.
-> In Module 4 we wire the same chain into a platform (Zapier / Make / Power Automate /
-> Copilot Studio / n8n); here you prove the *prompts* work first. Building the prompts
-> before the plumbing is the right order.
+> In Module 4 you run the same shape inside ChatGPT Enterprise with a review queue and a
+> connector-readiness assessment. Building the prompts before the plumbing is the right order.
 
 ## Sample assets
 
@@ -34,6 +32,8 @@ would run it — one step's output feeds the next.
   draft step grounded in reference material.
 - `course-materials/prompt-chain-template.md` — the design grid you fill out in Part 1.
 - `course-materials/prompt-template.md` — for saving the finished, parameterized chain.
+- `course-materials/enterprise-project-setup.md` — optional setup for saving reusable prompts
+  in a project-style workspace.
 
 ## Steps
 
@@ -45,6 +45,8 @@ would run it — one step's output feeds the next.
 5. Run one request through all three steps by hand, pasting each step's output into the next.
 6. Run the remaining requests; confirm the **patient-records** row routes to human review.
 7. Save the chain as a reusable, parameterized asset.
+8. Add a short prompt-library note: what this prompt is for, what it is not for, and how to
+   test it before reuse.
 
 ## Prompt Starter
 
@@ -207,8 +209,25 @@ sensitive-data rule and re-run.
 ### Part 6 - Make It Reusable
 
 Save the chain in `course-materials/prompt-template.md`, replacing the specifics with slots:
-`{{incoming_request}}`, `{{brand}}`, `{{word_limit}}`. Those slots are exactly what an
-automation platform will map from a trigger in Module 4.
+`{{incoming_request}}`, `{{brand}}`, `{{word_limit}}`. In class you fill those slots manually;
+in a future connector workflow, those slots map from a trigger.
+
+### Part 7 - Add It To A Prompt Library
+
+In your ChatGPT Project or in the same chat, write a reusable prompt-library card:
+
+```text
+Prompt name:
+Business task:
+Inputs required:
+Output format:
+Do not use for:
+Required human review:
+Test cases:
+```
+
+The "do not use for" line matters. A support-reply drafting chain is not a legal, medical, or
+compliance advisor.
 
 ## Troubleshooting
 
@@ -234,6 +253,7 @@ The lab is complete when the student has:
 - Structured output captured for at least two sample requests, all three steps.
 - Row 2 flagged `human_review_required: "yes"` and routed to review — the proof the chain is safe.
 - The chain saved as a reusable, parameterized asset.
+- A prompt-library note with intended use, limits, and test cases.
 - No confidential data used anywhere (sample data only).
 
 ---
@@ -442,9 +462,9 @@ spreadsheet *is* the chain. Perfectly legitimate.
 
 5. **You parameterized the chain with `{{slots}}`. What are those slots, once this becomes a real
    automation?**
-   They're the fields the automation platform maps from its trigger — `{{incoming_request}}` is
-   the new email or new row. Parameterizing the prompt is what makes it a workflow step instead
-   of a one-off.
+   They're the fields a trigger or human operator supplies — `{{incoming_request}}` is the new
+   email, ticket, row, or pasted item. Parameterizing the prompt is what makes it a workflow
+   step instead of a one-off.
 
 ### What good looks like
 

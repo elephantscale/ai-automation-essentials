@@ -18,13 +18,12 @@ to reach for AI, and why the best workflows combine both.
 
 ## Tools
 
-- An approved **AI assistant** — Claude, ChatGPT, or Gemini (whichever your instructor
-  selects). No personal accounts if class access is provided.
+- **ChatGPT Enterprise** in the class VM. No personal accounts.
 - No automation platform is needed for this lab. You will act as the "rules engine"
   yourself, by hand, so you can feel exactly what a rules-based approach does and doesn't do.
 
-> **Tool-flexible.** Every prompt below works the same in Claude, ChatGPT, or Gemini — only
-> the buttons differ. Pick the one that's approved for your class and stay in it.
+> The prompts are portable, but this delivery uses ChatGPT Enterprise so everyone practices
+> in the same approved workspace.
 
 ## Sample assets
 

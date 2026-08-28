@@ -1,4 +1,4 @@
-# AI for Decisions & Insights
+# File Analysis, Dashboard Reading & Executive Briefs
 
 Elephant Scale
 
@@ -27,11 +27,14 @@ Elephant Scale
 * By the end of the module and lab:
   - **Summarize and extract** from documents, transcripts, and reports — with the evidence attached.
   - **Analyze a spreadsheet** with AI assistance — patterns, outliers, a recommended chart — no formulas, no code.
-  - **Read the numbers off a dashboard image** and turn them into a narrative.
+  - **Clean a messy CSV export** without changing the source file.
+  - **Read the numbers off a dashboard image** and cross-check them against source data.
   - Ask for a **trend or forecast** from sample data — and **sanity-check it** so you don't ship a trend that isn't there.
   - **Compare and classify** documents to pull out what matters.
   - Draw the line between **decision support and decision-making** — and keep the human on the right side of it.
-* Lab target: **generate trend insights from a sample dataset and validate them against the source** — catching an over-claimed trend before it reaches a slide.
+* Lab target: **upload/paste business files, clean messy data, read a dashboard image, validate
+  a trend, and produce a source-backed executive brief** — catching over-claims before they
+  reach a slide.
 
 ---
 
@@ -465,7 +468,8 @@ You said volume is "trending up ~15% per week." Before I use that:
 * Every technique in this module is the same discipline aimed at a different job:
   - **Summarize / extract** — name the reader, show the quotes, flag missing fields.
   - **Compare / classify** — material changes only, closed buckets, route what needs review.
-  - **Analyze data** — sanity-check first, patterns and outliers, verify any number that ships.
+  - **Analyze data** — sanity-check first, clean messy fields, verify any number that ships.
+  - **Read dashboard images** — useful, but cross-check against source data before presenting.
   - **Trend / forecast** — count the points, find the driver, demand a range, validate against the source.
   - **Decide** — AI supports, a named human decides anything consequential.
 * The thread through all of it: **ground the AI in your source, make it show the evidence, and stay the decision-maker.**
@@ -475,16 +479,43 @@ You said volume is "trending up ~15% per week." Before I use that:
 
 ---
 
-## Lab 05 - Decisions & Insights
+## Executive Briefs
+
+> Managers do not need your whole chat transcript. They need the short version, with enough
+> evidence to trust it and enough caveat to avoid bad decisions.
+
+* The final output is a one-page brief:
+  - sources used
+  - key findings
+  - evidence for each finding
+  - risks and caveats
+  - recommended next actions
+  - decision a human must make
+* Use `course-materials/executive-brief-template.md`.
+
+```text
+Create a one-page executive brief using only the analyses in this chat.
+Every finding must include evidence from a file, row ID, source quote, or weekly value.
+Separate what AI supported from what a human must decide.
+```
+
+> A good brief is not just shorter. It is more accountable: each claim has a receipt.
+
+---
+
+## Lab 05 - File Analysis, Dashboard Reading & Executive Briefs
 
 **Stop here and run Lab 05.**
 
 You will:
 
-1. **Summarize and extract** from the sample meeting notes — evidence first, with a source-quote column.
-2. Run an **AI data analysis** over `sample-support-requests.csv` — sanity pass, patterns, an outlier, a recommended chart.
-3. **Generate a trend insight** from a sample time series and ask for a forecast as a range.
-4. **Validate it against the source** — catch the over-claimed trend built on one outlier before it reaches a slide.
-5. Identify a **reporting or analysis task** AI could accelerate in your own work this quarter.
+1. **Extract** from sample meeting notes — evidence first, with a source-quote column.
+2. Run **AI data analysis** over `sample-support-requests.csv` — sanity pass, patterns, outlier, chart.
+3. **Clean** `sample-vendor-invoices.csv` — categories, amounts, dates, duplicates, credits.
+4. **Read** `sample-dashboard.png` and cross-check the image numbers against source data.
+5. **Generate and validate** a trend insight from a sample time series.
+6. Produce a source-backed **executive brief**.
 
-**Deliverable:** your evidence-based extraction, the data-analysis result, your trend-and-forecast output, and the validation that caught (or corrected) an over-claimed trend — plus one sentence on where AI supported the analysis and where a human still decides.
+**Deliverable:** extraction table, support analysis, vendor cleanup, dashboard cross-check,
+trend validation, executive brief, and one sentence naming what AI supported versus what a
+human still decides.
