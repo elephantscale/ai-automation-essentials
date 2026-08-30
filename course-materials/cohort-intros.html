@@ -318,7 +318,7 @@
 
 <script>
   (function () {
-    var segState = { ai: "", tools: "", concern: "" };
+    var segState = { ai: "", tools: [], concern: "" };
     function wireSeg(id, key) {
       var group = document.getElementById(id);
       group.addEventListener("click", function (e) {
@@ -330,8 +330,30 @@
         segState[key] = b.getAttribute("data-val");
       });
     }
+    function wireMultiSeg(id, key) {
+      var group = document.getElementById(id);
+      group.addEventListener("click", function (e) {
+        var b = e.target.closest("button");
+        if (!b) return;
+        var val = b.getAttribute("data-val");
+        var pressed = b.getAttribute("aria-pressed") === "true";
+        if (val === "None yet") {
+          Array.prototype.forEach.call(group.querySelectorAll("button"), function (x) {
+            x.setAttribute("aria-pressed", x === b && !pressed ? "true" : "false");
+          });
+        } else {
+          b.setAttribute("aria-pressed", pressed ? "false" : "true");
+          var none = group.querySelector('button[data-val="None yet"]');
+          if (none) none.setAttribute("aria-pressed", "false");
+        }
+        segState[key] = Array.prototype.map.call(
+          group.querySelectorAll('button[aria-pressed="true"]'),
+          function (x) { return x.getAttribute("data-val"); }
+        );
+      });
+    }
     wireSeg("ai", "ai");
-    wireSeg("tools", "tools");
+    wireMultiSeg("tools", "tools");
     wireSeg("concern", "concern");
 
     var form = document.getElementById("f");
@@ -346,7 +368,7 @@
       var who = name + (role ? "  —  " + role : "");
       var line2parts = [];
       if (segState.ai)    line2parts.push("AI comfort " + segState.ai + "/4");
-      if (segState.tools) line2parts.push(segState.tools);
+      if (segState.tools.length) line2parts.push("Tools tried: " + segState.tools.join(", "));
       var lines = [who];
       if (line2parts.length) lines.push(line2parts.join("  ·  "));
       var build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
