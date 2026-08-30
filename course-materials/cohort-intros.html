@@ -258,23 +258,28 @@
       </div>
 
       <div class="field">
-        <label class="q" for="build"><span class="n">05</span> One repetitive task you'd love to automate</label>
+        <label class="q" for="concern"><span class="n">05</span> Are you concerned about AI? Why?</label>
+        <textarea id="concern" placeholder="Yes — mostly around privacy and accuracy. Or: not really, I just want to learn practical uses."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q" for="build"><span class="n">06</span> One repetitive task you'd love to automate</label>
         <p class="hint">A sentence is plenty — the more concrete, the better I can aim examples at it. This is exactly the kind of workflow we'll build.</p>
         <textarea id="build" placeholder="Turning our weekly support emails into a triaged, logged, and drafted set of replies."></textarea>
       </div>
 
       <div class="field">
-        <label class="q" for="goal"><span class="n">06</span> One thing you want to walk away able to do</label>
+        <label class="q" for="goal"><span class="n">07</span> One thing you want to walk away able to do</label>
         <input type="text" id="goal" placeholder="Ship one no-code automation my team can actually reuse." />
       </div>
 
       <div class="field">
-        <label class="q" for="topic"><span class="n">07</span> Anything you especially want covered? <span class="opt">— optional</span></label>
+        <label class="q" for="topic"><span class="n">08</span> Anything you especially want covered? <span class="opt">— optional</span></label>
         <input type="text" id="topic" placeholder="Prompt chains, AI agents, ROI, data privacy…" />
       </div>
 
       <div class="field">
-        <label class="q" for="about"><span class="n">08</span> Something non-technical about you <span class="opt">— optional</span></label>
+        <label class="q" for="about"><span class="n">09</span> Something non-technical about you <span class="opt">— optional</span></label>
         <input type="text" id="about" placeholder="Hobby, hometown, or your go-to coffee order." />
       </div>
 
@@ -337,7 +342,8 @@
       if (segState.tools) line2parts.push(segState.tools);
       var lines = [who];
       if (line2parts.length) lines.push(line2parts.join("  ·  "));
-      var build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
+      var concern = val("concern"), build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
+      if (concern) lines.push("Concerned about AI: " + concern);
       if (build) lines.push("Wants to automate: " + build);
       if (goal)  lines.push("Goal: " + goal);
       if (topic) lines.push("Curious about: " + topic);
