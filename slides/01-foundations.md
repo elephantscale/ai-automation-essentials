@@ -326,7 +326,7 @@ NEW REQUEST
 
 > This course is the tour of those five questions. Today's answer to "where does it fit" is
 > the whole point of your module review — and every later module deepens one of the others.
-
+![](../images/pexels-vlada-karpovich-7433850.jpg)
 ---
 
 ## Safety Habits — Starting Today
