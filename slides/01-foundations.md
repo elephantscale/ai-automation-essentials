@@ -78,6 +78,7 @@ Elephant Scale
 > Think of context as the model's desk. Anything on the desk, it can use. Anything in a
 > drawer you never opened, it cannot — no matter how obvious it seems to you.
 
+![](../images/pexels-markus-winkler-1430818-4065405.jpg)
 ---
 
 ## Key Terms — Without the Jargon (2 of 2)
