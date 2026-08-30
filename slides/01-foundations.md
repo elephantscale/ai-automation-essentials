@@ -341,6 +341,7 @@ NEW REQUEST
 > These matter *more* as we add file uploads, custom assistants, and automation that runs on
 > its own. Good habits are cheap now and expensive to retrofit later.
 
+![](../images/pexels-ysnapshotjournal-1675356955-34591865.jpg)
 ---
 
 ## Module Review — Your Turn
