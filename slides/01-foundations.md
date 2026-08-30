@@ -37,6 +37,7 @@ Elephant Scale
 > New this decade: software that produces a fluent first draft of almost any document-shaped
 > task. That is genuinely new — and genuinely limited, in specific ways this module makes clear.
 
+![](../images/pexels-mikebird-191738.jpg)
 ---
 
 ## What Generative AI Is *Not*
@@ -128,6 +129,7 @@ Elephant Scale
 > work it is the *right* tool — and this course teaches you to combine it with AI, not
 > replace it.
 
+![](../images/pexels-joshuamiranda-4027658.jpg)
 ---
 
 ## Generative AI vs. Rules-Based Automation
@@ -260,6 +262,7 @@ NEW REQUEST
 > approve. That's why every serious deployment keeps a **human in the loop** on anything
 > consequential. Autonomy is earned one safe checkpoint at a time.
 
+![](../images/Agentic Loop.jpeg)
 ---
 
 ## Common Myths — In Both Directions
