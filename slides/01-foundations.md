@@ -361,6 +361,7 @@ NEW REQUEST
 > report summaries, drafting first replies, cleaning messy data. Start where a wrong draft is
 > cheap to catch.
 
+![](../images/pexels-rdne-7045558.jpg)
 ---
 
 ## Foundations — Cheat Sheet
