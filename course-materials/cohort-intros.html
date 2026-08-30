@@ -319,7 +319,7 @@
 
 <script>
   (function () {
-    var segState = { ai: "", tools: [], concern: "" };
+    var segState = { ai: "", tools: [], concern: [] };
     function wireSeg(id, key) {
       var group = document.getElementById(id);
       group.addEventListener("click", function (e) {
@@ -346,7 +346,7 @@
     }
     wireSeg("ai", "ai");
     wireMultiSeg("tools", "tools");
-    wireSeg("concern", "concern");
+    wireMultiSeg("concern", "concern");
 
     var form = document.getElementById("f");
     var result = document.getElementById("result");
@@ -364,7 +364,7 @@
       var lines = [who];
       if (line2parts.length) lines.push(line2parts.join("  ·  "));
       var build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
-      if (segState.concern) lines.push("Concerned about AI: " + segState.concern);
+      if (segState.concern.length) lines.push("Concerned about AI: " + segState.concern.join(", "));
       if (build) lines.push("Wants to automate: " + build);
       if (goal)  lines.push("Goal: " + goal);
       if (topic) lines.push("Curious about: " + topic);
