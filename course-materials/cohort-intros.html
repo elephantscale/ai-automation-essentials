@@ -258,8 +258,14 @@
       </div>
 
       <div class="field">
-        <label class="q" for="concern"><span class="n">05</span> Are you concerned about AI? Why?</label>
-        <textarea id="concern" placeholder="Yes — mostly around privacy and accuracy. Or: not really, I just want to learn practical uses."></textarea>
+        <div class="q"><span class="n">05</span> Are you concerned about AI? Why?</div>
+        <div class="seg" id="concern" role="group" aria-label="AI concern">
+          <button type="button" data-val="Yes - privacy/security">Yes - privacy/security</button>
+          <button type="button" data-val="Yes - accuracy/trust">Yes - accuracy/trust</button>
+          <button type="button" data-val="Yes - job impact">Yes - job impact</button>
+          <button type="button" data-val="Not really">Not really</button>
+          <button type="button" data-val="Unsure">Unsure</button>
+        </div>
       </div>
 
       <div class="field">
@@ -312,7 +318,7 @@
 
 <script>
   (function () {
-    var segState = { ai: "", tools: "" };
+    var segState = { ai: "", tools: "", concern: "" };
     function wireSeg(id, key) {
       var group = document.getElementById(id);
       group.addEventListener("click", function (e) {
@@ -326,6 +332,7 @@
     }
     wireSeg("ai", "ai");
     wireSeg("tools", "tools");
+    wireSeg("concern", "concern");
 
     var form = document.getElementById("f");
     var result = document.getElementById("result");
@@ -342,8 +349,8 @@
       if (segState.tools) line2parts.push(segState.tools);
       var lines = [who];
       if (line2parts.length) lines.push(line2parts.join("  ·  "));
-      var concern = val("concern"), build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
-      if (concern) lines.push("Concerned about AI: " + concern);
+      var build = val("build"), goal = val("goal"), topic = val("topic"), about = val("about");
+      if (segState.concern) lines.push("Concerned about AI: " + segState.concern);
       if (build) lines.push("Wants to automate: " + build);
       if (goal)  lines.push("Goal: " + goal);
       if (topic) lines.push("Curious about: " + topic);
