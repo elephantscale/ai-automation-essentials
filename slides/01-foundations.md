@@ -262,7 +262,7 @@ NEW REQUEST
 > approve. That's why every serious deployment keeps a **human in the loop** on anything
 > consequential. Autonomy is earned one safe checkpoint at a time.
 
-![](../images/Agentic Loop.jpeg)
+![](../images/Agentic_Loop.jpeg)
 ---
 
 ## Common Myths — In Both Directions
