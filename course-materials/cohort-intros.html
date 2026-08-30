@@ -336,17 +336,8 @@
       group.addEventListener("click", function (e) {
         var b = e.target.closest("button");
         if (!b) return;
-        var val = b.getAttribute("data-val");
         var pressed = b.getAttribute("aria-pressed") === "true";
-        if (val === "None yet") {
-          Array.prototype.forEach.call(group.querySelectorAll("button"), function (x) {
-            x.setAttribute("aria-pressed", x === b && !pressed ? "true" : "false");
-          });
-        } else {
-          b.setAttribute("aria-pressed", pressed ? "false" : "true");
-          var none = group.querySelector('button[data-val="None yet"]');
-          if (none) none.setAttribute("aria-pressed", "false");
-        }
+        b.setAttribute("aria-pressed", pressed ? "false" : "true");
         segState[key] = Array.prototype.map.call(
           group.querySelectorAll('button[aria-pressed="true"]'),
           function (x) { return x.getAttribute("data-val"); }
