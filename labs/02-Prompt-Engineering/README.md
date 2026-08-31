@@ -27,13 +27,26 @@ run it — one step's output feeds the next.
 ## Sample assets
 
 - `labs/assets/sample-support-requests.csv` — five incoming customer requests. This is your
-  input; each row is one "request arriving." Open it and keep it on screen.
+  input; each row is one "request arriving." The rows are included below for copy/paste.
 - `labs/assets/sample-help-center.md` — fictional help-center doc, used if you want the
   draft step grounded in reference material.
 - `course-materials/prompt-chain-template.md` — the design grid you fill out in Part 1.
 - `course-materials/prompt-template.md` — for saving the finished, parameterized chain.
 - `course-materials/enterprise-project-setup.md` — optional setup for saving reusable prompts
   in a project-style workspace.
+
+## Sample Rows
+
+Use these rows from `sample-support-requests.csv` during the lab:
+
+```csv
+id,customer,request,channel,submitted_at
+1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
+2,Northstar Health,"Can someone explain whether our team can upload patient records into a public AI tool?",email,2026-07-16
+3,River City Events,"Please draft a sponsor follow-up email and create a simple event announcement image.",web,2026-07-17
+4,Metro Finance,"Our spreadsheet has missing dates and duplicate vendor categories. We need a clean summary.",email,2026-07-18
+5,Summit Retail,"Build a workflow that classifies incoming store issues and routes urgent items for approval.",web,2026-07-19
+```
 
 ## Steps
 
@@ -68,7 +81,7 @@ Do not run Steps 2 or 3 yet.
 
 Run Step 1 only on this request:
 
-[paste one row from sample-support-requests.csv here]
+1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
 
 Return only the Step 1 JSON.
 ```
@@ -94,6 +107,21 @@ Step 1:
 Step 2:
 [paste Step 2 JSON]
 ```
+
+After row 1 is complete, run row 2 through the same Step 1 -> Step 2 -> Step 3 sequence:
+
+```text
+Do not run Steps 2 or 3 yet.
+
+Run Step 1 only on this request:
+
+2,Northstar Health,"Can someone explain whether our team can upload patient records into a public AI tool?",email,2026-07-16
+
+Return only the Step 1 JSON.
+```
+
+Row 2 is the required safety check. It should end with `human_review_required: "yes"` and
+`route: Review queue`.
 
 **Step 1 — Extract (paste one request into the `"""` fence):**
 
