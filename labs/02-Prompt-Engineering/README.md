@@ -50,9 +50,28 @@ run it — one step's output feeds the next.
 
 ## Prompt Starter
 
-Copy these three prompts. **Type multi-line prompts with Shift+Enter for new lines and
-Enter to send, or just paste each one in whole.** Run them in order in the same chat, so
-the assistant can see each previous answer.
+Use these as three separate prompts. Do not paste all three and expect ChatGPT to run the
+chain. For each request, run them one at a time:
+
+1. Send **Step 1** with one CSV row in the `"""` fence.
+2. Copy the Step 1 JSON.
+3. Send **Step 2** with the Step 1 JSON pasted at the bottom.
+4. Copy the Step 2 JSON.
+5. Send **Step 3** with both JSON objects pasted at the bottom.
+
+If you already pasted all three prompt templates into the chat, continue by sending:
+
+```text
+Do not run Steps 2 or 3 yet.
+
+Run Step 1 only on this request:
+
+[paste one row from sample-support-requests.csv here]
+
+Return only the Step 1 JSON.
+```
+
+Then use that JSON as the input to Step 2.
 
 **Step 1 — Extract (paste one request into the `"""` fence):**
 
@@ -153,6 +172,18 @@ becomes `"not specified"`, never a guess; a human reviews before anything is sen
 Open a fresh chat. Paste the **Step 1** prompt, dropping **row 1 (Acme Logistics)** into the
 `"""` fence. Run it. You should get four fields back as JSON, with `product` and `dates` as
 `"not specified"` — that's the fallback firing, not a failure.
+
+If you pasted all three prompt templates first, send this next:
+
+```text
+Do not run Steps 2 or 3 yet.
+
+Run Step 1 only on this request:
+
+1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
+
+Return only the Step 1 JSON.
+```
 
 Capture the JSON right in the chat (no separate app needed).
 
