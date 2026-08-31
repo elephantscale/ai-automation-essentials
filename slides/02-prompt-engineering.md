@@ -16,6 +16,8 @@ Elephant Scale
 
 > The prompt is the specification.
 
+![](../images/pexels-vyvan-bui-vy-van-1139609066-39174644.jpg)
+
 ---
 
 ## Anatomy of a Strong Prompt — Six Parts
