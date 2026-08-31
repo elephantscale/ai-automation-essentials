@@ -47,14 +47,17 @@ mean something clear to a person, but do not use the exact words the rules engin
 
 ## Part 1 - Rules-Engine Pass
 
-Copy the prompt below into ChatGPT. Then copy the full contents of
-`labs/assets/lab01-routing-requests.csv` and paste it under the prompt.
+Start a fresh ChatGPT chat. Copy this whole block into one message:
 
 ```text
 You are simulating a simple rules-based routing engine.
 
 Apply these rules exactly as written. Do not infer intent. Do not use common sense.
 Only route based on the literal keywords listed below.
+
+Inspect only the request column.
+keyword hit = the exact rule keyword found in the request column.
+If no exact rule keyword appears, keyword hit = none.
 
 Rules:
 - If the request contains "invoice", "payment", or "refund" -> Finance
@@ -65,11 +68,8 @@ Rules:
 
 Return a Markdown table:
 id | customer | keyword hit | rules route
-```
 
-For convenience, these are the CSV rows to paste:
-
-```csv
+CSV data:
 id,customer,request,channel,submitted_at
 1,Brightline Books,"My invoice shows a duplicate payment for this month.",email,2026-07-15
 2,Oak Valley Clinic,"I can't get into my workspace after the reset.",web,2026-07-16
@@ -78,6 +78,9 @@ id,customer,request,channel,submitted_at
 5,Summit Retail,"Please send a quote for the enterprise plan.",web,2026-07-19
 6,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-20
 ```
+
+If your result has only five rows, or includes Northstar Health / River City Events / Metro
+Finance, you used the wrong dataset. Restart with the six rows above.
 
 Expected pattern:
 
