@@ -36,6 +36,7 @@ Enterprise as the default and only required student tool.
 ## Sample files in `labs/assets/`
 
 - `sample-support-requests.csv` — 5 support requests (classification / automation / analysis)
+- `lab01-routing-requests.csv` — 6 operational routing requests for the first rules-vs-AI lab
 - `sample-meeting-notes.md` — meeting notes (summarize / extract / prompt chains)
 - `sample-help-center.md` — fictional help-center doc (grounding, guardrails)
 - `sample-vendor-invoices.csv` — a deliberately messy vendor export (data clean-up)

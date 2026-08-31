@@ -60,6 +60,9 @@ done
 for lab in "$LABS_DIR"/[0-9][0-9]-*/README.md; do
   [ -f "$lab" ] && ok "lab guide: $(basename "$(dirname "$lab")")"
 done
+for asset in lab01-routing-requests.csv sample-support-requests.csv sample-meeting-notes.md sample-help-center.md sample-vendor-invoices.csv sample-dashboard.png; do
+  [ -f "$LABS_DIR/assets/$asset" ] && ok "sample asset: $asset" || bad "sample asset missing: $asset"
+done
 
 head "Summary"
 printf "  ${G}%d passed${N}, ${Y}%d warnings${N}, ${R}%d failed${N}\n" "$PASS" "$WARN" "$FAIL"

@@ -157,63 +157,66 @@ Fails by            doing nothing on a new case   confidently doing the wrong th
 
 ## Worked Example — The Same Task, Two Ways
 
-* Task: **route incoming support requests** to the right queue. Sample data: `labs/assets/sample-support-requests.csv` (5 requests).
+* Task: **route incoming support requests** to the right queue. Sample data:
+  `labs/assets/lab01-routing-requests.csv` (6 requests).
 
 **Approach A — Rules-based (keyword matching):**
 
 ```text
-IF request contains "invoice" OR "payment" OR "charge"  → route to Billing
-IF request contains "error" OR "crash" OR "down"        → route to Technical
-IF request contains "patient" OR "records" OR "HIPAA"   → flag for Compliance
-ELSE                                                     → route to General
+IF request contains "invoice", "payment", or "refund"  → Finance
+IF request contains "login", "password", or "account"  → Account Support
+IF request contains "demo", "pricing", or "quote"      → Sales
+IF request contains "bug", "error", or "crash"         → Technical Support
+ELSE                                                    → General
 ```
 
-* Predictable, instant, free, fully auditable — you can read exactly why each request went where.
+* Predictable, instant, cheap, fully auditable — you can read exactly why each request went where.
 
 **Approach B — Generative AI (understands meaning):**
 
 ```text
-Read each support request. Return: category (billing / technical / account /
-sales / other), priority (urgent / normal / low), and a one-line summary.
-Set human_review_required to "yes" if it involves sensitive data or is ambiguous.
+Read each support request. Route it by meaning, not just keywords.
+Allowed routes: Finance, Account Support, Sales, Technical Support,
+Implementation / Automation Help, General.
 ```
 
-* Reads intent even when the keywords aren't there — catches the request that *means* "billing" without using the word.
+* Reads intent even when the expected keywords are not there.
 
 ---
 
 ## What Happens on the Real Rows
 
-* Run both approaches on the five sample requests. Watch **where each one wins:**
+* Run both approaches on the six sample requests. Watch where each automation style works:
 
 ```text
-Row  Request (abbreviated)              Rules-based result        AI result
-1    "set up AI to summarize reports"   General (no keyword hit)  Technical ✓ (understood)
-2    "upload patient records to AI?"    Compliance ✓ (matched)    Account + REVIEW ✓
-3    "draft sponsor email AND an image" General (no keyword hit)  Other + low-confidence ✓
-4    "missing dates, dup categories"    General (no keyword hit)  Technical ✓ (understood)
-5    "classify & route store issues"    General (no keyword hit)  Sales ✓ (understood)
+Row  Request (abbreviated)              Rules-based result       AI result
+1    "invoice... duplicate payment"     Finance ✓                Finance ✓
+2    "can't get into my workspace"      General (no keyword)     Account Support ✓
+3    "options for 50 users"             General (no keyword)     Sales ✓
+4    "crash when I export"              Technical Support ✓      Technical Support ✓
+5    "send a quote"                     Sales ✓                  Sales ✓
+6    "set up AI to summarize reports"   General (no keyword)     Implementation Help ✓
 ```
 
-* **Rules-based won row 2** — the keyword "patient records" is an exact, reliable trigger, and you *want* that one deterministic and auditable.
-* **AI won rows 1, 3, 4, 5** — no keyword matched, but it understood what each customer actually wanted, and it *flagged row 3 as ambiguous* on its own.
+* Rules were sufficient when the request used the expected operational words.
+* AI added value when the business meaning was clear but the expected keyword was missing.
 
-> Rules-based is precise but brittle: perfect when the trigger word is always there, blind
-> when it isn't. AI is flexible but probabilistic: reads intent, but you must review it.
+> This is not "rules beat AI." It is "rules automate stable signals; AI handles messy
+> language."
 
 ---
 
 ## Why You Combine Them
 
-* The strongest real-world workflows use **both**, each where it's strong:
+* The strongest real-world workflows often use **both**, each where it fits:
 
 ```text
 NEW REQUEST
    │
    ▼
-[ RULES ]  Does it contain "patient / records / HIPAA / SSN"?
-   ├── YES → route straight to Compliance queue     (deterministic, auditable, safe)
-   └── NO  → hand to the AI step ▼
+[ RULES ]  Does it contain obvious routing keywords?
+   ├── YES → route to the matching queue
+   └── NO  → hand to the AI step
                  │
                  ▼
              [ AI ]  Read intent → category, priority, summary, draft reply
@@ -224,10 +227,12 @@ NEW REQUEST
                         ELSE                     → log and draft
 ```
 
-* Rules handle the **known, high-stakes, must-be-exact** cases. AI handles the **messy, open-ended, language-heavy** middle. Rules then enforce the **safe routing** of the AI's output.
+* Rules handle the **known, stable, explicit** cases. AI handles the **messy,
+  open-ended, language-heavy** middle. Rules can still enforce routing once AI returns
+  structured fields.
 
-> The pattern to remember: **rules for the hard edges, AI for the soft middle, rules again to
-> keep AI's output on rails.** You'll build exactly this shape in Module 4.
+> The pattern to remember: **rules for stable signals, AI for interpretation, rules and humans
+> for control.** You'll build this shape again in Module 4.
 
 ---
 
@@ -333,7 +338,7 @@ NEW REQUEST
 
 * Adopt these from your very first prompt:
   - **Approved accounts and data** — sensitive work only in an approved enterprise workspace.
-  - **Never paste confidential material into a public tool** — sample request #2 (patient records) is exactly this trap.
+  - **Never paste confidential material into a public tool** — use the fictional class files.
   - **Ask for assumptions and uncertainties** in the prompt.
   - **Verify facts before reuse** — names, numbers, dates, citations.
   - **Keep a human in the loop** for anything that sends, publishes, deletes, or buys.
@@ -370,7 +375,7 @@ NEW REQUEST
   - Generative AI is a **pattern-completer**, not a fact database, calculator, or decision-maker.
   - The terms that matter: **model, prompt, context, tokens, hallucination, bias, tool use, agent.**
   - **Rules-based** = exact, auditable, brittle. **Generative AI** = flexible, fluent, must be reviewed. They fail in **opposite** directions.
-  - **Combine them:** rules for the hard edges, AI for the soft middle, rules again to keep AI's output on rails.
+  - **Combine them:** rules for stable signals, AI for interpretation, rules and humans for control.
   - 2026 assistants are workbenches; this class uses **ChatGPT Enterprise**. **Agents** act; keep a human in the loop.
   - AI operations = five leader questions: **where it fits, what data is allowed, who reviews, how we measure, what the guardrails are.**
 
@@ -379,7 +384,7 @@ NEW REQUEST
 
 ---
 
-## Lab 01 - AI vs. Rules-Based Routing
+## Lab 01 - Rules Automation vs AI Interpretation
 
 **Stop here and run Lab 01.**
 
@@ -390,12 +395,13 @@ NEW REQUEST
 
 You will:
 
-1. Route the five sample support requests using a **rules-based** approach (keyword matching).
-2. Route the same five requests using an **AI assistant** that reads meaning.
-3. Compare the two, row by row, and note **where each approach wins**.
-4. Decide, for this task, how you'd **combine** them into one safe workflow.
+1. Open `labs/assets/lab01-routing-requests.csv`.
+2. Ask ChatGPT to simulate a **rules engine** using exact keyword rules.
+3. Ask ChatGPT to route the same six requests as an **AI assistant** that reads meaning.
+4. Compare the two tables and note where rules were sufficient vs where AI added value.
+5. Write one sentence describing a hybrid workflow.
 
-**Deliverable:** both sets of routing results, a short comparison naming where rules won and
-where AI won, and one or two sentences on how you'd combine them.
+**Deliverable:** rules-engine table, AI routing table, comparison table, and one hybrid
+workflow sentence.
 
-**Time:** ~45-60 min.
+**Time:** ~35-45 min.

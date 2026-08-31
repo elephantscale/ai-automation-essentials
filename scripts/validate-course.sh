@@ -37,6 +37,7 @@ printf "\n${B}Content checks${N}\n"
 grep -qi "AI Automation Essentials" "$ROOT_DIR/README.md" && ok "README course title" || bad "README course title missing"
 grep -qi "Course Outline" "$ROOT_DIR/outline.md" && ok "outline has course outline" || bad "outline course outline missing"
 grep -qi "Capstone" "$ROOT_DIR/labs/07-ROI-Adoption-Capstone/README.md" && ok "capstone lab present" || bad "capstone lab missing"
+[ -f "$ROOT_DIR/labs/assets/lab01-routing-requests.csv" ] && ok "lab 01 routing asset present" || bad "lab 01 routing asset missing"
 printf "\n"
 if [ "$FAIL" -eq 0 ]; then printf "${G}${B}Course repo structure is valid.${N}\n"; exit 0
 else printf "${R}${B}%d validation failure(s).${N}\n" "$FAIL"; exit 1; fi
