@@ -6,128 +6,103 @@ Elephant Scale
 
 ## Why This Module
 
-* Everyone at work is now expected to have an opinion about AI. This module gives you a **grounded** one.
-  * Not hype, not fear — a practical, working mental model you can defend in a meeting.
+* Grounded opinion
 
-* The conversation has moved past "write me a better email." Organizations are wiring AI into **workflows** — routing tickets, filing documents, triaging inboxes, watching data for exceptions.
+* From chat to workflows
 
-* By the end of this module you will be able to:
-  - Say plainly what generative AI **is and isn't**, and how it works — without the jargon.
-  - Use the core terms correctly: model, context, tokens, prompt, hallucination, bias, agent, tool use.
-  - Tell **generative AI apart from rules-based automation** — and know when to combine them.
-  - Name the 2026 assistant landscape and what an "AI agent" actually is.
-  - Separate the real capabilities from the common myths, in both directions.
+* Mental model for the rest of the course
 
-> The goal is not to memorize product names — those change every quarter. The goal is a
-> mental model that lasts: what this technology is good at, what it's weak at, and how it
-> fits alongside the automation you already run.
+* Where AI fits in automation
+
+> Product names change. The mental model is the durable part.
 
 ---
 
 ## What Generative AI Is
 
-* **Generative AI** produces new content — text, tables, images, code, summaries — from a description of what you want.
-  * You ask in plain language; it writes, drafts, rewrites, extracts, classifies, explains.
+* Creates new content from instructions
 
-* The engine behind ChatGPT Enterprise and similar assistants is a **large language model (LLM)**.
-  * Trained on an enormous amount of text; learned the patterns of how language fits together.
+* Works in plain language
 
-* One capability, enormous range: the same assistant can be a writer, an analyst, a tutor, a reviewer, a planner — set by **your prompt**, not a different product.
+* Drafts, summarizes, extracts, classifies
 
-> New this decade: software that produces a fluent first draft of almost any document-shaped
-> task. That is genuinely new — and genuinely limited, in specific ways this module makes clear.
+* One tool, many roles
+
+> A flexible drafting and analysis assistant - powerful, but not automatically correct.
 
 ![](../images/pexels-mikebird-191738.jpg)
 ---
 
 ## What Generative AI Is *Not*
 
-* **Not a fact database.** It doesn't "look things up." It predicts likely text. Sometimes that text is true; sometimes it's plausible and wrong.
-* **Not a calculator.** It *predicts* numbers rather than computing them. Use a real tool for exact arithmetic.
-* **Not aware of your company.** It knows nothing about your customers, your policies, or last week's meeting unless you provide it.
-* **Not up to the minute.** Its training has a cutoff date; without web access it doesn't know today's news.
-* **Not a decision-maker.** It's a drafting and analysis assistant. The human stays accountable for anything consequential.
+* Not a fact database
+* Not a calculator
+* Not company-aware by default
+* Not automatically current
+* Not the decision-maker
 
-> Most AI disappointments trace to expecting one of these five. Set the expectation
-> correctly and the tool stops surprising you.
+> Most AI disappointments come from expecting one of these.
 
 ---
 
 ## How a Language Model Works, in Plain Language
 
-* Given the text so far, an LLM predicts what comes next — **one piece at a time** — then repeats. That's the whole loop.
-* No fact database inside, no little reasoner — an extraordinarily good **pattern-completer**, trained on vast amounts of text.
-* You need the **consequences**, not the math:
-  - Fluent, well-structured drafts, **fast**.
-  - Can be **confidently wrong** — a smooth sentence is not a true one.
-  - Doesn't know your **private context** unless you provide it.
-  - Follows **specific** instructions far better than vague ones.
-  - Works better when the **source material is separated** from the instructions.
+* Predicts the next piece of text
+* Pattern completion, not lookup
+* Fluent output
+* Confident errors
+* Context matters
+* Specific instructions matter
 
-> Treat it as a brilliant, fast, overconfident assistant who has read everything and
-> remembers nothing about *your* situation until you tell it.
+> It sounds informed before it is grounded.
 
 ---
 
 ## Key Terms — Without the Jargon (1 of 2)
 
-* **Model** — the AI system itself. A trained pattern-completer you send text to and get text back.
-* **Prompt** — what you type: your instructions plus any material to work on. Your half of the conversation.
-* **Context** — everything the model can "see" at once: your prompt, the files you attached, the conversation so far. Outside the context, it's blind.
-* **Tokens** — the small chunks (roughly word-pieces) the model reads and writes in. Why it matters: there's a **limit** to how much context fits, and paid tools **bill per token**.
+* Model
+* Prompt
+* Context
+* Tokens
 
-> Think of context as the model's desk. Anything on the desk, it can use. Anything in a
-> drawer you never opened, it cannot — no matter how obvious it seems to you.
+> Context is what the model can see.
 
 ![](../images/pexels-markus-winkler-1430818-4065405.jpg)
 ---
 
 ## Key Terms — Without the Jargon (2 of 2)
 
-* **Hallucination** — a confident, fluent answer that is simply **made up**: an invented statistic, a fake citation, a plausible wrong name. The failure mode to respect most.
-* **Bias** — the model reflects patterns in its training data, including unfair ones. It can skew tone, assumptions, or recommendations in ways you must watch for.
-* **Tool use** — when an assistant is allowed to *do* something beyond writing text: search the web, run a calculation, read a file, call another app.
-* **Agent** — an AI that, given a goal, **chooses its own steps** and uses tools to pursue it, instead of following a fixed script. More on this shortly.
+* Hallucination
+* Bias
+* Tool use
+* Agent
 
-> Keep hallucination and bias front of mind all week. They aren't rare edge cases — they're
-> everyday properties of the technology that your review habits exist to catch.
+> These terms explain the rest of the course.
 
 ---
 
 ## Multimodal AI — Beyond Text
 
-* **Multimodal** = the assistant reads and produces more than words. Hand the material over directly instead of retyping it.
-* Takes in:
-  - Documents and PDFs
-  - Spreadsheets and CSVs
-  - Screenshots and photos
-  - Charts and diagrams
-  - Audio (and in some tools, video)
-* Produces text, tables, and **generated images** on the way back.
-* Changes the workflow: upload a messy vendor spreadsheet and say *"flag the missing dates and merge the duplicate categories."* The file **is** the input.
+* Documents and PDFs
+* Spreadsheets and CSVs
+* Screenshots and photos
+* Charts and diagrams
+* Audio and video
 
-> We lean on this all week — analyzing documents, reading a dashboard image, cleaning a
-> spreadsheet. If you're still copy-pasting text out of files, you're working too hard.
+> The file can be the prompt.
 
 ---
 
 ## The Other Half — Rules-Based Automation
 
-* Long before generative AI, software has automated work with **rules-based automation**: fixed, explicit logic a person wrote in advance.
-  * "**If** a new row is added, **then** copy it to this sheet and email the owner."
-  * "**If** the subject line contains 'invoice', **then** file it in the Finance folder."
+* If-this-then-that logic
 
-* You already rely on this everywhere:
-  - Email filters and inbox rules
-  - Spreadsheet formulas
-  - Zapier / Make / Power Automate "if-this-then-that" flows
-  - Form routing, auto-responders, approval chains
+* Email filters
+* Spreadsheet formulas
+* Workflow tools
+* Approval chains
 
-* Its defining trait: it does **exactly** what it's told, every time, and **nothing** it wasn't told.
-
-> Rules-based automation isn't old-fashioned or obsolete. For a huge amount of business
-> work it is the *right* tool — and this course teaches you to combine it with AI, not
-> replace it.
+> Rules are not obsolete. They are part of the automation stack.
 
 ![](../images/pexels-joshuamiranda-4027658.jpg)
 ---
@@ -152,10 +127,11 @@ Fails by            missing the new case         sounding right when wrong
 
 ## Worked Example — The Same Task, Two Ways
 
-* Task: **route incoming support requests** to the right queue. Sample data:
-  `labs/assets/lab01-routing-requests.csv` (6 requests).
+* Task: route support requests
 
-**Approach A — Rules-based (keyword matching):**
+* Sample data: `lab01-routing-requests.csv`
+
+* Approach A: rules
 
 ```text
 IF request contains "invoice", "payment", or "refund"  → Finance
@@ -165,23 +141,19 @@ IF request contains "bug", "error", or "crash"         → Technical Support
 ELSE                                                    → General
 ```
 
-* Predictable, instant, cheap, fully auditable — you can read exactly why each request went where.
-
-**Approach B — Generative AI (understands meaning):**
+* Approach B: AI interpretation
 
 ```text
-Read each support request. Route it by meaning, not just keywords.
-Allowed routes: Finance, Account Support, Sales, Technical Support,
-Implementation / Automation Help, General.
+Route by meaning, not just keywords.
 ```
 
-* Reads intent even when the expected keywords are not there.
+> Same task. Different automation behavior.
 
 ---
 
 ## What Happens on the Real Rows
 
-* Run both approaches on the six sample requests. Watch where each automation style works:
+* Expected keywords
 
 ```text
 Row  Request (abbreviated)              Rules-based result       AI result
@@ -193,17 +165,16 @@ Row  Request (abbreviated)              Rules-based result       AI result
 6    "set up AI to summarize reports"   General (no keyword)     Implementation Help ✓
 ```
 
-* Rules were sufficient when the request used the expected operational words.
-* AI added value when the business meaning was clear but the expected keyword was missing.
+* Missing keywords
 
-> This is not "rules beat AI." It is "rules automate stable signals; AI handles messy
-> language."
+* Clear intent
 
+> Rules handle stable signals. AI handles messy language.
 ---
 
 ## Why You Combine Them
 
-* The strongest real-world workflows often use **both**, each where it fits:
+* Rules first
 
 ```text
 NEW REQUEST
@@ -222,160 +193,130 @@ NEW REQUEST
                         ELSE                     → log and draft
 ```
 
-* Rules handle the **known, stable, explicit** cases. AI handles the **messy,
-  open-ended, language-heavy** middle. Rules can still enforce routing once AI returns
-  structured fields.
+* AI for interpretation
 
-> The pattern to remember: **rules for stable signals, AI for interpretation, rules and humans
-> for control.** You'll build this shape again in Module 4.
+* Rules and humans for control
+
+> You will build this shape again in Module 4.
 
 ---
 
 ## The 2026 Landscape — Assistants As Workbenches
 
-* Modern assistants are no longer just chat boxes. They are workbenches:
-  - reasoning modes
-  - file upload
-  - data analysis
-  - image understanding
-  - project-style context
-  - connectors or apps when enabled
-* This class uses **ChatGPT Enterprise** in the VM, so everyone practices in the same approved workspace.
+* Reasoning modes
+* File upload
+* Data analysis
+* Image understanding
+* Project context
+* Connectors and apps
 
-> Product names matter less than the workflow habit: provide context, constrain the task,
-> verify the output, and keep a human accountable.
+> This class uses ChatGPT Enterprise in the VM.
 
 ---
 
 ## The Rise of AI Agents
 
-* Where the field is moving in 2026: from AI that **answers** to AI that **acts**.
-* The ladder, rung by rung:
-  - **Assistant** — you ask, it answers. You do everything with the answer.
-  - **Tool use** — you ask, it searches the web or runs a calculation to answer better.
-  - **Automation** — a fixed workflow calls AI as one step, over and over, without you.
-  - **Agent** — given a goal, it **plans its own steps**, uses tools, and works toward the goal with less hand-holding.
+* Assistant
+* Tool use
+* Automation
+* Agent
 
-* An agent handling "process this refund request" might: read the ticket → look up the order → check the policy → draft the reply → queue it for approval. It chose that sequence.
-
-> Agents are powerful and genuinely new — and they can take actions you didn't individually
-> approve. That's why every serious deployment keeps a **human in the loop** on anything
-> consequential. Autonomy is earned one safe checkpoint at a time.
+> From answering to acting.
 
 ![](../images/Agentic_Loop.jpeg)
 ---
 
 ## Common Myths — In Both Directions
 
-* Overhyped — **AI can't really:**
-  - "It's always right." No — it's confidently wrong on a predictable set of tasks.
-  - "It knows my business." No — not until you give it your context.
-  - "It'll replace the whole team." No — it drafts and accelerates; humans still decide.
-  - "It thinks like a person." No — it completes patterns; there's no understanding underneath.
+* Always right
 
-* Underhyped — **AI genuinely can:**
-  - Turn messy notes into a clean, structured table in seconds.
-  - Read a 40-page document and answer questions grounded in it.
-  - Draft a first version of almost any routine business document.
-  - Classify, summarize, and extract at a volume no person would sit through.
+* Already knows your business
 
-> The realistic view is boring and useful: a fast, tireless, overconfident drafting-and-
-> analysis assistant. Enormous leverage on the right tasks, a liability on the wrong ones.
+* Replaces the whole team
+
+* Just hype
+
+> The realistic view is more useful than either myth.
 
 ---
 
 ## What AI Is Genuinely Good At
 
-* Point it at the work it's built for:
-  - **Drafting** from clear instructions.
-  - **Summarizing** long or dense material for a specific reader.
-  - **Rewriting** for tone, audience, or reading level.
-  - **Extracting** structure — messy notes into a clean table.
-  - **Classifying and routing** text by meaning, not just keywords.
-  - **Explaining** unfamiliar topics at the level you ask.
-  - **Comparing** options across criteria.
-* Common thread: it rewards **fluency, pattern recognition, and fast iteration** — none of which require the AI to be a source of truth on its own.
+* Drafting
+* Summarizing
+* Rewriting
+* Extracting structure
+* Classifying and routing
+* Explaining
+* Comparing options
+
+> Language-heavy work with fast review loops.
 
 ---
 
 ## What AI Is Weak At — and Needs Review
 
-* Needs a human check every time:
-  - **Fresh facts / current events** — knowledge cutoff; verify dates.
-  - **Legal, medical, financial, compliance advice** — a draft aid, never the authority.
-  - **Exact arithmetic** — it *predicts* numbers; use a real tool.
-  - **Citations and sources** — it can **fabricate** a plausible-looking reference.
-  - **Private company facts** you didn't provide — it will guess, fluently.
-  - **Consequential actions** — send, delete, publish, purchase, change a record.
-* A confident invented answer is a **hallucination** — the failure mode to respect most.
-  - Mitigation: give it the source text, ask it to answer *from that text*, and flag what it can't support.
+* Fresh facts
+* Exact arithmetic
+* Citations and sources
+* Private facts not provided
+* Legal, medical, financial advice
+* Consequential actions
 
-> The higher the consequence, the more explicit your verification path has to be. "It sounded
-> right" is not a control.
+> Higher consequence = stronger verification.
 
 ---
 
 ## Intro to AI Operations for Business Leaders
 
-* Putting AI to work is an **operational** discipline, not a one-off experiment. Five questions a leader has to answer:
-  - **Where does it fit?** Pick real, repeatable, language-heavy workflows — not "everywhere."
-  - **What data is allowed?** Approved accounts and approved data; never paste regulated or confidential material into a public tool.
-  - **Who reviews the output?** A named human in the loop for anything consequential.
-  - **How do we know it's working?** Track time saved, error rates, and adoption — not vibes.
-  - **What are the guardrails?** A simple AI-use policy so the whole team plays by the same rules.
+* Where does it fit?
+* What data is allowed?
+* Who reviews the output?
+* How do we know it is working?
+* What are the guardrails?
 
-> This course is the tour of those five questions. Today's answer to "where does it fit" is
-> the whole point of your module review — and every later module deepens one of the others.
+> AI at work is an operating model, not a demo.
 ![](../images/pexels-vlada-karpovich-7433850.jpg)
 ---
 
 ## Safety Habits — Starting Today
 
-* Adopt these from your very first prompt:
-  - **Approved accounts and data** — sensitive work only in an approved enterprise workspace.
-  - **Never paste confidential material into a public tool** — use the fictional class files.
-  - **Ask for assumptions and uncertainties** in the prompt.
-  - **Verify facts before reuse** — names, numbers, dates, citations.
-  - **Keep a human in the loop** for anything that sends, publishes, deletes, or buys.
+* Approved accounts and data
+* No confidential material in public tools
+* Ask for assumptions and uncertainties
+* Verify before reuse
+* Human in the loop
 
-> These matter *more* as we add file uploads, custom assistants, and automation that runs on
-> its own. Good habits are cheap now and expensive to retrofit later.
+> Good habits are cheap now and expensive later.
 
 ![](../images/pexels-ysnapshotjournal-1675356955-34591865.jpg)
 ---
 
 ## Module Review — Your Turn
 
-* Take five minutes and answer this for yourself — you'll build on it all course:
-
 > **Spot three workflows in your own department where AI could add real value.**
 
-* For each one, jot down:
-  - The **task** in one line ("summarize weekly regional sales emails into one report").
-  - Whether it's mostly **language / judgment** (good AI fit) or **exact / rule-bound** (maybe rules-based, or a combination).
-  - What a **human would still need to check** before the output is used.
+* Task
 
-* Keep this list. Your Module 7 **capstone** will build one of these for real.
+* Fit
 
-> Best candidates are high-volume, language-heavy, and low-stakes-per-item: inbox triage,
-> report summaries, drafting first replies, cleaning messy data. Start where a wrong draft is
-> cheap to catch.
+* Review point
+
+> Keep this list for the capstone.
 
 ![](../images/pexels-rdne-7045558.jpg)
 ---
 
 ## Foundations — Cheat Sheet
 
-* Carry these out of the module:
-  - Generative AI is a **pattern-completer**, not a fact database, calculator, or decision-maker.
-  - The terms that matter: **model, prompt, context, tokens, hallucination, bias, tool use, agent.**
-  - **Rules-based** = exact, auditable, brittle. **Generative AI** = flexible, fluent, must be reviewed. They fail in **opposite** directions.
-  - **Combine them:** rules for stable signals, AI for interpretation, rules and humans for control.
-  - 2026 assistants are workbenches; this class uses **ChatGPT Enterprise**. **Agents** act; keep a human in the loop.
-  - AI operations = five leader questions: **where it fits, what data is allowed, who reviews, how we measure, what the guardrails are.**
+* Generative AI
+* Core terms
+* Rules vs AI
+* Assistants and agents
+* Good fits and weak spots
+* Operating model
 
-> One sentence to remember the whole module: *a fast, tireless, overconfident drafting-and-
-> analysis assistant — enormous leverage on the right tasks, a liability on the wrong ones.*
+> Fast drafting and analysis; human judgment still owns the outcome.
 
 ---
 
