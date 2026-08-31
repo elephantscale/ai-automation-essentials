@@ -20,8 +20,8 @@ VM. No spreadsheet formulas, code editor, Google Drive, or external connector is
 - `course-materials/document-analysis-checklist.md`
 - `course-materials/executive-brief-template.md`
 
-If upload is unavailable, paste text/CSV content into the chat. For the dashboard image, the
-instructor can project the image and run that part as a demo.
+If upload is unavailable, paste text/CSV content into the chat. For the dashboard image, use
+the projected class copy.
 
 ## Sample Assets
 
@@ -252,29 +252,3 @@ The lab is complete when the student has:
 - Produced a source-backed executive brief with a human decision named.
 
 ---
-
-## Teacher's Playbook
-
-This is the best lab for showing why ChatGPT Enterprise matters in the VM. Students are not just
-chatting; they are using file upload, data analysis, image understanding, source grounding, and
-structured executive communication.
-
-Recommended timing:
-
-| Activity | Minutes |
-|----------|---------|
-| Upload files and extraction demo | 15 |
-| Support CSV analysis + verification | 15 |
-| Vendor invoice cleanup | 20 |
-| Dashboard image read + cross-check | 10 |
-| Trend validation | 15 |
-| Executive brief | 10 |
-| Debrief | 5 |
-
-Model debrief points:
-
-- File analysis is powerful because it handles the messy work, not because it removes review.
-- Row IDs and source quotes are the audit trail.
-- Image reading is useful but lower trust than the underlying data.
-- A forecast range with low confidence is a good result on small data.
-- The executive brief should make the human decision clearer, not pretend the AI made it.

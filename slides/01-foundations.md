@@ -324,11 +324,6 @@ NEW REQUEST
 
 **Stop here and run Lab 01.**
 
-> **Instructor note:** This is the first lab of the course. Run it as a **guided, screen-
-> shared walkthrough with the whole class** — do it *together*, step by step, rather than
-> turning students loose. Non-technical students calibrate best when the first lab is done as
-> a group; it sets the pattern for every lab that follows.
-
 You will:
 
 1. Open `labs/assets/lab01-routing-requests.csv`.

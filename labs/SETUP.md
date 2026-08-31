@@ -10,11 +10,6 @@ Python, Docker, a code editor, Google Drive, Slack, email, or local development 
 - Access to **ChatGPT Enterprise** in the class VM
 - The sample files in `labs/assets/` and the templates in `course-materials/`
 
-## Optional
-
-- A no-code automation platform or connected app for instructor demo only. Student labs do
-  not require external connectors.
-
 ## Tool Choices
 
 The course materials remain conceptually tool-flexible, but this delivery uses ChatGPT
@@ -23,11 +18,10 @@ Enterprise as the default and only required student tool.
 | Category | Examples |
 |----------|----------|
 | Required assistant | ChatGPT Enterprise |
-| Optional instructor demo | Zapier, Make, Microsoft Power Automate, Copilot Studio, n8n, or connected apps |
 
 ## Data Rules
 
-- Use only approved sample data unless the instructor confirms otherwise.
+- Use only approved sample data unless told otherwise in class.
 - Do not paste confidential, regulated, or client-private data into any AI tool without
   explicit approval, even an enterprise workspace.
 - Keep a human review step in any workflow that sends, publishes, deletes, or buys.
@@ -47,8 +41,8 @@ Enterprise as the default and only required student tool.
 In ChatGPT, create a Project if the workspace allows it. If Projects are disabled, use a fresh
 chat and paste the project instructions from `course-materials/enterprise-project-setup.md`.
 
-All connector/app work in this course is planning-only unless the instructor explicitly demos
-it. Students use upload, paste, Projects, data analysis, image reading, and review queues.
+All connector/app work in this course is planning-only. Students use upload, paste, Projects,
+data analysis, image reading, and review queues.
 
 ## Verify Your Machine
 

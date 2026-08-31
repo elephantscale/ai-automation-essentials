@@ -21,8 +21,7 @@ shape first, then decide what would be safe to connect later.
 - Course sample files in `labs/assets/`
 - Templates in `course-materials/`
 
-Optional instructor demo only: an automation platform or connected app, if the instructor has
-one ready. Students do not need external accounts.
+No external accounts or live connectors are required.
 
 ## Sample Assets
 
@@ -177,8 +176,7 @@ Write a recommendation:
 - `Not ready until access controls or policy exist`
 - `Not appropriate for connector automation`
 
-For this class workflow, the model answer is usually: **ready for read-only connector only**.
-The workflow still needs human review, restricted queue access, and logging before write-back.
+Before recommending write-back, check for human review, restricted queue access, and logging.
 
 ## Deliverable
 
@@ -218,37 +216,3 @@ The lab is complete when the student has:
 - A future connector recommendation with risk controls.
 
 ---
-
-## Teacher's Playbook
-
-Run this as the first "Enterprise workbench" lab. The point is to shift students from one-off
-chat to a repeatable workspace with files, instructions, review, and audit.
-
-Recommended timing:
-
-| Activity | Minutes |
-|----------|---------|
-| Enterprise project setup | 15 |
-| Canvas completion | 15 |
-| Manual workflow run | 25 |
-| Grounded draft test | 15 |
-| Connector readiness assessment | 15 |
-| Debrief | 5 |
-
-The one sentence to land:
-
-```text
-Today we can run the workflow safely by upload/paste; later we connect it only after access,
-permissions, human review, and logging are designed.
-```
-
-Model debrief:
-
-- ChatGPT Project = repeatable context and files.
-- Manual paste = trigger simulation.
-- JSON = machine-readable AI step.
-- Review queue = safe destination.
-- Connector checklist = governance before integration.
-
-Do not let the room get stuck on missing Google Drive, Slack, or email. The missing connector
-is not a defect in the lab; it is the reason the readiness assessment exists.
