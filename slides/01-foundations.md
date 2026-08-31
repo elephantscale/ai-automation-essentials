@@ -134,24 +134,19 @@ Elephant Scale
 
 ## Generative AI vs. Rules-Based Automation
 
-* The core difference: **rules-based follows a script you wrote; generative AI interprets language you didn't anticipate.**
+* Core difference: **rules follow a script; AI interprets messy language.**
 
 ```text
                     RULES-BASED                 GENERATIVE AI
-How it decides      explicit logic you wrote    predicts from patterns it learned
-Handles new cases   no — only what's coded       yes — generalizes to unseen input
-Reads messy text    poorly — needs exact matches  well — understands meaning, tone
-Output              exact, identical every time   fluent, but can vary run to run
-Correctness         deterministic / auditable     probabilistic / must be reviewed
-Cost to change      edit the rules (can be slow)  edit the prompt (seconds)
-Fails by            doing nothing on a new case   confidently doing the wrong thing
+Input needed        exact signal                 messy language is OK
+Output              same every time              can vary run to run
+Best at             stable, repeatable logic     interpretation and drafts
+Fails by            missing the new case         sounding right when wrong
 ```
 
-* Neither is "better." They fail in **opposite** directions — and that's exactly why they pair so well.
+* They fail in **opposite** directions — so they pair well.
 
-> Rules-based fails **silently and safely** (it skips what it doesn't recognize). Generative
-> AI fails **loudly and plausibly** (it produces a confident answer anyway). Design for the
-> failure mode you're choosing.
+> Use rules for stable signals. Use AI for messy language. Review the exceptions.
 
 ---
 
