@@ -50,16 +50,18 @@ run it — one step's output feeds the next.
 
 ## Prompt Starter
 
-Use these as three separate prompts. Do not paste all three and expect ChatGPT to run the
-chain. For each request, run them one at a time:
+First, paste the three step templates below into ChatGPT as the chain definition. This tells
+ChatGPT what Step 1, Step 2, and Step 3 mean.
 
-1. Send **Step 1** with one CSV row in the `"""` fence.
+Then execute the chain one step at a time:
+
+1. Tell ChatGPT to run **Step 1 only** on one CSV row.
 2. Copy the Step 1 JSON.
-3. Send **Step 2** with the Step 1 JSON pasted at the bottom.
+3. Tell ChatGPT to run **Step 2** using the Step 1 JSON.
 4. Copy the Step 2 JSON.
-5. Send **Step 3** with both JSON objects pasted at the bottom.
+5. Tell ChatGPT to run **Step 3** using both JSON objects.
 
-If you already pasted all three prompt templates into the chat, continue by sending:
+After the three templates are in the chat, start the first request by sending:
 
 ```text
 Do not run Steps 2 or 3 yet.
@@ -72,6 +74,26 @@ Return only the Step 1 JSON.
 ```
 
 Then use that JSON as the input to Step 2.
+
+To continue:
+
+```text
+Now run Step 2 using this Step 1 output:
+
+[paste Step 1 JSON]
+```
+
+Then:
+
+```text
+Now run Step 3 using these two outputs:
+
+Step 1:
+[paste Step 1 JSON]
+
+Step 2:
+[paste Step 2 JSON]
+```
 
 **Step 1 — Extract (paste one request into the `"""` fence):**
 
@@ -169,11 +191,8 @@ becomes `"not specified"`, never a guess; a human reviews before anything is sen
 
 ### Part 2 - Build And Run Step 1 (Extract)
 
-Open a fresh chat. Paste the **Step 1** prompt, dropping **row 1 (Acme Logistics)** into the
-`"""` fence. Run it. You should get four fields back as JSON, with `product` and `dates` as
-`"not specified"` — that's the fallback firing, not a failure.
-
-If you pasted all three prompt templates first, send this next:
+Open a fresh chat. Paste all three step templates from the **Prompt Starter** section. Then
+send this execution message:
 
 ```text
 Do not run Steps 2 or 3 yet.
@@ -185,20 +204,42 @@ Run Step 1 only on this request:
 Return only the Step 1 JSON.
 ```
 
+You should get four fields back as JSON, with `product` and `dates` as `"not specified"` —
+that's the fallback firing, not a failure.
+
 Capture the JSON right in the chat (no separate app needed).
 
 ### Part 3 - Build And Run Step 2 (Classify)
 
-In the same chat, paste the **Step 2** prompt and paste Step 1's JSON where indicated. Run it.
+In the same chat, send:
+
+```text
+Now run Step 2 using this Step 1 output:
+
+[paste Step 1 JSON]
+```
+
 You now have category, priority, and — the important part — a `human_review_required` flag the
 next step and a workflow can branch on. Confirm the values come from the **closed lists** in
 the prompt, not free text.
 
 ### Part 4 - Build And Run Step 3 (Draft + Route)
 
-Paste the **Step 3** prompt with both JSON objects. You get a short, on-brand draft **and** a
-`route:` line. Read the draft: does it promise anything the input didn't say? If so, tighten
-"promise nothing not stated in the input" and re-run.
+Send:
+
+```text
+Now run Step 3 using these two outputs:
+
+Step 1:
+[paste Step 1 JSON]
+
+Step 2:
+[paste Step 2 JSON]
+```
+
+You get a short, on-brand draft **and** a `route:` line. Read the draft: does it promise
+anything the input didn't say? If so, tighten "promise nothing not stated in the input" and
+re-run.
 
 **Optional grounding:** to make the draft answer from real reference material, add the
 help-center doc — *"Use ONLY the help center below; if the answer isn't there, say so and
