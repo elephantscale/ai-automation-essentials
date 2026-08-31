@@ -33,7 +33,7 @@ Elephant Scale
 ![](../images/pexels-mikebird-191738.jpg)
 ---
 
-## What Generative AI Is *Not*
+## What Generative AI Is NOT
 
 * Not a fact database
 * Not a calculator
