@@ -80,8 +80,10 @@ Extract fields from the request I provide. Return ONLY this JSON:
   "customer": string,
   "product":  string,   "not specified" if none is named,
   "issue":    string,   one plain sentence describing what they want,
-  "dates":    string    "not specified" if no date is stated - do not guess one
+  "dates":    string    a date stated inside the request text, or "not specified"
 }
+Date rule: ignore CSV metadata fields such as submitted_at. Do not treat the row's submitted_at
+value as a customer-provided date. Do not treat phrases like "missing dates" as actual dates.
 Do not add any text before or after the JSON.
 
 STEP 2 - CLASSIFY
@@ -104,10 +106,13 @@ Do not add any text before or after the JSON.
 
 STEP 3 - DRAFT
 Using the Step 1 and Step 2 JSON objects, write a first reply for a support agent to review.
-- Warm, plain-language, under 90 words. Sign "- Northwind Support."
+- Warm, plain-language, under 90 words.
 - Acknowledge the customer's specific issue. Promise nothing not stated in the input.
 - Do NOT send anything - this is a draft for human review.
-After the draft, on its own line, output:
+- Do not mention CSV metadata such as submitted_at.
+End the reply with this exact signature on its own line:
+Northwind Support
+After the signature, leave one blank line and output the route on its own line:
 route: "Review queue" if human_review_required = "yes", otherwise "Ready to send".
 ```
 
@@ -152,6 +157,9 @@ Step 2 JSON:
 ```
 
 Save the draft and the `route:` line.
+
+Row 1 should not mention July 15, 2026. That value is the CSV `submitted_at` metadata, not part
+of the customer's request.
 
 ### Copy Block 5 - Run Row 2
 
@@ -211,8 +219,8 @@ becomes `"not specified"`, never a guess; a human reviews before anything is sen
 Open a fresh chat. Paste **Copy Block 1** from the Prompt Starter section. Then paste
 **Copy Block 2** to run Step 1 on row 1.
 
-You should get four fields back as JSON, with `product` and `dates` as `"not specified"` —
-that's the fallback firing, not a failure.
+You should get four fields back as JSON, with `product` and `dates` as `"not specified"`.
+The `submitted_at` CSV column is metadata, not a customer-provided date.
 
 Capture the JSON right in the chat (no separate app needed).
 
@@ -229,8 +237,16 @@ the prompt, not free text.
 Paste **Copy Block 4**, replacing both placeholders with your Step 1 and Step 2 JSON.
 
 You get a short, on-brand draft **and** a `route:` line. Read the draft: does it promise
-anything the input didn't say? If so, tighten "promise nothing not stated in the input" and
-re-run.
+anything the input didn't say, or mention the CSV `submitted_at` date as if the customer
+provided it? If so, tighten the instruction and re-run.
+
+For row 1, the draft should end in this shape:
+
+```text
+Northwind Support
+
+route: Ready to send
+```
 
 **Optional grounding:** to make the draft answer from real reference material, add the
 help-center doc — *"Use ONLY the help center below; if the answer isn't there, say so and
