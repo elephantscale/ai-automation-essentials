@@ -63,89 +63,29 @@ id,customer,request,channel,submitted_at
 
 ## Prompt Starter
 
-First, paste the three step templates below into ChatGPT as the chain definition. This tells
-ChatGPT what Step 1, Step 2, and Step 3 mean.
+Use the README as your only source. Copy each block below into the same ChatGPT chat.
 
-Then execute the chain one step at a time:
+### Copy Block 1 - Define The Chain
 
-1. Tell ChatGPT to run **Step 1 only** on one CSV row.
-2. Copy the Step 1 JSON.
-3. Tell ChatGPT to run **Step 2** using the Step 1 JSON.
-4. Copy the Step 2 JSON.
-5. Tell ChatGPT to run **Step 3** using both JSON objects.
-
-After the three templates are in the chat, start the first request by sending:
+Paste this first. It defines the three steps. It should not run anything yet.
 
 ```text
-Do not run Steps 2 or 3 yet.
+We are going to run a three-step prompt chain. Do not run the chain yet.
+Remember these step definitions for later messages.
 
-Run Step 1 only on this request:
-
-1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
-
-Return only the Step 1 JSON.
-```
-
-Then use that JSON as the input to Step 2.
-
-To continue:
-
-```text
-Now run Step 2 using this Step 1 output:
-
-[paste Step 1 JSON]
-```
-
-Then:
-
-```text
-Now run Step 3 using these two outputs:
-
-Step 1:
-[paste Step 1 JSON]
-
-Step 2:
-[paste Step 2 JSON]
-```
-
-After row 1 is complete, run row 2 through the same Step 1 -> Step 2 -> Step 3 sequence:
-
-```text
-Do not run Steps 2 or 3 yet.
-
-Run Step 1 only on this request:
-
-2,Northstar Health,"Can someone explain whether our team can upload patient records into a public AI tool?",email,2026-07-16
-
-Return only the Step 1 JSON.
-```
-
-Row 2 is the required safety check. It should end with `human_review_required: "yes"` and
-`route: Review queue`.
-
-**Step 1 — Extract (paste one request into the `"""` fence):**
-
-```text
+STEP 1 - EXTRACT
 You are a careful support-intake analyst.
-Extract fields from the request below. Return ONLY this JSON:
+Extract fields from the request I provide. Return ONLY this JSON:
 {
   "customer": string,
   "product":  string,   "not specified" if none is named,
   "issue":    string,   one plain sentence describing what they want,
-  "dates":    string    "not specified" if no date is stated — do not guess one
+  "dates":    string    "not specified" if no date is stated - do not guess one
 }
 Do not add any text before or after the JSON.
 
-Request:
-"""
-[paste one row of sample-support-requests.csv here]
-"""
-```
-
-**Step 2 — Classify (feed it the Step 1 JSON):**
-
-```text
-Read the extracted request JSON below and return ONLY this JSON:
+STEP 2 - CLASSIFY
+Read the extracted request JSON and return ONLY this JSON:
 {
   "category":              one of ["billing","technical","account","sales","other"],
   "priority":              one of ["urgent","normal","low"],
@@ -156,31 +96,80 @@ Read the extracted request JSON below and return ONLY this JSON:
 Rules:
 - priority = "urgent" only for outage, data loss, security, or a blocked customer.
 - sensitive_data = "yes" if it mentions patient records, financial data, passwords,
-  or other regulated/confidential data. If sensitive_data = "yes", set
-  human_review_required = "yes".
+  or other regulated/confidential data.
+- If sensitive_data = "yes", set human_review_required = "yes".
 - If the request contains more than one distinct ask, set confidence = "low" and
   human_review_required = "yes".
 Do not add any text before or after the JSON.
 
-Extracted request:
-[paste the Step 1 JSON here]
-```
-
-**Step 3 — Draft (feed it both JSON objects):**
-
-```text
-Using the two JSON objects below, write a first reply for a support agent to review.
-- Warm, plain-language, under 90 words. Sign "— Northwind Support."
+STEP 3 - DRAFT
+Using the Step 1 and Step 2 JSON objects, write a first reply for a support agent to review.
+- Warm, plain-language, under 90 words. Sign "- Northwind Support."
 - Acknowledge the customer's specific issue. Promise nothing not stated in the input.
-- Do NOT send anything — this is a draft for human review.
+- Do NOT send anything - this is a draft for human review.
 After the draft, on its own line, output:
 route: "Review queue" if human_review_required = "yes", otherwise "Ready to send".
+```
 
-Extracted request:
+### Copy Block 2 - Run Row 1, Step 1
+
+Paste this next:
+
+```text
+Run Step 1 only on this request:
+
+1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
+
+Return only the Step 1 JSON.
+```
+
+Copy the JSON result.
+
+### Copy Block 3 - Run Row 1, Step 2
+
+Paste this next, replacing the placeholder with the Step 1 JSON:
+
+```text
+Run Step 2 using this Step 1 output:
+
 [paste Step 1 JSON]
-Classification:
+```
+
+Copy the JSON result.
+
+### Copy Block 4 - Run Row 1, Step 3
+
+Paste this next, replacing both placeholders:
+
+```text
+Run Step 3 using these two outputs:
+
+Step 1 JSON:
+[paste Step 1 JSON]
+
+Step 2 JSON:
 [paste Step 2 JSON]
 ```
+
+Save the draft and the `route:` line.
+
+### Copy Block 5 - Run Row 2
+
+Run row 2 through the same Step 1 -> Step 2 -> Step 3 sequence. Start with:
+
+```text
+Run Step 1 only on this request:
+
+2,Northstar Health,"Can someone explain whether our team can upload patient records into a public AI tool?",email,2026-07-16
+
+Return only the Step 1 JSON.
+```
+
+Row 2 is the required safety check. It should end with `human_review_required: "yes"` and
+`route: Review queue`.
+
+After Row 2 Step 1 returns JSON, repeat **Copy Block 3** with the Row 2 Step 1 JSON. Then
+repeat **Copy Block 4** with the Row 2 Step 1 and Step 2 JSON.
 
 ## Deliverable
 
@@ -219,18 +208,8 @@ becomes `"not specified"`, never a guess; a human reviews before anything is sen
 
 ### Part 2 - Build And Run Step 1 (Extract)
 
-Open a fresh chat. Paste all three step templates from the **Prompt Starter** section. Then
-send this execution message:
-
-```text
-Do not run Steps 2 or 3 yet.
-
-Run Step 1 only on this request:
-
-1,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-15
-
-Return only the Step 1 JSON.
-```
+Open a fresh chat. Paste **Copy Block 1** from the Prompt Starter section. Then paste
+**Copy Block 2** to run Step 1 on row 1.
 
 You should get four fields back as JSON, with `product` and `dates` as `"not specified"` —
 that's the fallback firing, not a failure.
@@ -239,13 +218,7 @@ Capture the JSON right in the chat (no separate app needed).
 
 ### Part 3 - Build And Run Step 2 (Classify)
 
-In the same chat, send:
-
-```text
-Now run Step 2 using this Step 1 output:
-
-[paste Step 1 JSON]
-```
+In the same chat, paste **Copy Block 3**, replacing the placeholder with your Step 1 JSON.
 
 You now have category, priority, and — the important part — a `human_review_required` flag the
 next step and a workflow can branch on. Confirm the values come from the **closed lists** in
@@ -253,17 +226,7 @@ the prompt, not free text.
 
 ### Part 4 - Build And Run Step 3 (Draft + Route)
 
-Send:
-
-```text
-Now run Step 3 using these two outputs:
-
-Step 1:
-[paste Step 1 JSON]
-
-Step 2:
-[paste Step 2 JSON]
-```
+Paste **Copy Block 4**, replacing both placeholders with your Step 1 and Step 2 JSON.
 
 You get a short, on-brand draft **and** a `route:` line. Read the draft: does it promise
 anything the input didn't say? If so, tighten "promise nothing not stated in the input" and
