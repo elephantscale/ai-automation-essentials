@@ -47,7 +47,8 @@ mean something clear to a person, but do not use the exact words the rules engin
 
 ## Part 1 - Rules-Engine Pass
 
-Paste this into ChatGPT, then paste the CSV rows underneath it.
+Copy the prompt below into ChatGPT. Then copy the full contents of
+`labs/assets/lab01-routing-requests.csv` and paste it under the prompt.
 
 ```text
 You are simulating a simple rules-based routing engine.
@@ -64,6 +65,18 @@ Rules:
 
 Return a Markdown table:
 id | customer | keyword hit | rules route
+```
+
+For convenience, these are the CSV rows to paste:
+
+```csv
+id,customer,request,channel,submitted_at
+1,Brightline Books,"My invoice shows a duplicate payment for this month.",email,2026-07-15
+2,Oak Valley Clinic,"I can't get into my workspace after the reset.",web,2026-07-16
+3,Northstar Manufacturing,"Can someone walk us through options for 50 users?",web,2026-07-17
+4,Harbor Analytics,"The app shows the word crash when I export the report.",email,2026-07-18
+5,Summit Retail,"Please send a quote for the enterprise plan.",web,2026-07-19
+6,Acme Logistics,"We need help setting up an AI assistant to summarize weekly operations reports.",web,2026-07-20
 ```
 
 Expected pattern:
