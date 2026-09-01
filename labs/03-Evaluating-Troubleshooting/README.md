@@ -63,6 +63,40 @@ Look at the support requests and tell me what's going on and what to prioritize.
 
 It's vague on purpose. Every fix you make in Part 3 is a lesson in what it left to chance.
 
+## Instructor Run Guide - What To Paste When
+
+Use this quick guide while teaching so it is clear which blocks run directly and which blocks
+need a file, replacement text, or a previous fix added first.
+
+| Part | What to do | Run directly? |
+|------|------------|---------------|
+| 1 | Score Output A and Output B manually with the rubric | No ChatGPT run |
+| 2 | Upload or paste `sample-support-requests.csv`, then run the broken prompt | Combine with CSV |
+| 3 Fix 1 | Keep the CSV available, then run Fix 1 instead of the broken prompt | Combine with CSV |
+| 3 Fix 2 | Run Fix 1 plus Fix 2 together as the final prompt | Combine Fix 1 + Fix 2 + CSV |
+| 4 | Paste `sample-help-center.md` into the grounded-assistant prompt | Replace placeholder first |
+| 4 covered question | Run the grounded prompt with the refund-window question | Yes, after help-center is inserted |
+| 4 uncovered question | Re-run by replacing only the customer question | Replace question first |
+| 5 naive injection | Run the naive injection prompt exactly as written | Yes |
+| 5 guardrailed injection | Run the guardrailed injection prompt exactly as written | Yes |
+| 6 | Write a five-line team standard | No special setup |
+
+Simple teaching sequence:
+
+```text
+1. Score Output A and B.
+2. Upload/paste sample-support-requests.csv.
+3. Run the broken prompt.
+4. Run Fix 1.
+5. Run Fix 1 + Fix 2 together.
+6. Paste sample-help-center.md into the grounded prompt.
+7. Run the covered refund question.
+8. Replace the question with an uncovered question and run again.
+9. Run the naive injection prompt.
+10. Run the guardrailed injection prompt.
+11. Write the five-line quality-and-safety standard.
+```
+
 ## Deliverable
 
 - Two **scored rubric cards** — the broken prompt's output, and the fixed prompt's output.
