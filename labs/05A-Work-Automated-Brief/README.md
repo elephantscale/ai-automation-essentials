@@ -71,24 +71,47 @@ id,customer,request,channel,submitted_at
 Open ChatGPT, choose **Work**, then create a scheduled task from a new Work chat or from
 **Scheduled** if that is available in the sidebar.
 
-Use this task title:
+Paste this full prompt into ChatGPT Work:
 
 ```text
-Weekly Support-Triage Executive Brief
+Create a scheduled task for this classroom demo.
+
+Task name: Weekly Support-Triage Brief
+
+Run once 5 minutes from now. Do not repeat every 5 minutes.
+
+Use only this sample data:
+
+id,customer,request,channel,submitted_at
+1,Acme Retail,"We want to set up AI to summarize weekly store reports.",web,2026-07-15
+2,Northstar Health,"Can someone explain whether our team can upload patient records into a public AI tool?",email,2026-07-16
+3,Metro Finance,"Our vendor invoice categories are messy. Can AI clean and group them?",email,2026-07-17
+4,BrightPath Services,"We need a workflow that routes incoming requests by topic and urgency.",web,2026-07-18
+5,Greenfield Co-op,"Can AI draft customer emails from product notes and approval rules?",web,2026-07-19
+
+Every time it runs:
+1. Count requests by channel.
+2. Classify themes.
+3. Flag any health, privacy, legal, financial, or sensitive-data request for human review.
+4. Draft a short executive brief under 200 words.
+5. Do not send, publish, approve, or change anything.
+
+Output exactly these sections:
+- Counts
+- Risk flags
+- Executive takeaway
+- Human review needed
 ```
 
-Use this schedule for the lab:
-
-```text
-Run once 5 minutes from now.
-```
-
-For a real pilot later, change the schedule to weekly.
+If ChatGPT asks for confirmation, approve the scheduled task. The five-minute delay is only
+for the classroom demo so you can see one run happen live. For a real pilot later, change the
+schedule to weekly or daily.
 
 ## Part 2 - Paste The Task Instructions
 
-Open `course-materials/scheduled-executive-brief-task.md` and paste the task prompt into ChatGPT
-Work. Replace the `{{support_rows}}` placeholder with the compact CSV snapshot above.
+The prompt above is the fast classroom version. If you want the fuller reusable version, use
+`course-materials/scheduled-executive-brief-task.md` and replace the `{{support_rows}}`
+placeholder with the compact CSV snapshot above.
 
 Before scheduling, check that the task instructions include:
 
@@ -102,6 +125,14 @@ Before scheduling, check that the task instructions include:
 ## Part 3 - Review The First Run
 
 When the task runs, review the output.
+
+To find the run result:
+
+1. Click **Scheduled** in the left sidebar.
+2. Open **Weekly Support-Triage Brief**.
+3. Confirm it says **Completed** or **Last run Today**.
+4. Read the latest output in the right panel.
+5. Click **Open chat** if you want the full run view.
 
 Expected content:
 
