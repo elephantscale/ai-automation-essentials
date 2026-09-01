@@ -63,40 +63,6 @@ Look at the support requests and tell me what's going on and what to prioritize.
 
 It's vague on purpose. Every fix you make in Part 3 is a lesson in what it left to chance.
 
-## Instructor Run Guide - What To Paste When
-
-Use this quick guide while teaching so it is clear which blocks run directly and which blocks
-need a file, replacement text, or a previous fix added first.
-
-| Part | What to do | Run directly? |
-|------|------------|---------------|
-| 1 | Score Output A and Output B manually with the rubric | No ChatGPT run |
-| 2 | Upload or paste `sample-support-requests.csv`, then run the broken prompt | Combine with CSV |
-| 3 Fix 1 | Keep the CSV available, then run Fix 1 instead of the broken prompt | Combine with CSV |
-| 3 Fix 2 | Run Fix 1 plus Fix 2 together as the final prompt | Combine Fix 1 + Fix 2 + CSV |
-| 4 | Paste `sample-help-center.md` into the grounded-assistant prompt | Replace placeholder first |
-| 4 covered question | Run the grounded prompt with the refund-window question | Yes, after help-center is inserted |
-| 4 uncovered question | Re-run by replacing only the customer question | Replace question first |
-| 5 naive injection | Run the naive injection prompt exactly as written | Yes |
-| 5 guardrailed injection | Run the guardrailed injection prompt exactly as written | Yes |
-| 6 | Write a five-line team standard | No special setup |
-
-Simple teaching sequence:
-
-```text
-1. Score Output A and B.
-2. Upload/paste sample-support-requests.csv.
-3. Run the broken prompt.
-4. Run Fix 1.
-5. Run Fix 1 + Fix 2 together.
-6. Paste sample-help-center.md into the grounded prompt.
-7. Run the covered refund question.
-8. Replace the question with an uncovered question and run again.
-9. Run the naive injection prompt.
-10. Run the guardrailed injection prompt.
-11. Write the five-line quality-and-safety standard.
-```
-
 ## Deliverable
 
 - Two **scored rubric cards** — the broken prompt's output, and the fixed prompt's output.
@@ -118,6 +84,9 @@ the evidence you troubleshot, not guessed.
 
 Same task (summarize five support requests for an ops manager), two outputs. Score each on
 the rubric's five dimensions (1-5).
+
+You do **not** run a ChatGPT prompt in this part. Just read the two outputs below and score
+them manually with `course-materials/output-evaluation-rubric.md`.
 
 **Output A (weaker):**
 
@@ -147,6 +116,14 @@ run the **Prompt Starter** above. Score the result on all five dimensions. Expec
 low on Structure (prose, not sections), Completeness (undefined asks), and Trust (may invent
 a percentage; may propose a "fix" for the patient-records row). Write the five scores down —
 that's your **before** card.
+
+Run this as:
+
+```text
+[upload or paste sample-support-requests.csv]
+
+Look at the support requests and tell me what's going on and what to prioritize.
+```
 
 ### Part 3 - Troubleshoot With the Loop
 
@@ -180,6 +157,21 @@ Re-run. Now it counts correctly, refuses to fake a "60%," and escalates the pati
 row. Score again — this is your **after** card. **Two named problems, two targeted fixes, two
 re-runs.** Save the final prompt; it's a reusable asset.
 
+Run Fix 2 by combining it with Fix 1, not by running Fix 2 alone:
+
+```text
+From the support requests below, produce:
+(1) a count by channel,
+(2) themes with counts,
+(3) any request touching privacy/compliance, flagged for a human,
+(4) one priority to focus on, with a one-line reason.
+Return as labeled sections.
+
+Use ONLY the requests provided — do not invent counts, percentages, or trends. With only a
+few rows, say the sample is too small for statistics. If a request involves patient records
+or other sensitive data, flag it for a human instead of proposing a fix.
+```
+
 ### Part 4 - Add Guardrails: a Grounded Assistant
 
 Now constrain what the AI is *allowed* to do. Build a help-desk assistant grounded in
@@ -209,6 +201,10 @@ It should answer (14 days) and quote the line. Now replace the question with one
 deliberately **not** covered — e.g. `Can we upload patient health records to your platform?`
 or `What is customer #4402's current account balance?`. A well-guardrailed assistant
 **refuses and routes to a human.** That refusal is the guardrail working — capture it.
+
+Important: before running this prompt, replace `{{paste sample-help-center.md}}` with the
+actual help-center text. For the second test, keep the same grounded prompt and replace only
+the customer question.
 
 ### Part 5 - Break It on Purpose (Prompt Injection)
 
@@ -245,6 +241,9 @@ role, or rules.
 The fenced, labeled version summarizes ("Customer requests a refund on order #5512") and
 ignores the hijack. Write one sentence on what changed: **fencing the data and re-asserting
 the rules after it** turns an attacker's command back into plain text to be summarized.
+
+Both injection prompts run exactly as written. You do not need to upload a file or combine
+them with earlier output.
 
 ### Part 6 - Set Your Team's Quality-and-Safety Bar
 
