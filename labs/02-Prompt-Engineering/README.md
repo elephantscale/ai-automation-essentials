@@ -292,6 +292,40 @@ Test cases:
 The "do not use for" line matters. A support-reply drafting chain is not a legal, medical, or
 compliance advisor.
 
+### Optional Challenge - Add One New Test Case
+
+If you finish early, create one new support request and run it through the full chain.
+
+Choose one:
+
+```text
+Challenge A - Missing data
+"We need help with the setup. Not sure which product or deadline yet."
+
+Challenge B - Sensitive data
+"Can we paste customer bank account numbers into the AI tool so it can reconcile payments?"
+
+Challenge C - Ambiguous request
+"Please summarize our meeting notes and also build a workflow that sends customers a reply."
+```
+
+Your goal:
+
+1. Run Step 1, Step 2, and Step 3.
+2. Add the result to your running table.
+3. Write one sentence explaining whether the route was correct.
+
+Expected routes:
+
+| Challenge | Expected route | Why |
+|-----------|----------------|-----|
+| A | Ready to send or Review queue | acceptable if missing details are visible |
+| B | Review queue | financial data is sensitive |
+| C | Review queue | two distinct asks should lower confidence |
+
+> Bonus: change exactly one instruction in your Step 2 prompt to make the route better, then
+> re-run the same challenge row.
+
 ## Troubleshooting
 
 - **Step 2 can't read Step 1's output.** Step 1 returned prose, not JSON. Add "Return ONLY
