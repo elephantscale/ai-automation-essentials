@@ -6,378 +6,330 @@ Elephant Scale
 
 ## Why This Module
 
-* Six modules gave you the pieces: prompts, evaluation, no-code automation, decisions, governance.
-* This module answers the two questions a manager actually asks:
-  - **"What does it cost, and what do we get back?"** — the money case.
-  - **"Will my team actually use it?"** — the adoption case.
-* Then you **build the thing** — one real ChatGPT Enterprise workflow from your own work, with
-  an ROI estimate, connector-readiness recommendation, and 30-day plan.
+* Cost
+* Impact
+* Adoption
+* Capstone
+* 30-day plan
 
-* By the end you will be able to:
-  - Cost an AI use case honestly — subscription, per-seat, usage, and the hidden costs.
-  - Measure impact with a baseline: time saved, error reduction, ROI, payback.
-  - Plan adoption as pilot → standardize → scale, not a big-bang launch.
-  - Design, build, test, and present a working Enterprise workflow people would run on Monday.
-
-> The people who thrive with AI aren't the best prompters. They're the ones who can stand
-> up and say "here's the workflow, here's the number, here's the plan." That's this module.
+> A useful AI workflow needs a number and a rollout plan.
 
 ---
 
-## The Arc of This Module
+## The Arc
 
-* Four parts, then you build:
-  - **Part 1 — Cost.** What AI tools and usage actually cost.
-  - **Part 2 — Impact.** Time saved, error reduction, ROI, payback — with the worksheet.
-  - **Part 3 — Adoption.** Getting a team to actually use it: pilot, standardize, scale.
-  - **Part 4 — Capstone.** Plan, build, guardrail, test, present — plus your 30-day plan.
-
-> Cost and impact are two halves of the same sentence. "It saves four hours a day and costs
-> $140 a month" is a sentence a budget owner can say yes to. Half of it is not.
-
----
-
-## Part 1 — What AI Actually Costs
-
-* You can't build an ROI case if you can't name the costs. Most people name one and miss three.
-* The full picture has two buckets:
-  - **Tool cost** — what you pay a vendor to use the AI and the automation platform.
-  - **Your cost** — the human time to build it, review its output, and keep it running.
-* The tool cost is usually the *smaller* number. The human time is where budgets really go.
-
-> The classic mistake is quoting the $20 subscription and forgetting the 12 hours to build
-> it and the daily review time. Both belong in the number.
-
----
-
-## The Three Pricing Shapes
-
-* AI tools bill in one of three shapes. Know which one you're on before you commit a team.
-  - **Subscription (flat)** — one price per month for the workspace, regardless of use. Predictable, easy to budget.
-  - **Per-seat** — a price *per user per month*. Scales with headcount, not usage. Ten people on the automation = ten seats.
-  - **Usage-based** — you pay per unit of work: per token, per task run, per automation step, per document processed. Cheap to start, grows with volume.
-
-* Most real deployments **mix** them: a per-seat assistant + a per-run automation platform + maybe usage-priced AI steps inside it.
+* Cost
+* Impact
+* Adoption
+* Capstone build
+* Presentation
 
 ```text
-SHAPE          BILLED BY            GOOD WHEN...                 WATCH OUT FOR...
-Subscription   flat / month         steady, whole-team use       paying for idle seats
-Per-seat       user / month         everyone uses it daily       seats bought, never used
-Usage          token / run / task   volume is spiky or unknown   cost spikes at high volume
+Workflow -> ROI estimate -> adoption plan -> capstone showcase
 ```
 
-> For this class, ChatGPT Enterprise is already available. Still count the real cost:
-> seats, review time, build time, maintenance, and any future connector or platform cost.
+> "What does it cost?" and "will the team use it?" are business questions.
 
 ---
 
-## Estimating Usage Cost Without a Spreadsheet
+## What AI Actually Costs
 
-* Usage pricing scares people because it feels unbounded. It isn't — you can estimate it.
-  - **Find the unit** — per task run? per 1,000 tokens? per document?
-  - **Estimate volume** — runs per day × working days. Use your real ticket / invoice / email counts.
-  - **Multiply, then pad** — cost per unit × volume, then add ~20% for retries and edge cases.
-* One honest sentence: *"~200 runs a week at about half a cent each is roughly $5 a week."*
+* Tool cost
+* Build time
+* Review time
+* Maintenance
+* Future connector cost
 
-> If the usage math makes you nervous, cap it. Most platforms let you set a spend limit or
-> a run quota. A cap turns "unbounded" into "at most $X," and now you can pilot safely.
-
----
-
-## Don't Forget the Hidden Costs
-
-* Three costs never appear on the invoice but always show up in reality:
-  - **Build time (one-time)** — designing, writing the prompt, wiring the automation, testing. Hours × loaded hourly cost.
-  - **Review time (ongoing)** — a human checks output before it's sent or acted on. This counts, every run, forever. It's the price of the human gate — and it's worth it.
-  - **Maintenance (ongoing)** — the grounding doc changes, the prompt drifts, the platform updates. Someone owns keeping it correct.
-* Leave these out and your ROI looks fake — and it *is* fake.
-
-> "Loaded hourly cost" = salary plus benefits, taxes, and overhead — roughly 1.3–1.4× base
-> pay. Use it, not the raw wage, or you'll undercount your own time.
+> The invoice is not the whole cost.
 
 ---
 
-## Worked — Costing the Support-Triage Automation
+## Three Pricing Shapes
 
-* Same running example we'll use all module: an inbound **support-triage** automation.
-* Add up all four cost lines — tool, build, review, maintenance:
+* Subscription
+* Per-seat
+* Usage-based
 
 ```text
-COSTING THE SUPPORT-TRIAGE AUTOMATION
+Subscription  flat monthly cost
+Per-seat      user per month
+Usage         token, run, task, or document
+```
 
-Tool cost (monthly)
-  AI assistant, per-seat      3 seats x $30/seat        = $90/mo
-  Automation platform         starter plan              = $50/mo
-  Usage inside the flow       ~860 runs x ~$0.005       ~ $4/mo   (rounds into platform)
-  ---------------------------------------------------------------
-  Tool subtotal                                         ~ $140/mo
+> Most real deployments mix pricing shapes.
+
+---
+
+## Estimate Usage Cost
+
+* Find the unit
+* Estimate volume
+* Multiply
+* Add retry padding
+* Set a cap
+
+```text
+runs per day x working days x cost per run
++ 20% for retries and edge cases
+```
+
+> A cap turns "unbounded" into "at most this much."
+
+---
+
+## Hidden Costs
+
+* Build time
+* Review time
+* Maintenance
+* Prompt updates
+* Data updates
+* Ownership
+
+```text
+Loaded hourly cost = salary + benefits + overhead
+```
+
+> Leave out human time and the ROI is fake.
+
+---
+
+## Worked Cost — Support Triage
+
+```text
+Tool cost
+  AI assistant       3 seats x $30       = $90/mo
+  Automation tool    starter plan        = $50/mo
+  Usage              ~860 runs x $0.005  = ~$4/mo
+  Tool subtotal                           ~$140/mo
 
 Human cost
-  Build (one-time)            12 hrs x $40/hr           = $480 once
-  Review time                 2 min/run  (already counted in "after" minutes)
-  Maintenance (monthly)       2 hrs x $40/hr            = $80/mo
+  Build              12 hrs x $40        = $480 once
+  Maintenance        2 hrs x $40         = $80/mo
 ```
 
-> Notice review time isn't a separate line here — it's baked into the "minutes per run,
-> after" on the impact side, so you don't double-count it. Count each cost once, in one place.
+> Count each cost once.
 
 ---
 
-## Part 2 — Measuring Impact
+## Measuring Impact
 
-* Cost is only half. Now: **what do we get back?** No research study — an honest before/after.
-* Three things are worth measuring; you rarely need all three:
-  - **Time saved** — minutes per run × runs, before vs. after. The most common, most fundable.
-  - **Error reduction** — fewer mistakes, misroutes, or rework. Best when errors are costly.
-  - **ROI & payback** — benefit minus cost, and how fast the build pays for itself.
+* Time saved
+* Error reduction
+* Rework reduction
+* Cycle-time improvement
+* ROI
+* Payback
 
-> Pick the one that matters most for *your* workflow. A triage automation sells on time; a
-> compliance check sells on errors avoided. Lead with the number your manager already cares about.
+> Pick the metric your manager already cares about.
 
 ---
 
-## Baseline First — Or You Have Nothing
+## Baseline First
 
-* The single most-skipped step, and the one that makes or breaks the case.
-  - **Time the old way *first*** — before AI, for a representative week. Real minutes, real volume.
-  - **Then measure the same task after** — including the human review. Review time counts.
-  - **Count the rework** — how often output needed a redo. Falling rework can matter more than raw speed.
-* Skip the baseline and "it saves loads of time" is an anecdote, not a number.
+* Measure the old way
+* Measure the new way
+* Include review time
+* Count rework
+* Use real volume
 
 ```text
-Task: Draft first-response to inbound support requests
-
-  Before AI:   ~8 min each  x 40/day  = ~5.3 hrs/day
-  After AI:    ~2 min each (draft + review) x 40/day = ~1.3 hrs/day
-  Saved:       ~4 hrs/day  |  Rework rate: 12% still need edits beyond a quick pass
+Before AI: 8 min x 40/day = 5.3 hrs/day
+After AI:  2 min x 40/day = 1.3 hrs/day
+Saved:     about 4 hrs/day
 ```
 
-> "About four hours a day, and 12% still need edits" is a sentence a manager can fund. Ten
-> enthusiastic anecdotes are not. The baseline is what turns enthusiasm into a budget line.
+> Without a baseline, "saves time" is only an anecdote.
 
 ---
 
-## The ROI Worksheet — Your Tool
+## ROI Worksheet
 
-* Use `course-materials/roi-worksheet.md`. It walks four blocks; fill it honestly and conservatively.
-  - **The use case** — workflow, who does it today, what the AI changes.
-  - **Time saved** — minutes before/after, runs, hours and $ saved per month.
-  - **Error reduction** — error rate before/after, cost per error, $ saved.
-  - **Costs & bottom line** — subscription, build, maintenance → net per month + payback.
-* We'll fill it for support-triage over the next three slides — then you fill it for *your* capstone.
+* Use case
+* Time saved
+* Error reduction
+* Costs
+* Bottom line
+* Honest risk
 
-> Conservative beats impressive. If you round time saved *down* and costs *up* and it still
-> pays back, nobody can argue with the number. That's the number you want to present.
+* Worksheet: `course-materials/roi-worksheet.md`
+
+> Conservative numbers are more useful than impressive ones.
 
 ---
 
 ## Worked ROI — Time Saved
 
-* Plug the support-triage baseline into the worksheet's time-saved block:
-
 ```text
-TIME SAVED
-  Minutes per run, before                       8
-  Minutes per run, after (incl. review)         2
-  Minutes saved per run                         6
-  Runs per week            40/day x 5 days   =  200
-  Hours saved per month    6 x 200 x 4.3 / 60 =  ~86 hrs/mo
-  Loaded hourly cost of the person              $40/hr
-  $ saved per month        86 x $40          =  $3,440/mo
+Minutes before                       8
+Minutes after, including review      2
+Minutes saved per run                6
+Runs per week                        200
+Hours saved per month                6 x 200 x 4.3 / 60 = ~86
+Loaded hourly cost                   $40
+Value saved per month                86 x $40 = $3,440
 ```
 
-* The 4.3 is average weeks per month. Everything traces to two honest inputs: minutes saved and runs.
-
-> The lever is **runs**, not minutes. Six minutes sounds trivial; 200 runs a week makes it
-> 86 hours a month. Frequent-and-boring is where the money is — exactly the workflow to pick.
+> Frequent and boring is where the money is.
 
 ---
 
 ## Worked ROI — Error Reduction
 
-* Triage also *misroutes* less: tickets land in the right queue, sensitive ones get flagged.
-
 ```text
-ERROR REDUCTION
-  Error rate, before / after     12%  ->  4%    (misrouted or mishandled tickets)
-  Volume per month               200/wk x 4.3   =  ~860 runs
-  Errors avoided per month       (12% - 4%) x 860  =  ~69
-  Cost of a typical error        $25  (rework: re-route, re-reply, apologize)
-  $ saved per month              69 x $25       =  ~$1,720/mo
+Error rate before / after      12% -> 4%
+Volume per month               200/wk x 4.3 = ~860
+Errors avoided                 8% x 860 = ~69
+Cost per error                 $25
+Value saved                    69 x $25 = ~$1,720/mo
 ```
 
-* Only claim this if you can defend the error cost. When in doubt, leave it out and win on time alone.
-
-> Error reduction is the quieter, often bigger win in regulated or customer-facing work.
-> One avoided compliance slip can dwarf a month of saved minutes — but only count what you can measure.
+> Only claim error savings you can defend.
 
 ---
 
-## Worked ROI — Bottom Line & Payback
-
-* Put benefit and cost together. Benefit from the two prior slides; cost from Part 1:
+## Worked ROI — Bottom Line
 
 ```text
-BOTTOM LINE
-  Monthly benefit    time $3,440  +  errors $1,720   =  $5,160/mo
-  Monthly cost       subscription $140  +  maintenance $80  =  $220/mo
-  NET per month      $5,160  -  $220    =  $4,940/mo
+Monthly benefit    $3,440 time + $1,720 errors = $5,160
+Monthly cost       $140 tools + $80 maintenance = $220
+Net per month      $5,160 - $220 = $4,940
 
-  Setup cost (one-time)   $480
-  PAYBACK PERIOD          $480 / $4,940  =  ~0.1 month  (about 3 days)
+Setup cost         $480
+Payback            $480 / $4,940 = ~0.1 month
 ```
 
-* Even if you halve every benefit and double every cost, it still pays back in under a week.
-
-> Payback period is the most persuasive single number for a skeptic: "we make the build cost
-> back in three days, then it's net positive every month after." Stress-test it, then present it.
+> Payback is often the clearest number for a skeptic.
 
 ---
 
-## Reading the Number Honestly
+## Read the Number Honestly
 
-* A good ROI case names its own weak spot before someone else does.
-  - **State one honest risk** — the assumption most likely to be wrong (e.g. "if volume drops off-season, hours saved fall too").
-  - **Show the conservative version** — round savings down, costs up; if it still wins, say so.
-  - **Separate hard from soft** — dollars saved (hard) vs. "less stress, faster replies" (soft). Both are real; label which is which.
-* A number with a stated risk is *more* credible, not less.
+* State one weak assumption
+* Round savings down
+* Round costs up
+* Separate hard and soft benefits
+* Stress-test the result
 
-> The worksheet's last line is literally "one honest risk that could reduce the benefit."
-> Fill it. A manager trusts the person who volunteers the caveat over the one who hides it.
+```text
+Risk: if volume drops off-season, hours saved fall too.
+```
+
+> A caveat makes the number more credible.
 
 ---
 
-## Part 3 — Adoption & Change Management
+## Adoption Matters
 
-* The ROI is real only if people actually use it. Most AI tools don't fail — they get *dropped*.
-* Two failure modes, opposite directions:
-  - Dropped on a team with no plan, quietly abandoned by week three.
-  - Launched big-bang to everyone before it was proven, breaks publicly, kills trust.
-* The fix is the same for both: **stage it deliberately.**
+* Tools can be abandoned
+* Big launches can backfire
+* Teams need ownership
+* Workflows need support
+* ROI depends on use
 
-> A working automation nobody adopted saved zero hours. Adoption is not a soft skill bolted
-> on at the end — it's half of whether the ROI you calculated ever shows up.
+> A working automation nobody adopts saves zero hours.
 
 ---
 
 ## Pilot → Standardize → Scale
 
-* Treat adoption as three stages, never one launch:
-  - **Pilot** — one workflow, a few volunteers, a fixed time box (2–4 weeks). Measure. Learn. Expect to change the prompt and the process.
-  - **Standardize** — once it works, *write it down*: approved prompt, tool, review step, named owner. Now someone who wasn't in the pilot can run it.
-  - **Scale** — roll the standardized version to the wider team with training and support. Only scale what the pilot proved.
-
 ```text
-   PILOT              STANDARDIZE            SCALE
-   few volunteers  →  write it down       →  whole team
-   2-4 weeks          prompt, tool,          training +
-   measure & learn    review, owner          support
-                      (now repeatable)       (only what's proven)
+PILOT                 STANDARDIZE              SCALE
+few volunteers   ->   write it down       ->   wider team
+2-4 weeks             prompt, tool,             training
+measure               review step, owner        support
 ```
 
-> Don't scale what you haven't standardized; don't standardize what you haven't piloted.
-> Skipping a stage is the most common way an AI initiative dies.
+* Pilot one workflow
+* Standardize what works
+* Scale only the proven version
+
+> Do not scale what you have not standardized.
 
 ---
 
-## Change Management — The Human Side
+## Change Management
 
-* Tools are easy; people are hard. Two opposite fears: some fear replacement, others expect magic and quit the first time it's wrong.
-* What actually moves adoption:
-  - **Frame it as leverage, not replacement.** AI drafts; the human judges. Name the boring task it removes, not the job it threatens.
-  - **Find your champions.** Every team has a curious first-mover. Support them; showcase the win; let peers learn from a peer.
-  - **Set honest expectations.** A fast, tireless intern that occasionally makes things up — brilliant supervised, dangerous without. Say it out loud.
-  - **Make asking for help normal.** A shared channel of "prompts that worked" spreads skill faster than any training deck.
+* Frame as leverage
+* Name the boring task removed
+* Find champions
+* Set honest expectations
+* Share prompts that work
+* Make help normal
 
-> People don't resist AI. They resist *change they didn't choose and don't control.* Give
-> them a say, an easy on-ramp, and a visible win — adoption takes care of itself.
-
----
-
-## Part 4 — The Capstone: Your Mission
-
-* Put it all together: **one real workflow from your own work**, combining the course pieces into something you'd actually pilot.
-* Requirement — combine at least three of these, plus a **human-approval step**, connector-readiness note, and short **governance note**:
-  - A **ChatGPT Enterprise project or project-style chat** with files and safe instructions
-  - A **structured prompt** you designed and tuned (Module 2)
-  - A **prompt chain** or multi-step task (Module 2)
-  - **Document or data analysis** (Module 5)
-  - A **simulated workflow** — trigger by paste/upload → AI step → review queue (Module 4)
-  - **Guardrails**: privacy, verification, a human gate (Module 6)
-* Then: an **ROI estimate** (this module) and a **30-day plan**.
-
-> The score isn't "how many tools." It's "would a real team run this on Monday?" Narrow and
-> real beats broad and impressive every time.
+> People need control, context, and a visible win.
 
 ---
 
-## Worked Capstone — Inbound Support Triage
+## Capstone Mission
 
-* Here's a finished capstone end to end, so you calibrate on scope *before* designing your own.
-* Workflow: **inbound support requests land in a queue; first-pass handling is drudgery.** Insert AI at the right steps; keep a human before anything reaches the customer.
+* One real workflow
+* Safe sample data
+* Human approval step
+* Connector-readiness note
+* Governance note
+* ROI estimate
+* 30-day plan
+
+> Narrow and real beats broad and impressive.
+
+---
+
+## Capstone Building Blocks
+
+* Enterprise project or project-style chat
+* Structured prompt
+* Prompt chain
+* Document or data analysis
+* Simulated workflow
+* Review queue
+* Guardrails
+* Connector readiness
+
+> Use the pieces your workflow actually needs.
+
+---
+
+## Worked Capstone — Support Triage
 
 ```text
-TRIGGER     New support request (today: paste a row of the sample CSV)
+TRIGGER   paste a support request row
    |
-[1] ANALYZE AI classifies: category, urgency, sentiment, compliance flag
-[2] EXTRACT AI pulls fields: customer, issue, requested action  -> as JSON
-[3] DRAFT   Grounded "Support Triage Assistant" writes a first reply
-[4] ROUTE   ChatGPT appends a tracker row to a review queue
-[5] APPROVE >>> HUMAN reviews & edits the draft before it sends <<<
-   |
-FUTURE      A connector could read tickets later, after permissions and controls
+[1] CLASSIFY  category, urgency, compliance flag
+[2] EXTRACT   customer, issue, requested action
+[3] DRAFT     grounded first reply
+[4] ROUTE     add review queue row
+[5] APPROVE   human reviews before send
 ```
 
-> The AI reads, classifies, drafts, and routes — but a human owns the send button. That one
-> design choice is what makes it safe enough to pilot.
+> The AI routes and drafts. The human owns the send button.
 
 ---
 
-## Worked Capstone — The Pieces
-
-* Map each step to a course tool — the "combine at least three" requirement, satisfied naturally, not forced:
-  - **Structured prompt (M2)** — the triage classifier that returns clean JSON the automation can route on.
-  - **Data analysis (M5)** — run the classifier over `sample-support-requests.csv`; flag anything about refunds, legal, or regulated data.
-  - **Enterprise workspace (M4)** — project or project-style chat with sample files and safe instructions.
-  - **Grounded assistant (M4-ish)** — a **Support Triage Assistant** grounded in `sample-help-center.md`; drafts a reply *and* says "I don't know — escalate" when the answer isn't in its docs.
-  - **Simulated workflow (M4)** — paste/upload trigger → run classification → create review row → **hold** the draft for approval.
-  - **Guardrails (M6)** — sample data only; never-paste rule; mandatory human gate; every action logged.
-  - **Connector readiness (M6)** — read-only source first; no write-back or auto-send in the pilot.
-
-> Five pieces here sets a generous ceiling — you only need three. Use what your workflow
-> *needs* and explain why each earns its place. Padding loses points; it doesn't win them.
-
----
-
-## Worked Capstone — The Triage Prompt
-
-* The classification step is just a well-structured prompt (Module 2), applied to real support data:
+## Worked Triage Prompt
 
 ```text
-You are a support-triage classifier for a services company.
-For the request delimited by triple backticks, return JSON with:
-  - category: one of [setup_help, data_question, content, policy_question, other]
-  - urgency: one of [low, normal, high, critical]
-  - sentiment: one of [calm, frustrated, angry]
-  - compliance_flag: true/false   (true if it involves regulated/personal data)
-  - one_line_summary: <= 15 words
+You are a support-triage classifier.
+For the request below, return JSON:
+{
+  "category": one of ["setup_help", "data_question", "content", "policy_question", "other"],
+  "urgency": one of ["low", "normal", "high", "critical"],
+  "sentiment": one of ["calm", "frustrated", "angry"],
+  "compliance_flag": true or false,
+  "one_line_summary": max 15 words
+}
 
-Rules:
-  - If the request mentions patient records, payment data, or legal action,
-    set compliance_flag = true and urgency at least "high".
-  - If information is missing, use "other"/"normal" — do NOT invent details.
-
-Request: ```{request_text}```
+If the request mentions patient records, payment data, or legal action,
+set compliance_flag = true and urgency at least "high".
 ```
 
-> Structured JSON isn't a nice-to-have — it's what lets the *automation* route without a
-> human reading every one. Prompt and automation are two halves of one design.
+> Structured output lets the workflow route.
 
 ---
 
-## Worked Capstone — What It Returns
+## Worked Output
 
-* Feed it row 2 of the sample CSV — Northstar Health, *"can we upload patient records into a public AI tool?"*:
+* Input: Northstar asks about patient records in a public AI tool
 
 ```text
 {
@@ -389,139 +341,104 @@ Request: ```{request_text}```
 }
 ```
 
-* The `compliance_flag` fires; the workflow routes this to a human. The AI never answers a privacy question alone.
-
-> The most persuasive 30 seconds in the whole course: ask the grounded assistant that same
-> patient-records question and watch it *decline and escalate* instead of inventing a policy.
+> The flag routes the case to a human.
 
 ---
 
-## The Capstone Design Canvas
-
-* Fill this *before* you build. It's also your presentation skeleton — nine lines that force specifics.
-* Use `course-materials/automation-design-canvas.md` (plus these two capstone lines):
+## Capstone Design Canvas
 
 ```text
-CAPSTONE DESIGN CANVAS
-  Problem        What painful workflow are you fixing?
-  User           Who does this today, and how often?
-  Trigger        What starts the workflow today in ChatGPT?
-  Future trigger What could start it later if connected?
-  AI task(s)     What does the AI do at each step?
-  Source files   Which files ground the work?
-  Output         What comes out, and where does it go?
-  Human review   Where exactly is the approval gate?
-  Success metric How will you know it worked? (time saved, rework rate)
-  Risk control   What's the biggest risk, and how do you contain it?
-  Connector      Ready later? Read-only? Write-back? Not ready?
+Problem
+User
+Trigger
+Future trigger
+AI task(s)
+Source files
+Output
+Human review
+Success metric
+Risk control
+Connector readiness
 ```
 
-> Can't fill "Human review" and "Risk control"? You don't have a capstone yet — you have an
-> idea. Those two lines are where a clever demo becomes something a business can run.
+* Canvas: `course-materials/automation-design-canvas.md`
+
+> If you cannot name human review and risk control, the workflow is not ready.
 
 ---
 
-## The Rubric — How You're Scored
+## Capstone Rubric
 
-* Six criteria. Read them *before* you build — a checklist, not a surprise. Use `course-materials/capstone-rubric.md`.
+* Business fit
+* Prompt quality
+* Enterprise setup
+* Artifact quality
+* Safety controls
+* Connector readiness
+* Rollout plan
 
-| Criterion | Strong | Needs Work |
-|-----------|--------|------------|
-| **Business fit** | Solves a real, valued workflow problem | Vague or low-value |
-| **Prompt quality** | Clear task, context, output, constraints | Ambiguous prompt |
-| **Enterprise setup** | Project/files/instructions make it repeatable | Scattered one-off chats |
-| **Artifact quality** | Output usable with light review | Output needs major rework |
-| **Safety controls** | Privacy, approval, verification built in | Risks not addressed |
-| **Connector readiness** | Access and permissions are mapped | Integration risks hand-waved |
-| **Rollout plan** | Clear 30-day next steps + ROI number | No practical adoption plan |
+* Rubric: `course-materials/capstone-rubric.md`
 
-> Most points are lost on **Safety controls** and **Rollout plan** — the business half. A
-> brilliant workflow with no approval gate and no ROI number is a demo, not a capstone.
+> Most weak capstones fail on safety controls or rollout plan.
 
 ---
 
-## Present It — Five Minutes + Peer Feedback
+## Present It in Five Minutes
 
-* You'll present in five minutes. Keep the shape tight and lead with the problem, not the tool.
+* Problem
+* Workflow
+* Project and files
+* Demo
+* Controls
+* Connector recommendation
+* ROI
+* 30-day plan
 
 ```text
-FIVE-MINUTE CAPSTONE SHOWCASE
-  1. Problem        the painful workflow, in one sentence
-  2. Workflow       paste/upload trigger -> AI step -> human gate diagram
-  3. Project/files  what grounds the workflow
-  4. Demo           screenshots or a live run (normal + edge case)
-  5. Controls       privacy, the human gate, logging
-  6. Connector      future readiness recommendation
-  7. ROI            the one honest number + payback
-  8. 30-day plan    the go/adjust/stop decision at day 30
+Peer feedback: one strength, one improvement, one next step.
 ```
 
-* **Peer feedback:** one strength, one improvement, one next step — anchored to a rubric criterion.
-
-> Presenting is the skill that gets it funded. A workflow nobody can explain in five minutes
-> is a workflow nobody will approve. Practice the sentence, not just the build.
+> Lead with the problem, not the tool.
 
 ---
 
-## Your 30-Day AI Action Plan
-
-* Every capstone ships with a plan to make it real: four weeks, one honest decision at the end.
+## 30-Day AI Action Plan
 
 ```text
-30-DAY AI ACTION PLAN
-
-Week 1 — Set up & baseline
-  - Get tool approval; confirm workspace and data policy
-  - Identify SAFE pilot data (or approved real data)
-  - Name the reviewer / owner
-  - MEASURE the current process (time, volume, pain) — the baseline
-
-Week 2 — Pilot build
-  - Build the real version with approved data
-  - Test the normal case AND the edge cases
-  - Confirm the human-approval gate works every time
-
-Week 3 — Run the pilot
-  - Volunteers run it on real work for the week
-  - Log time saved + rework rate against the Week-1 baseline
-
-Week 4 — Decide
-  - Compare after-numbers to the baseline; finish the ROI worksheet
-  - Standardize: write down the prompt, tool, review step, owner
-  - Decide: expand, adjust, or stop — and say why
+Week 1  set up, approve data, name owner, baseline current work
+Week 2  build pilot, test normal and edge cases, verify human gate
+Week 3  run pilot, log time saved and rework
+Week 4  compare to baseline, finish ROI, decide expand / adjust / stop
 ```
 
-> No plan → a science-fair project. With one → a proposal your manager can say yes to on the
-> spot. Week 1's baseline is what makes Week 4's ROI believable.
+> Week 1's baseline makes Week 4's ROI believable.
 
 ---
 
 ## Common Capstone Traps
 
-* Learn from the mistakes every cohort makes, so you don't repeat them:
-  - **Too broad** — "an AI assistant for all of marketing." Narrow to one trigger, one output. Broad can't be tested, so it can't be trusted.
-  - **No human gate** — the AI sends/acts on its own. Add the approval hold; it's what makes it safe.
-  - **No project setup** — useful work trapped in a one-off chat. Add instructions and source files.
-  - **No baseline** — "saves loads of time" with no measurement. Time the old way first, or you have nothing.
-  - **Fake ROI** — benefit counted, costs forgotten. Include build, review, and maintenance time.
-  - **Real sensitive data in the demo** — use the provided sample data, never live records.
-  - **Connector overreach** — jumping to write-back or auto-send before access, review, and logging are approved.
+* Too broad
+* No human gate
+* No project setup
+* No baseline
+* Fake ROI
+* Sensitive data in demo
+* Connector overreach
 
-> Every one is fixable in five minutes if caught early. That's why you get the rubric, the
-> canvas, and the worksheet *before* you build.
+> Every trap is fixable if caught before the build.
 
 ---
 
 ## Module Review
 
-* You leave this module — and this course — with three things in hand:
-  - **A working ChatGPT Enterprise workflow** — trigger, AI step, human gate, tested on a normal and an edge case.
-  - **An ROI case** — a filled worksheet: time saved, cost, net per month, payback, one honest risk.
-  - **A connector-readiness recommendation and 30-day plan** — baseline, build, pilot, and a real go/adjust/stop decision.
-* That trio is exactly what turns "I took an AI course" into "I shipped an AI workflow at work."
+* Working workflow
+* Human gate
+* Tested edge case
+* ROI worksheet
+* Connector-readiness recommendation
+* 30-day plan
 
-> Leave with a working Enterprise workflow, an ROI case, and a 30-day plan. Not a certificate — an
-> asset your team can run on Monday.
+> Leave with an asset your team can run on Monday.
 
 ---
 
@@ -531,14 +448,15 @@ Week 4 — Decide
 
 You will:
 
-1. Choose one narrow, real workflow from your own work — safe to discuss with sample data.
-2. Fill the **Capstone Design Canvas** — problem, user, trigger, AI task, tools, review gate, metric.
-3. Build the artifacts in **ChatGPT Enterprise**: project/files, structured prompt or chain,
-   source grounding, review queue, and governance note.
-4. Test against two scenarios — a normal case and a tricky edge case.
-5. Complete the **connector-readiness checklist** for a future integration.
-6. Fill the **ROI worksheet** — time saved, cost, net per month, payback, one honest risk.
-7. Draft your **30-day plan** and present the capstone in five minutes, scored against the rubric.
+1. Choose one narrow workflow from your own work.
+2. Fill the Capstone Design Canvas.
+3. Build the ChatGPT Enterprise workflow artifacts.
+4. Test a normal case and a tricky edge case.
+5. Complete the connector-readiness checklist.
+6. Fill the ROI worksheet.
+7. Draft your 30-day plan and present in five minutes.
 
-**Deliverable:** a working ChatGPT Enterprise workflow, the design canvas, review queue, test
-results, connector-readiness checklist, ROI worksheet, capstone rubric, and 30-day action plan.
+**Deliverable:** workflow, design canvas, review queue, test results, connector-readiness
+checklist, ROI worksheet, capstone rubric, and 30-day action plan.
+
+**Time:** ~60-75 min.

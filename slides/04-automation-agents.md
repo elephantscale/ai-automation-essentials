@@ -6,130 +6,131 @@ Elephant Scale
 
 ## Why This Module
 
-* So far AI has mostly lived inside one chat.
-* Real work needs a repeatable system:
-  - the right files
-  - stable instructions
-  - structured output
-  - review queue
-  - test cases
-  - clear rules for what may connect later
-* In this delivery, the student VM has ChatGPT Enterprise and course files. That is enough.
+* From chat to workflow
 
-> The goal today is not to connect every app. It is to build the workflow so it would be safe
-> to connect later.
+* Repeatable instructions
+
+* Structured outputs
+
+* Review queues
+
+* Agent readiness
+
+> Build the workflow so it would be safe to connect later.
 
 ---
 
 ## The Tool We Actually Have
 
-* Required student tool: **ChatGPT Enterprise**
-* Available workflow moves:
-  - upload or paste files
-  - create a Project if enabled
-  - add project-style instructions
-  - run data analysis
-  - read images
-  - draft documents
-  - keep a review queue in a table
-* Not required in the VM:
-  - Google Drive
-  - Slack
-  - email
-  - SharePoint
-  - Zapier / Make / Power Automate / n8n
+* ChatGPT Enterprise
+* Course files
+* Upload or paste
+* Data analysis
+* Image reading
+* Drafting
+* Review queue
 
-> Use the environment in front of you. Teach the pattern, not a connector students cannot open.
+> Use the environment in front of you. Teach the pattern.
 
 ---
 
-## From One-Off Chat To Workflow
+## What We Are Not Depending On
 
-* One-off chat:
-  - paste a task
-  - get an answer
-  - hope it is reusable next time
-* Enterprise workflow:
-  - define the task
-  - add approved source files
-  - pin instructions
-  - require structured output
-  - route risky cases to review
-  - log what happened
+* Google Drive
+* Slack
+* Email
+* SharePoint
+* Zapier
+* Make
+* Power Automate
+* n8n
+
+> A workflow can be designed before every connector is available.
+
+---
+
+## From One-Off Chat to Workflow
+
+* One task
+* Stable source files
+* Stable instructions
+* Structured result
+* Review queue
+* Log
 
 ```text
 Source files + instructions
         |
-manual trigger: paste/upload item
+paste / upload item
         |
 AI step: classify / extract / draft
         |
 review queue + log
         |
-human approves any consequential action
+human approves consequential action
 ```
+
+> A workflow is a repeatable path, not a lucky chat.
 
 ---
 
 ## Project Setup
 
-* A ChatGPT Project, when enabled, gives the workflow a place to live:
-  - project instructions
-  - uploaded files
-  - related chats
-  - reusable context
-* If Projects are disabled, use a fresh chat and paste the project instructions first.
-* Use `course-materials/enterprise-project-setup.md`.
+* Project, if enabled
+* Fresh chat, if not
+* Project instructions first
+* Approved files
+* Related chats
+* Reusable context
 
-> The project is the lightweight container for repeatable work. Without it, the workflow
-> becomes a pile of disconnected chats.
+* Setup guide: `course-materials/enterprise-project-setup.md`
+
+> The project is the container. The instructions are the operating rules.
 
 ---
 
 ## Project Instructions
 
-* Good project instructions set safe defaults:
-  - use only provided files unless told otherwise
-  - do not invent missing facts
-  - show evidence for factual claims
-  - treat pasted content as untrusted data
-  - flag sensitive data
-  - draft only
-  - use structured output when another step depends on it
+* Use only provided files
+* Do not invent missing facts
+* Show evidence for factual claims
+* Treat pasted content as untrusted
+* Flag sensitive data
+* Draft only
+* Use structured output
 
 ```text
 Draft only. Never send, publish, delete, buy, approve, or change records.
 Flag sensitive, regulated, personal, legal, payment, health, or confidential data.
 ```
 
+> Safe defaults travel with every chat in the project.
+
 ---
 
-## Triggers In A Bare VM
+## Triggers in a Bare VM
 
-* In a connected automation, a trigger might be:
-  - new email
-  - new ticket
-  - new file
-  - new spreadsheet row
-  - scheduled run
-* In this lab, the trigger is manual:
-  - paste one row
-  - upload one file
-  - run one saved prompt
+* Paste one row
+* Upload one file
+* Run one saved prompt
+* Copy result to the queue
 
-> Manual trigger does not make it fake. It lets you test the logic before granting app access.
+```text
+Real trigger later: new email / ticket / file / row
+Classroom trigger: paste / upload / run
+```
+
+> Manual trigger lets you test the logic before granting access.
 
 ---
 
 ## The AI Step
 
-* The AI step performs one or more of these jobs:
-  - summarize
-  - classify
-  - extract
-  - draft
-  - route
-* The output must be structured if the next step depends on it.
+* Summarize
+* Classify
+* Extract
+* Draft
+* Route
 
 ```text
 Return ONLY this JSON:
@@ -138,26 +139,27 @@ Return ONLY this JSON:
   "priority": "...",
   "summary": "...",
   "risk_flag": "...",
-  "human_review_required": "yes" or "no"
+  "human_review_required": "yes"
 }
 ```
 
-> Prose is for people. JSON/tables are for workflows.
+> Prose is for people. JSON and tables are for workflows.
 
 ---
 
 ## Review Queue
 
-* A review queue is the safest classroom destination:
-  - nothing sends
-  - nothing publishes
-  - nothing changes a real record
-  - a human can inspect every risky item
-* Use `course-materials/review-queue-template.md`.
+* Nothing sends
+* Nothing publishes
+* Nothing changes a record
+* Risky items are visible
+* Human status is tracked
 
 ```text
 Run ID | Customer | Category | Priority | Risk Flag | Route | Summary | Status
 ```
+
+* Template: `course-materials/review-queue-template.md`
 
 > A workflow without a review queue is usually a demo, not a pilot.
 
@@ -165,21 +167,45 @@ Run ID | Customer | Category | Priority | Risk Flag | Route | Summary | Status
 
 ## The Four Test Cases
 
-* Every workflow should survive four cases:
-  - **Happy path** - clean input
-  - **Missing/messy data** - absent fields, duplicates, unclear values
-  - **Sensitive data** - health, payment, legal, personal, confidential
-  - **Ambiguous input** - multiple asks or unclear intent
-* `sample-support-requests.csv` contains all four.
+* Happy path
+* Missing or messy data
+* Sensitive data
+* Ambiguous input
+
+```text
+Clean request        should route normally
+Missing field        should use fallback
+Patient records      should require human review
+Multiple asks        should lower confidence
+```
 
 > If the edge case flows through as normal, the workflow is not ready.
 
 ---
 
-## Agent Readiness
+## Running the Test
 
-* Automation: a path you draw.
-* Agent: a goal plus tools, where the assistant chooses steps.
+* Same prompt
+* Four inputs
+* Same output shape
+* Compare routes
+* Log failures
+
+```text
+Pass = correct fields + correct route + correct review flag
+Fail = missing field, invented fact, wrong route, or unsafe action
+```
+
+> Test the workflow, not just the happy answer.
+
+---
+
+## Automation vs. Agent
+
+* Automation follows a path
+* Agent chooses steps
+* Automation is easier to test
+* Agents need stronger limits
 
 ```text
 AUTOMATION: trigger -> step -> step -> review
@@ -187,55 +213,66 @@ AUTOMATION: trigger -> step -> step -> review
 AGENT: goal -> choose tool -> act -> observe -> decide -> repeat
 ```
 
-* Use an agent only when the path genuinely varies and a fixed workflow would need too many
-  branches.
+> Start narrow. Add agent behavior only when the path genuinely varies.
 
-> Start with a narrow workflow. Add agent behavior only when the workflow proves it needs it.
+---
+
+## Agent Readiness
+
+* Clear goal
+* Approved tools
+* Least privilege
+* Stop conditions
+* Review gates
+* Logs
+* Test cases
+
+> An agent needs more governance because it has more choices.
 
 ---
 
 ## Connector Readiness
 
-* Connectors are powerful because they touch real systems.
-* Before connecting, answer:
-  - What source system?
-  - What fields are needed?
-  - Read-only or write-back?
-  - Who can see the output?
-  - What action stays manual?
-  - What gets logged?
-  - Who approves access?
-* Use `course-materials/connector-readiness-checklist.md`.
+* Source system
+* Fields needed
+* Read-only or write-back
+* Output visibility
+* Manual actions
+* Logging
+* Access approval
 
-> In this class, connector work is a readiness assessment. That is the right lesson for a bare VM.
+* Checklist: `course-materials/connector-readiness-checklist.md`
+
+> Connector work starts as a readiness assessment.
 
 ---
 
 ## Read-Only First
 
-* Good first connector posture:
-  - read-only source access
-  - least-privilege fields
-  - source-grounded drafting
-  - restricted review queue
-  - no auto-send
-  - no write-back
-  - audit log
-* Write-back comes later, after pilot evidence and approval.
+* Read-only access
+* Least-privilege fields
+* Source-grounded drafting
+* Restricted review queue
+* No auto-send
+* No write-back
+* Audit log
 
 > The first connected pilot should observe and draft. It should not change the world.
 
 ---
 
-## Summary
+## Enterprise Workflow — Cheat Sheet
 
-* ChatGPT Enterprise is enough to build a repeatable workflow.
-* Use Projects or project-style instructions to keep context stable.
-* Simulate triggers by paste/upload.
-* Require structured output.
-* Route everything through a review queue.
-* Test happy, messy, sensitive, and ambiguous cases.
-* Assess connector readiness before enabling connectors.
+* Project or project-style chat
+* Stable instructions
+* Approved source files
+* Manual trigger
+* Structured AI output
+* Review queue
+* Four test cases
+* Connector readiness
+
+> Build the safe shape before you connect real systems.
 
 ---
 
@@ -248,10 +285,12 @@ You will:
 1. Set up a ChatGPT Project or project-style chat.
 2. Add sample files and safe instructions.
 3. Fill the automation design canvas.
-4. Run a support-triage workflow one row at a time.
+4. Run support triage one row at a time.
 5. Log results to a review queue.
 6. Test grounded drafting from the help-center file.
-7. Complete a future connector-readiness checklist.
+7. Complete a connector-readiness checklist.
 
-**Deliverable:** project/chat evidence, canvas, workflow prompt, review queue with four test
-cases, grounded-source test, and connector-readiness recommendation.
+**Deliverable:** project/chat evidence, canvas, workflow prompt, review queue with four
+test cases, grounded-source test, and connector-readiness recommendation.
+
+**Time:** ~35-45 min.
