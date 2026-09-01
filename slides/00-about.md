@@ -134,8 +134,9 @@ Notes:
 | 1 | 1 — Foundations of Generative AI | mental model + AI vs. rules-based |
 | 1 | 2 — Prompt Engineering for Automation | prompts that feed downstream tools |
 | 1 | 3 — Evaluating & Troubleshooting | judge and fix AI output |
-| 2 | 4 — No-Code Automation & AI Agents | wire AI into a real workflow |
+| 2 | 4 — Enterprise Workflow & Agent Readiness | package prompts into a workflow |
 | 2 | 5 — AI for Decisions & Insights | summarize, analyze, decide |
+| 2 | 5A — Optional ChatGPT Work Automation | schedule a real executive brief |
 | 2 | 6 — Responsible AI & Governance | ethics, privacy, EU AI Act / NIST |
 | 2 | 7 — ROI, Adoption & Capstone | build it, prove the ROI, present it |
 

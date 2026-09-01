@@ -276,6 +276,21 @@ AGENT: goal -> choose tool -> act -> observe -> decide -> repeat
 
 ---
 
+## Where Real Automation Appears
+
+* Lab 4: manual trigger
+* Lab 5: manual analysis
+* Lab 5A: scheduled Work task
+* Lab 7: capstone workflow
+
+```text
+manual workflow -> scheduled brief -> governed capstone
+```
+
+> First understand the path. Then schedule the path.
+
+---
+
 ## Lab 04 - Enterprise Project Workflow & Agent Readiness
 
 **Stop here and run Lab 04.**
