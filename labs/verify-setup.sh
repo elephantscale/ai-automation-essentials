@@ -57,7 +57,7 @@ head "3. Course files"
 for path in README.md outline.md slides labs course-materials scripts docs; do
   [ -e "$ROOT_DIR/$path" ] && ok "$path exists" || bad "$path missing"
 done
-for lab in "$LABS_DIR"/[0-9][0-9]-*/README.md; do
+for lab in "$LABS_DIR"/[0-9][0-9]*-*/README.md; do
   [ -f "$lab" ] && ok "lab guide: $(basename "$(dirname "$lab")")"
 done
 for asset in lab01-routing-requests.csv sample-support-requests.csv sample-meeting-notes.md sample-help-center.md sample-vendor-invoices.csv sample-dashboard.png; do

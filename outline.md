@@ -286,7 +286,8 @@ its trigger, AI step, and human checkpoint.
 
 **Hands-on Lab:** Upload/paste multiple sample files, clean data, read a
 dashboard image, validate a trend, and produce a source-backed executive
-brief.
+brief. **Optional Lab 5A:** turn the executive-brief pattern into a real
+ChatGPT Work scheduled task when the workspace supports Scheduled Tasks.
 
 **Module review:** Identify a reporting or analysis task AI could
 accelerate this quarter.

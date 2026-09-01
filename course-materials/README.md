@@ -17,6 +17,7 @@ Reusable classroom assets for AI Automation Essentials.
 | `review-queue-template.md` | Human review queue fields and status values for draft-only workflows |
 | `connector-readiness-checklist.md` | Assess future connector/app readiness when the VM has ChatGPT only |
 | `executive-brief-template.md` | Source-backed executive brief format for multi-file synthesis |
+| `scheduled-executive-brief-task.md` | Optional Lab 5A prompt for a ChatGPT Work scheduled executive brief |
 | `cohort-intros.html` | Self-contained "introduce yourself" form — students fill it in, copy the generated card, and paste it into the class chat. No account, nothing is sent anywhere. Open in a browser, or share the hosted link (see below). |
 
 ## Cohort intro form

@@ -3,7 +3,7 @@
 set -u
 LABS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fail=0
-for d in "$LABS_DIR"/[0-9][0-9]-*/; do
+for d in "$LABS_DIR"/[0-9][0-9]*-*/; do
   f="$d/README.md"
   if [ -f "$f" ] && [ "$(wc -l < "$f")" -gt 20 ]; then
     echo "PASS  $(basename "$d")"

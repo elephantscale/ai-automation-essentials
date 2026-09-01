@@ -410,6 +410,22 @@ Separate what AI supported from what a human must decide.
 
 ---
 
+## Optional Lab 05A — Real Work Automation
+
+* ChatGPT Work
+* Scheduled Task
+* Pasted data snapshot
+* Recurring executive brief
+* Human review gate
+
+```text
+scheduled trigger -> analyze approved rows -> draft brief -> human review
+```
+
+> Lab 5 teaches the analysis. Lab 5A shows it can run on a schedule.
+
+---
+
 ## Lab 05 - File Analysis, Dashboard Reading & Executive Briefs
 
 **Stop here and run Lab 05.**

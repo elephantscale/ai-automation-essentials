@@ -18,6 +18,7 @@ Enterprise as the default and only required student tool.
 | Category | Examples |
 |----------|----------|
 | Required assistant | ChatGPT Enterprise |
+| Optional real automation | ChatGPT Work / Scheduled Tasks, if enabled |
 
 ## Data Rules
 
@@ -41,8 +42,10 @@ Enterprise as the default and only required student tool.
 In ChatGPT, create a Project if the workspace allows it. If Projects are disabled, use a fresh
 chat and paste the project instructions from `course-materials/enterprise-project-setup.md`.
 
-All connector/app work in this course is planning-only. Students use upload, paste, Projects,
-data analysis, image reading, and review queues.
+Most connector/app work in this course is planning-only. Students use upload, paste, Projects,
+data analysis, image reading, and review queues. Optional Lab 5A can use ChatGPT Work /
+Scheduled Tasks for a real recurring task when the workspace supports it. Connected-app
+versions remain optional and require instructor approval.
 
 ## Verify Your Machine
 

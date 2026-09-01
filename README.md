@@ -43,6 +43,7 @@ support who want to apply AI confidently, safely, and productively. No coding re
 | 3 | Evaluating & Troubleshooting AI Output | `labs/03-Evaluating-Troubleshooting` |
 | 4 | Enterprise Project Workflow & Agent Readiness | `labs/04-Automation-Agents` |
 | 5 | File Analysis, Dashboard Reading & Executive Briefs | `labs/05-Decisions-Insights` |
+| 5A | Optional: Real Automation with ChatGPT Work | `labs/05A-Work-Automated-Brief` |
 | 6 | Responsible AI, Enterprise Governance & Connector Readiness | `labs/06-Responsible-AI-Governance` |
 | 7 | ROI, Adoption & Enterprise Capstone | `labs/07-ROI-Adoption-Capstone` |
 
@@ -52,6 +53,7 @@ support who want to apply AI confidently, safely, and productively. No coding re
 - Access to ChatGPT Enterprise in the class VM
 - No external connectors, Google Drive, Slack, email, or no-code automation platform required
   for student labs
+- Optional Lab 5A uses ChatGPT Work / Scheduled Tasks when available in the workspace
 - No local software installation and no coding required
 
 ## Validate the Repo
